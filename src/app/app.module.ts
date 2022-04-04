@@ -9,13 +9,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //Componentes
 import { LoginComponent } from './components/login/login.component';
 import { SharedModule } from './components/shared/shared.module';
-import { RegistroCompradorComponent } from './components/registro-comprador/registro-comprador.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistroCompradorComponent,
     
   ],
   imports: [
