@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //Componentes
 import { LoginComponent } from './components/login/login.component';
 import { SharedModule } from './components/shared/shared.module';
-import { CompradorComponent } from './components/comprador/comprador.component';
+import { CompradorComponent } from './components/registros/comprador/comprador.component';
 import { VendedorComponent } from './components/registros/vendedor/vendedor.component';
 
 @NgModule({
