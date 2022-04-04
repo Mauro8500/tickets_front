@@ -8,6 +8,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { EventosComponent } from './eventos/eventos.component';
 import { EmpresaComponent } from './empresa/empresa.component';
+import { RegistroCompradorComponent } from './comprador/registro-comprador/registro-comprador.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { EmpresaComponent } from './empresa/empresa.component';
     NavbarComponent,
     EventosComponent,
     EmpresaComponent,
+    RegistroCompradorComponent,
   ],
   imports: [
     CommonModule,
