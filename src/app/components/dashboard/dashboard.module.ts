@@ -8,6 +8,11 @@ import { InicioComponent } from './inicio/inicio.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { EventosComponent } from './eventos/eventos.component';
 import { EmpresaComponent } from './empresa/empresa.component';
+import { FormCompradorComponent } from './form-comprador/form-comprador.component';
+import { FormVendedorComponent } from './form-vendedor/form-vendedor.component';
+import { FormEventoComponent } from './form-evento/form-evento.component';
+import { FormEmpresaComponent } from './form-empresa/form-empresa.component';
+
 
 
 @NgModule({
@@ -17,6 +22,11 @@ import { EmpresaComponent } from './empresa/empresa.component';
     NavbarComponent,
     EventosComponent,
     EmpresaComponent,
+    FormCompradorComponent,
+    FormVendedorComponent,
+    FormEventoComponent,
+    FormEmpresaComponent,
+
   ],
   imports: [
     CommonModule,

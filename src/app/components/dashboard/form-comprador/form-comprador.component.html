@@ -1,0 +1,35 @@
+<div class="body">
+    <div class="form">
+        <mat-spinner *ngIf="loading" class ="spinner "diameter="50"></mat-spinner>
+        
+        <form [formGroup]="form" (ngSubmit)="registrar()">
+            <h1>Registro de comprador</h1>
+            <mat-form-field>
+                <mat-label> Nombre </mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="nombres">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Apellido</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="apellidos">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Fecha de nacimiento</mat-label>
+                <input type="datetime" matInput autocomplete="off" formControlName="nacimiento">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Carnet de identidad</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="ci">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Correo electronico</mat-label>
+                <input type="email" matInput autocomplete="off" formControlName="email">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Ciudad de residencia</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="ciudad_res">
+            </mat-form-field>
+            <br>
+            <button type="submit" mat-raised-button mat-button color="primary" [disabled]="form.invalid">Continuar</button>
+        </form>
+    </div>
+</div>
