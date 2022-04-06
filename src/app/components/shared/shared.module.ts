@@ -21,7 +21,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
-
+import { FormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 
@@ -46,7 +47,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatCardModule,
     MatGridListModule,
     MatSelectModule,
-
+    FormsModule,
+    MatDatepickerModule,
   ],
   exports: [
     MatSliderModule ,
@@ -66,7 +68,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatCardModule,
     MatGridListModule,
     MatSelectModule,
-
+    FormsModule,
+    MatDatepickerModule,
   ]
 })
 export class SharedModule { }
