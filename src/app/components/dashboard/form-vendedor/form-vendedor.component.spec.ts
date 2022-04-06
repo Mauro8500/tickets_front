@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VendedorComponent } from './form-vendedor.component';
+import { FormVendedorComponent } from './form-vendedor.component';
 
-describe('VendedorComponent', () => {
-  let component: VendedorComponent;
-  let fixture: ComponentFixture<VendedorComponent>;
+describe('FormVendedorComponent', () => {
+  let component: FormVendedorComponent;
+  let fixture: ComponentFixture<FormVendedorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VendedorComponent ]
+      declarations: [ FormVendedorComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VendedorComponent);
+    fixture = TestBed.createComponent(FormVendedorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -23,3 +23,4 @@ describe('VendedorComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

@@ -4,11 +4,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-vendedor',
+  selector: 'app-form-vendedor',
   templateUrl: './form-vendedor.component.html',
   styleUrls: ['./form-vendedor.component.css']
 })
-export class VendedorComponent implements OnInit {
+export class FormVendedorComponent implements OnInit {
 
   form: FormGroup;
   loading = false;
