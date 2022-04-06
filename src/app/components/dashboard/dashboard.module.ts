@@ -12,6 +12,7 @@ import { FormCompradorComponent } from './form-comprador/form-comprador.componen
 import { FormVendedorComponent } from './form-vendedor/form-vendedor.component';
 import { FormEventoComponent } from './form-evento/form-evento.component';
 import { FormEmpresaComponent } from './form-empresa/form-empresa.component';
+import { RegistrosComponent } from './registros/registros.component';
 
 
 
@@ -26,6 +27,7 @@ import { FormEmpresaComponent } from './form-empresa/form-empresa.component';
     FormVendedorComponent,
     FormEventoComponent,
     FormEmpresaComponent,
+    RegistrosComponent,
 
   ],
   imports: [
