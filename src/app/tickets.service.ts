@@ -162,4 +162,44 @@ export class TicketsService {
       "smsActivado": smsActivado
     })
   }
+
+  postCompras(idEvento: String,
+    nombreEvento: String,
+    direccionEvento: String,
+    fechaInicio: Date,
+    fechaFin:Date,
+    idCliente: String,
+    nombre1: String,
+    nombre2: String,
+    apellido1: String,
+    apellido2: String,
+    nit: Number,
+    cantidadTickets: Number,
+    precioUnitario: Number,
+    correoCliente: String,
+    numTelefono: Number,
+    smsActivado: Boolean){
+      return this.webReqService.post('compras',{
+    "idEvento": idEvento,
+    "nombreEvento": nombreEvento,
+    "direccionEvento": direccionEvento,
+    "fechaInicio": fechaInicio,
+    "fechaFin": fechaFin,
+    "idCliente": idCliente,
+    "nombre1": nombre1,
+    "nombre2": nombre2,
+    "apellido1": apellido1,
+    "apellido2": apellido2,
+    "nit": nit,
+    "cantidadTickets": cantidadTickets,
+    "precioUnitario": precioUnitario,
+    "correoCliente": correoCliente,
+    "numTelefono": numTelefono,
+    "smsActivado": smsActivado
+      })
+  }
+
+  getComprasIdCliente(_id: String){
+    return this.webReqService.get('compras?_id='+_id)
+  }
 }
