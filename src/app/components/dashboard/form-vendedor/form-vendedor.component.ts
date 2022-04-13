@@ -15,6 +15,7 @@ export class FormVendedorComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private snackBar: MatSnackBar, private router: Router) {
     this.form = this.fb.group({
+      empresa: ['', Validators.required],
       nombre: ['', Validators.required],
       apellidos: ['', Validators.required],
       nacimiento: ['', Validators.required],
@@ -28,6 +29,7 @@ export class FormVendedorComponent implements OnInit {
   }
 
   registrar(){
+    const empresa = this.form.value.empresa;
     const nombre = this.form.value.nombre;
     const apellidos = this.form.value.apellidos;
     const nacimiento = this.form.value.nacimiento;

@@ -24,6 +24,7 @@ export class FormCompradorComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    
   }
 
   registrar(){
