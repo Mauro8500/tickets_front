@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { WebRequestService } from './web-request.service';
 
+import {Mongoose} from 'mongoose';
+
 @Injectable({
   providedIn: 'root'
 })

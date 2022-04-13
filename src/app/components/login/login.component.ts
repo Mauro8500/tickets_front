@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { TicketsService } from 'src/app/tickets.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
     form: FormGroup;
     loading = false;
 
-    constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, private router: Router){
+    constructor(private ticketsService: TicketsService, private fb: FormBuilder, private _snackBar: MatSnackBar, private router: Router){
       this.form = this.fb.group({
         usuario: ['', Validators.required],
         password: ['', Validators.required],
@@ -29,6 +30,20 @@ export class LoginComponent implements OnInit {
 
       console.log(usuario);
       console.log(password);
+
+      //login cliente (vendedor lo mismo cambiando getClientes por getVendedores)
+      this.ticketsService.getClientes().subscribe((response: any)=>{
+        console.log(response);
+        /*if password == response.obj.password{
+          if estado==true{
+            login
+          }else{
+            debe verificar su usuario. revise su correo
+          }
+        }else{
+          no existe este usuario
+        }*/
+      });
 
       if(usuario == 'mauricio' && password == '12345'){
         //redireccionamos al dashboard
