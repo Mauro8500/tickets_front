@@ -1,8 +1,17 @@
 <mat-card>Tarjeta de registros</mat-card>
-
-<section>
-    <div class="example-button-row">
-      <button mat-button routerLink ="/dashboard/form-comprador" color="warn">Registrar Usuario</button>
-      <button mat-button routerLink ="/dashboard/form-vendedor" color="warn" >Registrar Vendedor</button>
-    </div>
-  </section>
+<section> 
+  <table>
+    <tr>
+      <td>
+          <img src="/assets/img/user.png" alt="0%" width="30%" height="30%">
+          <br>
+          <button mat-button routerLink ="/dashboard/form-comprador" color="warn">Registrarse como Comprador</button>
+      </td>
+      <td>
+          <img src="/assets/img/shop.png" alt="0%" width="30%" height="30%">
+          <br>
+          <button mat-button routerLink ="/dashboard/form-vendedor" color="warn" >Registrarse como Vendedor</button>
+      </td>
+    </tr>
+  </table>    
+</section>

@@ -13,6 +13,8 @@ import { FormVendedorComponent } from './form-vendedor/form-vendedor.component';
 import { FormEventoComponent } from './form-evento/form-evento.component';
 import { FormEmpresaComponent } from './form-empresa/form-empresa.component';
 import { RegistrosComponent } from './registros/registros.component';
+import { CompraticketComponent } from './compraticket/compraticket.component';
+import { PagotarjetaComponent } from './pagotarjeta/pagotarjeta.component';
 
 
 
@@ -28,6 +30,8 @@ import { RegistrosComponent } from './registros/registros.component';
     FormEventoComponent,
     FormEmpresaComponent,
     RegistrosComponent,
+    CompraticketComponent,
+    PagotarjetaComponent,
 
   ],
   imports: [

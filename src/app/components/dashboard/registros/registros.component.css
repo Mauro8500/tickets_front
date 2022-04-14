@@ -1,0 +1,9 @@
+section{
+    background-color: gray;
+}
+table{
+    width: 100%;
+}
+table, th, td,section {
+    text-align: center;
+}
