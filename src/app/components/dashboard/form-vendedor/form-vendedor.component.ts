@@ -25,24 +25,19 @@ export class FormVendedorComponent implements OnInit {
 
     this.form = this.fb.group({
       nombre1: ['', Validators.required],
-      nombre2: ['', Validators.required],
+      nombre2: [''],
       apellido1: ['', Validators.required],
       apellido2: ['', Validators.required],
       fechaNacimiento: ['', Validators.required],
       password: ['', Validators.required],
       repassword: ['', Validators.required],
       ci: ['', Validators.required],
-      mail: ['', Validators.required],
-      telefono: ['', Validators.required],
+      mail: ['', [Validators.required, Validators.email]],
+      telefono: [''],
       departamento: ['', Validators.required],
       ciudad: ['', Validators.required],
-      banco: ['', Validators.required],
-      cuenta: ['', Validators.required],
-      esEmpresa: ['', Validators.required],
-      nombreEmpresa: ['', Validators.required],
-      telefonoEmpresa: ['', Validators.required],
-      direccionEmpresa: ['', Validators.required],
-      sitioWebEmpresa: ['', Validators.required],
+      banco: ['',Validators.required],
+      cuenta: ['',Validators.required]
     })
    }
 
@@ -64,11 +59,6 @@ export class FormVendedorComponent implements OnInit {
     const ciudad = this.form.value.ciudad;
     const banco= this.form.value.banco;
     const cuenta = this.form.value.cuenta;
-    const esEmpresa = this.form.value.esEmpresa;
-    const nombreEmpresa = this.form.value.nombreEmpresa;
-    const telefonoEmpresa = this.form.value.telefonoEmpresa;
-    const direccionEmpresa = this.form.value.direccionEmpresa;
-    const sitioWebEmpresa = this.form.value.sitioWebEmpresa;
 
     let obj = '{'
     if(nombre1!=''){
@@ -113,30 +103,38 @@ export class FormVendedorComponent implements OnInit {
     if(cuenta!=''){
       obj+='"cuenta" : "'+cuenta+'",'
     }
-    if(esEmpresa!=''){
-      obj+='"esEmpresa" : "'+esEmpresa+'",'
-    }
-    if(nombreEmpresa!=''){
-      obj+='"nombreEmpresa" : "'+nombreEmpresa+'",'
-    }
-    if(telefonoEmpresa!=''){
-      obj+='"telefonoEmpresa" : "'+telefonoEmpresa+'",'
-    }
-    if(direccionEmpresa!=''){
-      obj+='"direccionEmpresa" : "'+direccionEmpresa+'",'
-    }
-    if(sitioWebEmpresa!=''){
-      obj+='"sitioWebEmpresa" : "'+sitioWebEmpresa+'",'
-    }
-    obj = obj.slice(0, -1); 
-    obj+='}';
+    obj+='"esEmpresa" : '+false+'}';
 
     //convierte objeto to a string
     let string = JSON.stringify(obj);
-
+    
     //post para registro
     this.ticketsService.postVendedores(JSON.parse(string)).subscribe((response: any)=>{
-      console.log(response);
-    });
+      console.log("registro exitoso, confirme su cuenta")
+    },
+    error => {
+      if(this.mensajeError(error)==JSON.stringify("Se requieren los parametros nombre1, apellido1, apellido2, fechaNacimiento, ci, mail, password, repassword, departamento, ciudad, banco, cuenta y esEmpresa")){
+        console.log("Se requieren los parametros nombre1, apellido1, apellido2, fechaNacimiento, ci, mail, password, repassword, departamento, ciudad, banco, cuenta y esEmpresa")
+      }else{
+        if(this.mensajeError(error)==JSON.stringify("fechaNacimiento debe ser menor a actual")){
+          console.log("fechaNacimiento debe ser menor a actual")
+        }else{
+          if(this.mensajeError(error)==JSON.stringify("Los parametros password y repassword deben ser iguales")){
+            console.log("Los parametros password y repassword deben ser iguales")
+          }else{
+            console.log("Verifique sus datos")
+          }
+        }
+      }
+    },);
+  }
+
+
+  mensajeError(obj: any): string {
+        //convierte objeto to a string
+        let string = JSON.stringify(obj);
+
+        let json = JSON.parse(string)
+    return JSON.stringify(json.error)
   }
 }

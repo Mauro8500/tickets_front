@@ -27,7 +27,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     BrowserAnimationsModule,
     SharedModule,
     HttpClientModule,
-    MatNativeDateModule 
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
