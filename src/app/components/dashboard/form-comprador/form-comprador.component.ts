@@ -11,9 +11,18 @@ import { TicketsService } from 'src/app/tickets.service';
 })
 export class FormCompradorComponent implements OnInit {
 
+  minDate: Date;
+  maxDate: Date;
+
   form: FormGroup;
   loading = false;
   constructor(private ticketsService: TicketsService, private fb: FormBuilder, private snackBar: MatSnackBar, private router: Router) {
+
+        // Minimo 1 de Enero de hace 115 años y maximo ayer. No olvidar que mes va de 0 a 11
+        const fechaActual = new Date()
+        this.minDate = new Date(fechaActual.getFullYear() - 115, 0, 1);
+        this.maxDate = new Date(fechaActual.getFullYear(), fechaActual.getMonth(), fechaActual.getDate()-1);
+
     this.form = this.fb.group({
       nombre1: [''],
       nombre2: [''],
@@ -66,6 +75,7 @@ export class FormCompradorComponent implements OnInit {
       obj+='"repassword" : "'+repassword+'",'
     }
     if(fechaNacimiento!=''){
+      console.log(fechaNacimiento)
       obj+='"fechaNacimiento" : "'+fechaNacimiento+'",'
     }
     if(ci!=''){

@@ -12,6 +12,8 @@ import { SharedModule } from './components/shared/shared.module';
 
 import { HttpClientModule } from '@angular/common/http';
 
+import {MatNativeDateModule} from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    MatNativeDateModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

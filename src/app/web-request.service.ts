@@ -17,14 +17,14 @@ export class WebRequestService {
   }
 
   post(uri: string, payload:Object){
-    return this.http.get(`${this.ROOT_URL}/${uri}`,payload);
+    return this.http.post(`${this.ROOT_URL}/${uri}`,payload);
   }
 
   put(uri: string, payload:Object){
-    return this.http.get(`${this.ROOT_URL}/${uri}`,payload);
+    return this.http.put(`${this.ROOT_URL}/${uri}`,payload);
   }
 
   delete(uri: string){
-    return this.http.get(`${this.ROOT_URL}/${uri}`);
+    return this.http.delete(`${this.ROOT_URL}/${uri}`);
   }
 }

@@ -11,21 +11,19 @@ export class TicketsService {
   constructor(private webReqService: WebRequestService) { }
 
   postEventos(obj: any){
-      return this.webReqService.post('eventos',obj)
+      return this.webReqService.post('eventos',JSON.parse(obj))
   }
 
   postClientes(obj: any){
-    console.log("empute")
-    console.log(obj)
       return this.webReqService.post('clientes',JSON.parse(obj))
   }
 
   postVendedores(obj: any){
-      return this.webReqService.post('vendedores',obj)
+      return this.webReqService.post('vendedores',JSON.parse(obj))
   }
 
   putEventos(obj: any){
-      return this.webReqService.put('eventos',obj)
+      return this.webReqService.put('eventos',JSON.parse(obj))
   }
 
   getEventos(){
@@ -53,11 +51,11 @@ export class TicketsService {
   }
 
   putClientesSms(obj: any){
-    return this.webReqService.put('clientes',obj)
+    return this.webReqService.put('clientes',JSON.parse(obj))
   }
 
   postCompras(obj: any){
-      return this.webReqService.post('compras',obj)
+      return this.webReqService.post('compras',JSON.parse(obj))
   }
 
   getComprasIdCliente(_id: String){
