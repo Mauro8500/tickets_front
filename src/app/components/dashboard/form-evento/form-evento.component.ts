@@ -56,10 +56,10 @@ export class FormEventoComponent implements OnInit {
       obj+='"lugar" : "'+lugar+'",'
     }
     if(capacidad!=''){
-      obj+='"capacidad" : "'+capacidad+'",'
+      obj+='"capacidad" : '+capacidad+','
     }
     if(precio!=''){
-      obj+='"precio" : "'+precio+'",'
+      obj+='"precio" : '+precio+','
     }
     if(fechaInicio!=''){
       obj+='"fechaInicio" : "'+fechaInicio+'",'
@@ -67,12 +67,12 @@ export class FormEventoComponent implements OnInit {
     if(fechaFin!=''){
       obj+='"fechaFin" : "'+fechaFin+'",'
     }
-    obj+='"organizador" : "id ejemplo'+/*organizador*/+'",'
+    obj+='"organizador" : "id ejemplo",'
     obj+='"estado" : "pendiente"}';
 
     //convierte objeto to a string
     let string = JSON.stringify(obj);
-    
+    console.log(JSON.parse(string))
     //post para registro
     this.ticketsService.postEventos(JSON.parse(string)).subscribe((response: any)=>{
       console.log("evento añadido exitosamente")
