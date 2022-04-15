@@ -65,7 +65,6 @@ export class FormEmpresaComponent implements OnInit {
     const ciudad = this.form.value.ciudad;
     const banco= this.form.value.banco;
     const cuenta = this.form.value.cuenta;
-    const esEmpresa = this.form.value.esEmpresa;
     const nombreEmpresa = this.form.value.nombreEmpresa;
     const telefonoEmpresa = this.form.value.telefonoEmpresa;
     const direccionEmpresa = this.form.value.direccionEmpresa;
