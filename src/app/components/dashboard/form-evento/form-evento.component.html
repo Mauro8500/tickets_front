@@ -1,43 +1,44 @@
+<div class="body">
+  <div class="form">      
 
- <form [formGroup]="form" (ngSubmit)="registrar()">
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Empresa (disabled)</mat-label>
-      <input matInput disabled value="GigaTickets" >
-    </mat-form-field>
-    <table class="example-full-width" cellspacing="0"><tr>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Nombre del evento</mat-label>
-        <input matInput formControlName="nombres">
-      </mat-form-field></td>
-    </tr></table>
-    <table class="example-full-width" cellspacing="0"><tr>
-        <td><mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Lugar del evento</mat-label>
-          <input matInput formControlName="lugar">
-        </mat-form-field></td>
-      </tr></table>
-      <table class="example-full-width" cellspacing="0"><tr>
-        <td><mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Capacidad</mat-label>
-          <input matInput formControlName="capacidad">
-        </mat-form-field></td>
-      </tr></table>
-      <table class="example-full-width" cellspacing="0"><tr>
-        <td><mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Estado del evento</mat-label>
-          <input matInput formControlName="estado">
-        </mat-form-field></td>
-      </tr></table>
-      <table class="example-full-width" cellspacing="0"><tr>
-        <td><mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Organizador del evento</mat-label>
-          <input matInput formControlName="Organizador">
-        </mat-form-field></td>
-      </tr></table>
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Precio</mat-label>
-      <input type="tel" matInput placeholder="$$$" formControlName="precio">
-      <mat-icon matSuffix>mode_edit</mat-icon>
-    </mat-form-field>
-  </form>
-<button mat-button routerLink ="/dashboard/eventos" color="primary">Crear</button>
+    <mat-spinner *ngIf="loading" class ="spinner "diameter="50"></mat-spinner>
+      <form [formGroup]="form" (ngSubmit)="registrar()">
+          <h1>Registro del evento</h1>
+          <mat-form-field class="ancho" appearance="fill">
+              <mat-label> Nombre del evento</mat-label>
+              <input type="text" matInput autocomplete="off" formControlName="nombre1">
+          </mat-form-field>
+          <mat-form-field class="ancho" appearance="fill">
+              <mat-label> Lugar del evento </mat-label>
+              <input type="text" matInput autocomplete="off" formControlName="nombre2">
+          </mat-form-field>
+          <mat-form-field class="ancho" appearance="fill">
+              <mat-label>Capacidad</mat-label>
+              <input type="number" matInput autocomplete="off" formControlName="apellido1">
+          </mat-form-field>
+          <mat-form-field class="ancho" appearance="fill">
+              <mat-label>Estado del evento</mat-label>
+              <input type="text" matInput autocomplete="off" formControlName="apellido2">
+          </mat-form-field>
+          <mat-form-field class="ancho" appearance="fill">
+              <mat-label>Fecha de nacimiento</mat-label>
+              <input type="datetime" matInput autocomplete="off" formControlName="fechaNacimiento">
+          </mat-form-field>
+          <mat-form-field class="ancho" appearance="fill">
+              <mat-label>Contraseña</mat-label>
+              <input type="text" matInput autocomplete="off" formControlName="password">
+          </mat-form-field>
+          <mat-form-field class="ancho" appearance="fill">
+              <mat-label>Organizador del evento</mat-label>
+              <input type="text" matInput autocomplete="off" formControlName="repassword">
+          </mat-form-field>
+          <mat-form-field class="ancho" appearance="fill">
+              <mat-label>Precio</mat-label>
+              <input type="number" matInput autocomplete="off" formControlName="ci">
+          </mat-form-field>
+          <br>
+          <button type="submit" mat-raised-button mat-button color="primary" [disabled]="form.invalid">Crear</button>
+      </form>
+  </div>
+</div>
+

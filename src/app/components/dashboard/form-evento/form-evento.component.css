@@ -1,16 +1,25 @@
-.example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  .example-full-width {
-    width: 100%;
-  }
-  
-  td {
-    padding-right: 8px;
-  }
-  .example-form-field {
-    margin: 0 8px 16px 0;
-  }
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: gray;
+  height: 100%;
+}
+.form {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  text-align: center;
+}
+
+.ancho {
+  width: 80%;
+}
+.button{
+    height: 50px
+}
+.spinner{
+  margin: 0 auto;
+}

@@ -63,8 +63,62 @@ export class FormVendedorComponent implements OnInit {
     const sitioWebEmpresa = this.form.value.sitioWebEmpresa;
 
     let obj = '{'
-    if(nombre1){
-      obj+='"name" : "Raj",'
+    if(nombre1!=''){
+      obj+='"nombre1" : "'+nombre1+'",'
+    }
+    if(nombre2!=''){
+      obj+='"nombre2" : "'+nombre2+'",'
+    }
+    if(apellido1!=''){
+      obj+='"apellido1" : "'+apellido1+'",'
+    }
+    if(apellido2!=''){
+      obj+='"apellido2" : "'+apellido2+'",'
+    }
+    if(password!=''){
+      obj+='"password" : "'+password+'",'
+    }
+    if(repassword!=''){
+      obj+='"repassword" : "'+repassword+'",'
+    }
+    if(fechaNacimiento!=''){
+      obj+='"fechaNacimiento" : "'+fechaNacimiento+'",'
+    }
+    if(ci!=''){
+      obj+='"ci" : "'+ci+'",'
+    }
+    if(mail!=''){
+      obj+='"mail" : "'+mail+'",'
+    }
+    if(telefono!=''){
+      obj+='"telefono" : '+telefono+','
+    }
+    if(departamento!=''){
+      obj+='"departamento" : "'+departamento+'",'
+    }
+    if(ciudad!=''){
+      obj+='"ciudad" : "'+ciudad+'",'
+    }
+    if(banco!=''){
+      obj+='"banco" : "'+banco+'",'
+    }
+    if(cuenta!=''){
+      obj+='"cuenta" : "'+cuenta+'",'
+    }
+    if(esEmpresa!=''){
+      obj+='"esEmpresa" : "'+esEmpresa+'",'
+    }
+    if(nombreEmpresa!=''){
+      obj+='"nombreEmpresa" : "'+nombreEmpresa+'",'
+    }
+    if(telefonoEmpresa!=''){
+      obj+='"telefonoEmpresa" : "'+telefonoEmpresa+'",'
+    }
+    if(direccionEmpresa!=''){
+      obj+='"direccionEmpresa" : "'+direccionEmpresa+'",'
+    }
+    if(sitioWebEmpresa!=''){
+      obj+='"sitioWebEmpresa" : "'+sitioWebEmpresa+'",'
     }
     obj = obj.slice(0, -1); 
     obj+='}';
