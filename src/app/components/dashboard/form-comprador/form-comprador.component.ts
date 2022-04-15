@@ -15,12 +15,18 @@ export class FormCompradorComponent implements OnInit {
   loading = false;
   constructor(private ticketsService: TicketsService, private fb: FormBuilder, private snackBar: MatSnackBar, private router: Router) {
     this.form = this.fb.group({
-      nombre: ['', Validators.required],
-      apellidos: ['', Validators.required],
-      nacimiento: ['', Validators.required],
-      ci: ['', Validators.required],
-      email: ['', Validators.required],
-      ciudadres: ['', Validators.required],
+      nombre1: [''],
+      nombre2: [''],
+      apellido1: [''],
+      apellido2: [''],
+      fechaNacimiento: [''],
+      password: [''],
+      repassword: [''],
+      ci: [''],
+      mail: [''],
+      telefono: [''],
+      departamento: [''],
+      ciudad: ['']
     })
    }
 
@@ -28,15 +34,63 @@ export class FormCompradorComponent implements OnInit {
   }
 
   registrar(){
-    const nombre = this.form.value.nombre;
-    const apellidos = this.form.value.apellidos;
-    const nacimiento = this.form.value.nacimiento;
+    const nombre1 = this.form.value.nombre1;
+    const nombre2 = this.form.value.nombre2;
+    const apellido1 = this.form.value.apellido1;
+    const apellido2 = this.form.value.apellido2;
+    const password = this.form.value.password;
+    const repassword = this.form.value.repassword;
+    const fechaNacimiento = this.form.value.fechaNacimiento;
     const ci= this.form.value.ci;
-    const email = this.form.value.email;
-    const ciudadres = this.form.value.ciudadres;
+    const mail = this.form.value.mail;
+    const telefono = this.form.value.telefono;
+    const departamento = this.form.value.departamento;
+    const ciudad = this.form.value.ciudad;
+    let obj = '{'
+    if(nombre1!=''){
+      obj+='"nombre1" : "'+nombre1+'",'
+    }
+    if(nombre2!=''){
+      obj+='"nombre2" : "'+nombre2+'",'
+    }
+    if(apellido1!=''){
+      obj+='"apellido1" : "'+apellido1+'",'
+    }
+    if(apellido2!=''){
+      obj+='"apellido2" : "'+apellido2+'",'
+    }
+    if(password!=''){
+      obj+='"password" : "'+password+'",'
+    }
+    if(repassword!=''){
+      obj+='"repassword" : "'+repassword+'",'
+    }
+    if(fechaNacimiento!=''){
+      obj+='"fechaNacimiento" : "'+fechaNacimiento+'",'
+    }
+    if(ci!=''){
+      obj+='"ci" : "'+ci+'",'
+    }
+    if(mail!=''){
+      obj+='"mail" : "'+mail+'",'
+    }
+    if(telefono!=''){
+      obj+='"telefono" : '+telefono+','
+    }
+    if(departamento!=''){
+      obj+='"departamento" : "'+departamento+'",'
+    }
+    if(ciudad!=''){
+      obj+='"ciudad" : "'+ciudad+'",'
+    }
+    obj = obj.slice(0, -1); 
+    obj+='}';
+
+    //convierte objeto to a string
+    let string = JSON.stringify(obj);
+    
     //post para registro
-    this.ticketsService.postClientes("nombre1","nombre2","apellido1","apellido2",new Date('1999-02-26'),"password","password","ci",
-    "carlosmendizabaltickets@gmail.com",720329493,"departamento","ciudad",false).subscribe((response: any)=>{
+    this.ticketsService.postClientes(JSON.parse(string)).subscribe((response: any)=>{
       console.log(response);
     });
   }

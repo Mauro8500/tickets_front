@@ -10,128 +10,22 @@ export class TicketsService {
 
   constructor(private webReqService: WebRequestService) { }
 
-  postEventos(nombre: String,
-    lugar: String,
-    capacidad: Number,
-    estado: String,
-    organizador: String,
-    fechaInicio: Date,
-    fechaFin:Date,
-    precio: Number,
-    imagenes: [
-      {data: Buffer, contentType: String},
-    ]){
-      return this.webReqService.post('eventos',{
-        "nombre": nombre,
-        "lugar": lugar,
-        "capacidad": capacidad,
-        "estado": estado,
-        "organizador": organizador,
-        "fechaInicio":fechaInicio,
-        "fechaFin":fechaFin,
-        "precio":precio,
-        "imagenes":imagenes
-      })
+  postEventos(obj: any){
+      return this.webReqService.post('eventos',obj)
   }
 
-
-
-  postClientes(nombre1: String,
-    nombre2: String,
-    apellido1: String,
-    apellido2: String,
-    fechaNacimiento: Date,
-    password: String,
-    repassword: String, 
-    ci: String,
-    mail: String,
-    telefono: Number,
-    departamento: String,
-    ciudad: String,
-    smsActivado: Boolean){
-      return this.webReqService.post('clientes',{
-        "nombre1": nombre1,
-        "nombre2": nombre2,
-        "apellido1": apellido1,
-        "apellido2": apellido2,
-        "fechaNacimiento": fechaNacimiento,
-        "password": password,
-        "repassword": repassword,
-        "ci": ci,
-        "mail": mail,
-        "telefono": telefono,
-        "departamento": departamento,
-        "ciudad": ciudad,
-        "smsActivado": smsActivado
-      })
+  postClientes(obj: any){
+    console.log("empute")
+    console.log(obj)
+      return this.webReqService.post('clientes',JSON.parse(obj))
   }
 
-
-
-  postVendedores(nombre1: String,
-    nombre2: String,
-    apellido1: String,
-    apellido2: String,
-    fechaNacimiento: Date,
-    password: String,
-    repassword: String,
-    ci: String,
-    mail: String,
-    telefono: Number,
-    departamento: String,
-    ciudad: String,
-    banco: String,
-    cuenta: String,
-    esEmpresa: Boolean,
-    nombreEmpresa: String,
-    telefonoEmpresa: Number,
-    direccionEmpresa: String,
-    sitioWebEmpresa: String){
-      return this.webReqService.post('vendedores',{
-        "nombre1": nombre1,
-        "nombre2": nombre2,
-        "apellido1": apellido1,
-        "apellido2": apellido2,
-        "fechaNacimiento": fechaNacimiento,
-        "password": password,
-        "repassword": repassword,
-        "ci": ci,
-        "mail": mail,
-        "telefono": telefono,
-        "departamento": departamento,
-        "ciudad": ciudad,
-        "banco": banco,
-        "cuenta": cuenta,
-        "esEmpresa": esEmpresa,
-        "nombreEmpresa": nombreEmpresa,
-        "telefonoEmpresa": telefonoEmpresa,
-        "direccionEmpresa": direccionEmpresa,
-        "sitioWebEmpresa": sitioWebEmpresa
-      })
+  postVendedores(obj: any){
+      return this.webReqService.post('vendedores',obj)
   }
 
-
-
-  putEventosEstado(_id: String,estado: String){
-      return this.webReqService.put('eventos',{
-        "_id": _id,
-        "estado": estado
-      })
-  }
-
-  putEventosCapacidad(_id: String,capacidad: Number){
-    return this.webReqService.put('eventos',{
-      "_id": _id,
-      "capacidad": capacidad
-    })
-  }
-
-  putEventosEstadoCapacidad(_id: String,estado: String,capacidad: Number){
-      return this.webReqService.put('eventos',{
-        "_id": _id,
-        "estado": estado,
-        "capacidad": capacidad
-      })
+  putEventos(obj: any){
+      return this.webReqService.put('eventos',obj)
   }
 
   getEventos(){
@@ -158,47 +52,12 @@ export class TicketsService {
     return this.webReqService.get('vendedores?_id='+_id)
   }
 
-  putClientesSms(_id: String,smsActivado: Boolean){
-    return this.webReqService.put('clientes',{
-      "_id": _id,
-      "smsActivado": smsActivado
-    })
+  putClientesSms(obj: any){
+    return this.webReqService.put('clientes',obj)
   }
 
-  postCompras(idEvento: String,
-    nombreEvento: String,
-    direccionEvento: String,
-    fechaInicio: Date,
-    fechaFin:Date,
-    idCliente: String,
-    nombre1: String,
-    nombre2: String,
-    apellido1: String,
-    apellido2: String,
-    nit: Number,
-    cantidadTickets: Number,
-    precioUnitario: Number,
-    correoCliente: String,
-    numTelefono: Number,
-    smsActivado: Boolean){
-      return this.webReqService.post('compras',{
-    "idEvento": idEvento,
-    "nombreEvento": nombreEvento,
-    "direccionEvento": direccionEvento,
-    "fechaInicio": fechaInicio,
-    "fechaFin": fechaFin,
-    "idCliente": idCliente,
-    "nombre1": nombre1,
-    "nombre2": nombre2,
-    "apellido1": apellido1,
-    "apellido2": apellido2,
-    "nit": nit,
-    "cantidadTickets": cantidadTickets,
-    "precioUnitario": precioUnitario,
-    "correoCliente": correoCliente,
-    "numTelefono": numTelefono,
-    "smsActivado": smsActivado
-      })
+  postCompras(obj: any){
+      return this.webReqService.post('compras',obj)
   }
 
   getComprasIdCliente(_id: String){

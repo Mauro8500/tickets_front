@@ -5,28 +5,76 @@
         <form [formGroup]="form" (ngSubmit)="registrar()">
             <h1>Registro de Vendedor</h1>
             <mat-form-field class="ancho" appearance="fill">
-                <mat-label> Nombre </mat-label>
-                <input type="text" matInput autocomplete="off" formControlName="nombres">
+                <mat-label> Primer nombre </mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="nombre1">
             </mat-form-field>
             <mat-form-field class="ancho" appearance="fill">
-                <mat-label>Apellido</mat-label>
-                <input type="text" matInput autocomplete="off" formControlName="apellidos">
+                <mat-label> Segundo nombre </mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="nombre2">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Primer apellido</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="apellido1">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Segundo apellido</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="apellido2">
             </mat-form-field>
             <mat-form-field class="ancho" appearance="fill">
                 <mat-label>Fecha de nacimiento</mat-label>
-                <input type="datetime" matInput autocomplete="off" formControlName="nacimiento">
+                <input type="datetime" matInput autocomplete="off" formControlName="fechaNacimiento">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Contraseña</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="password">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Repeticion de contraseña</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="repassword">
             </mat-form-field>
             <mat-form-field class="ancho" appearance="fill">
                 <mat-label>Carnet de identidad</mat-label>
                 <input type="text" matInput autocomplete="off" formControlName="ci">
             </mat-form-field>
             <mat-form-field class="ancho" appearance="fill">
-                <mat-label>Correo electronico</mat-label>
-                <input type="email" matInput autocomplete="off" formControlName="email">
+                <mat-label>Correo electrónico</mat-label>
+                <input type="email" matInput autocomplete="off" formControlName="mail">
             </mat-form-field>
             <mat-form-field class="ancho" appearance="fill">
-                <mat-label>Ciudad de residencia</mat-label>
-                <input type="text" matInput autocomplete="off" formControlName="ciudadres">
+                <mat-label>Teléfono</mat-label>
+                <input type="number" matInput autocomplete="off" formControlName="telefono">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Departamento</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="departamento">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Banco</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="banco">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Cuenta</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="cuenta">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>si o no es empresa</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="esEmpresa">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Nombre de la empresa</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="nombreEmpresa">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Teléfono de la empresa</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="telefonoEmpresa">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Dirección de la empresa</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="direccionEmpresa">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Sitio web de la empresa</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="sitioWebEmpresa">
             </mat-form-field>
             <br>
             <button type="submit" mat-raised-button mat-button color="primary">Continuar</button>
