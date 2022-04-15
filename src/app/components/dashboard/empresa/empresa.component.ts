@@ -8,6 +8,7 @@ import { TicketsService } from 'src/app/tickets.service';
 })
 export class EmpresaComponent implements OnInit {
 
+  longText = `Empresa de ejemplo.`;
   constructor(private ticketsService: TicketsService) {
    }
 

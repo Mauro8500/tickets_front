@@ -1,1 +1,45 @@
-<p>form-empresa works!</p>
+<form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Empresa (disabled)</mat-label>
+      <input matInput disabled value="GigaTickets">
+    </mat-form-field>
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nombre del evento</mat-label>
+        <input matInput>
+      </mat-form-field></td>
+    </tr></table>
+    
+    <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Lugar del evento</mat-label>
+          <input matInput>
+        </mat-form-field></td>
+      </tr></table>
+      <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Capacidad</mat-label>
+          <input matInput>
+        </mat-form-field></td>
+      </tr></table>
+      <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Estado del evento</mat-label>
+          <input matInput>
+        </mat-form-field></td>
+      </tr></table>
+      <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Organizador del evento</mat-label>
+          <input matInput>
+        </mat-form-field></td>
+      </tr></table>
+  <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Precio</mat-label>
+      <input type="tel" matInput placeholder="$$$">
+      <mat-icon matSuffix>mode_edit</mat-icon>
+    </mat-form-field>
+  </form>
+<button mat-button routerLink ="/dashboard/eventos" color="primary">Crear</button>
