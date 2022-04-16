@@ -78,8 +78,8 @@ export class FormEventoComponent implements OnInit {
       console.log("evento añadido exitosamente")
     },
     error => {
-      if(this.mensajeError(error)==JSON.stringify("Se requieren los parametros nombre, lugar, capacidad, estado, organizador, fechaInicio, fechaFin y precio")){
-        console.log("Se requieren los parametros nombre, lugar, capacidad, estado, organizador, fechaInicio, fechaFin y precio")
+      if(this.mensajeError(error)==JSON.stringify("Se requieren los parametros nombre, lugar, capacidad, organizador, fechaInicio, fechaFin y precio")){
+        console.log("Se requieren los parametros nombre, lugar, capacidad, organizador, fechaInicio, fechaFin y precio")
       }else{
         if(this.mensajeError(error)==JSON.stringify("fechaInicio debe ser menor o igual a fechaFin")){
           console.log("fechaInicio debe ser menor o igual a fechaFin")

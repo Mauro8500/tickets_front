@@ -1,1 +1,21 @@
-<p>compraticket works!</p>
+<div class="body">
+    <div class="form">      
+  
+      <mat-spinner *ngIf="loading" class ="spinner "diameter="50"></mat-spinner>
+        <form [formGroup]="form" (ngSubmit)="registrar()">
+            <h1>Formulario de compra</h1>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label> Nit</mat-label>
+                <input type="number" matInput autocomplete="off" formControlName="nit">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label> Cantidad de tickets </mat-label>
+                <input type="number" matInput autocomplete="off" formControlName="cantidadTickets">
+            </mat-form-field>
+            <br>
+            <button type="submit" mat-raised-button mat-button color="primary" [disabled]="form.invalid">Crear</button>
+        </form>
+    </div>
+  </div>
+  
+  
