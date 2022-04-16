@@ -1,46 +1,18 @@
-<mat-card>
-    <mat-card-title>ElectroPreste</mat-card-title>
-    <mat-card-subtitle>Fiesta electronica en el cholet del Belmont</mat-card-subtitle>
-    <mat-card-actions>
-      <button mat-button>Mas informacion</button>
-      <button mat-button (click)="getEventosNombre('eventodasdas')">Comprar</button>
-    </mat-card-actions>
-  </mat-card>
-  <br>
-  <mat-card>
-    <mat-card-title>ElectroPreste</mat-card-title>
-    <mat-card-subtitle>Fiesta electronica en el cholet del Belmont</mat-card-subtitle>
-    <mat-card-actions>
-      <button mat-button>Mas informacion</button>
-      <button mat-button>Comprar</button>
-    </mat-card-actions>
-  </mat-card>
-  <br>
-  <mat-card>
-    <mat-card-title>ElectroPreste</mat-card-title>
-    <mat-card-subtitle>Fiesta electronica en el cholet del Belmont</mat-card-subtitle>
-    <mat-card-actions>
-      <button mat-button>Mas informacion</button>
-      <button mat-button>Comprar</button>
-    </mat-card-actions>
-  </mat-card>
-  <br>
-  <mat-card>
-    <mat-card-title>ElectroPreste</mat-card-title>
-    <mat-card-subtitle>Fiesta electronica en el cholet del Belmont</mat-card-subtitle>
-    <mat-card-actions>
-      <button mat-button>Mas informacion</button>
-      <button mat-button>Comprar</button>
-    </mat-card-actions>
-  </mat-card>
-  <br>
-  <br>
-  <br>
   <section>
     <div class="example-button-row">
       <button mat-button routerLink ="/dashboard/form-evento" color="primary">Crear nuevo evento</button>
     </div>
   </section>
+
+    <form class="example-form" [formGroup]="form" (ngSubmit)="getEventosNombre()">
+      <h1>Eventos</h1>
+    <mat-form-field class="ancho" appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input type="text" matInput autocomplete="off" formControlName="nombre">
+    </mat-form-field>
+    <br>
+    <button type="submit" mat-raised-button mat-button color="primary" [disabled]="form.invalid">Buscar</button>
+</form>
 
 <div class="container">
     <table class="table table-striped table-bordered">
