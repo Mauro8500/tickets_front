@@ -122,7 +122,11 @@ export class FormVendedorComponent implements OnInit {
           if(this.mensajeError(error)==JSON.stringify("Los parametros password y repassword deben ser iguales")){
             console.log("Los parametros password y repassword deben ser iguales")
           }else{
-            console.log("Verifique sus datos")
+            if(this.mensajeError(error)==JSON.stringify("body.mail ya tiene una cuenta asociada")){
+              console.log("body.mail ya tiene una cuenta asociada")
+            }else{
+              console.log("Verifique sus datos")
+            }
           }
         }
       }
