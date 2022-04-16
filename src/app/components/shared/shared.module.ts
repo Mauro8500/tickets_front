@@ -23,6 +23,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 
@@ -49,6 +50,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatSelectModule,
     FormsModule,
     MatDatepickerModule,
+    MatSlideToggleModule,
   ],
   exports: [
     MatSliderModule ,
@@ -70,6 +72,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatSelectModule,
     FormsModule,
     MatDatepickerModule,
+    MatSlideToggleModule,
   ]
 })
 export class SharedModule { }

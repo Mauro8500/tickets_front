@@ -1,0 +1,14 @@
+<p>Configuraciones y preferencias</p>
+
+
+<p>Recibir o no notificaciones</p>
+
+<form class="example-form" [formGroup]="formGroup" (ngSubmit)="onFormSubmit()" ngNativeValidate>
+
+  <mat-slide-toggle formControlName="notificaciones">Aceptar notificaciones</mat-slide-toggle>
+
+   <!--Estado del slide
+   <p>Form Group Status: {{formGroup.status}}</p> -->
+   <p></p>
+  <button mat-raised-button type="submit">Guardar</button>
+</form>

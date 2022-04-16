@@ -10,6 +10,7 @@ import { FormEventoComponent } from './form-evento/form-evento.component';
 import { FormEmpresaComponent } from './form-empresa/form-empresa.component';
 import { FormCompradorComponent } from './form-comprador/form-comprador.component';
 import { CompraticketComponent } from './compraticket/compraticket.component';
+import { MenuCompradorComponent } from './menu-comprador/menu-comprador.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
     { path: 'form-comprador', component: FormCompradorComponent },
     { path: 'form-empresa', component: FormEmpresaComponent },
     { path: 'form-evento', component: FormEventoComponent },
-    {path: 'compraticket', component: CompraticketComponent}
+    { path: 'compraticket', component: CompraticketComponent},
+    { path: 'menu-comprador', component: MenuCompradorComponent}
   ]}
 ];
 

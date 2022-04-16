@@ -15,6 +15,7 @@ import { FormEmpresaComponent } from './form-empresa/form-empresa.component';
 import { RegistrosComponent } from './registros/registros.component';
 import { CompraticketComponent } from './compraticket/compraticket.component';
 import { PagotarjetaComponent } from './pagotarjeta/pagotarjeta.component';
+import { MenuCompradorComponent } from './menu-comprador/menu-comprador.component';
 
 
 
@@ -32,6 +33,7 @@ import { PagotarjetaComponent } from './pagotarjeta/pagotarjeta.component';
     RegistrosComponent,
     CompraticketComponent,
     PagotarjetaComponent,
+    MenuCompradorComponent,
 
   ],
   imports: [
