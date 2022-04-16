@@ -11,6 +11,7 @@ export class EventosComponent implements OnInit {
 
   form: FormGroup;
   loading = false;
+  mostrarAlerta: boolean = false ; // oculto en init
 
   eventos = [
     { nombre: 'Frank', lugar: 'Murphy', precio: 4 },
@@ -35,7 +36,10 @@ export class EventosComponent implements OnInit {
       this.eventos = response
       if(response.length==0){
         console.log("vacio")
-        //TODO mostrar mensaje "no se encontraron eventos con ese nombre"
+        this.mostrarAlerta = true
+      }else{
+        console.log("hay resultado")
+        this.mostrarAlerta = false
       }
     });
   }
