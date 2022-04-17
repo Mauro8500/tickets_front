@@ -4,13 +4,15 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { TicketsService } from 'src/app/tickets.service';
 
-@Component({
-  selector: 'app-form-vendedor',
-  templateUrl: './form-vendedor.component.html',
-  styleUrls: ['./form-vendedor.component.css']
-})
-export class FormVendedorComponent implements OnInit {
 
+@Component({
+  selector: 'app-form-empresa',
+  templateUrl: './form-empresa.component.html',
+  styleUrls: ['./form-empresa.component.css']
+})
+
+export class FormEmpresaComponent implements OnInit {
+  
   minDate: Date;
   maxDate: Date;
   
@@ -37,7 +39,11 @@ export class FormVendedorComponent implements OnInit {
       departamento: ['', Validators.required],
       ciudad: ['', Validators.required],
       banco: ['',Validators.required],
-      cuenta: ['',Validators.required]
+      cuenta: ['',Validators.required],
+      nombreEmpresa: ['', Validators.required],
+      telefonoEmpresa: ['', Validators.required],
+      direccionEmpresa: ['', Validators.required],
+      sitioWebEmpresa: ['', Validators.required]
     })
    }
 
@@ -47,8 +53,8 @@ export class FormVendedorComponent implements OnInit {
   registrar(){
     const nombre1 = this.form.value.nombre1;
     const nombre2 = this.form.value.nombre2;
-    const apellido1 = this.form.value.apellido1;
-    const apellido2 = this.form.value.apellido2;
+    const apellido1 = this.form.value.apellidos;
+    const apellido2 = this.form.value.apellidos;
     const password = this.form.value.password;
     const repassword = this.form.value.repassword;
     const fechaNacimiento = this.form.value.fechaNacimiento;
@@ -59,6 +65,10 @@ export class FormVendedorComponent implements OnInit {
     const ciudad = this.form.value.ciudad;
     const banco= this.form.value.banco;
     const cuenta = this.form.value.cuenta;
+    const nombreEmpresa = this.form.value.nombreEmpresa;
+    const telefonoEmpresa = this.form.value.telefonoEmpresa;
+    const direccionEmpresa = this.form.value.direccionEmpresa;
+    const sitioWebEmpresa = this.form.value.sitioWebEmpresa;
 
     let obj = '{'
     if(nombre1!=''){
@@ -103,7 +113,19 @@ export class FormVendedorComponent implements OnInit {
     if(cuenta!=''){
       obj+='"cuenta" : "'+cuenta+'",'
     }
-    obj+='"esEmpresa" : '+false+'}';
+    if(nombreEmpresa!=''){
+      obj+='"nombreEmpresa" : "'+nombreEmpresa+'",'
+    }
+    if(telefonoEmpresa!=''){
+      obj+='"telefonoEmpresa" : "'+telefonoEmpresa+'",'
+    }
+    if(direccionEmpresa!=''){
+      obj+='"direccionEmpresa" : "'+direccionEmpresa+'",'
+    }
+    if(sitioWebEmpresa!=''){
+      obj+='"sitioWebEmpresa" : "'+sitioWebEmpresa+'",'
+    }
+    obj+='"esEmpresa" : '+true+'}';
 
     //convierte objeto to a string
     let string = JSON.stringify(obj);
@@ -122,11 +144,7 @@ export class FormVendedorComponent implements OnInit {
           if(this.mensajeError(error)==JSON.stringify("Los parametros password y repassword deben ser iguales")){
             console.log("Los parametros password y repassword deben ser iguales")
           }else{
-            if(this.mensajeError(error)==JSON.stringify("body.mail ya tiene una cuenta asociada")){
-              console.log("body.mail ya tiene una cuenta asociada")
-            }else{
-              console.log("Verifique sus datos")
-            }
+            console.log("Verifique sus datos")
           }
         }
       }

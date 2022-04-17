@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 //Componentes
-import { LoginComponent } from './components/login/login.component';
+
 import { SharedModule } from './components/shared/shared.module';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -18,7 +18,6 @@ import {MatNativeDateModule} from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
 
   ],
   imports: [
