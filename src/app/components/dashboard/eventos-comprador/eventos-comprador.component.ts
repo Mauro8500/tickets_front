@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TicketsService } from 'src/app/tickets.service';
 
 //Requerimientos para creacion de PDF
-const PDFDocument = require('pdfkit');
+//const PDFDocument = require('pdfkit');
 
 @Component({
   selector: 'app-eventos-comprador',
