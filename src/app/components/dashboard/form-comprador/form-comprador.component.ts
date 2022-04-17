@@ -35,7 +35,8 @@ export class FormCompradorComponent implements OnInit {
       mail: ['',[Validators.required, Validators.email]],
       telefono: [''],
       departamento: ['',Validators.required],
-      ciudad: ['',Validators.required]
+      ciudad: ['',Validators.required],
+      notificom: ['',Validators.required],
     })
    }
 
@@ -55,6 +56,7 @@ export class FormCompradorComponent implements OnInit {
     const telefono = this.form.value.telefono;
     const departamento = this.form.value.departamento;
     const ciudad = this.form.value.ciudad;
+    const notificom = this.form.value.notificom;
     let obj = '{'
     if(nombre1!=''){
       obj+='"nombre1" : "'+nombre1+'",'
@@ -91,6 +93,9 @@ export class FormCompradorComponent implements OnInit {
     }
     if(ciudad!=''){
       obj+='"ciudad" : "'+ciudad+'",'
+    }
+    if(notificom!=''){
+      obj+='"notificom" : "'+notificom+'",'
     }
     obj = obj.slice(0, -1); 
     obj+='}';

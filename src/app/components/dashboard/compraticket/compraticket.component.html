@@ -1,119 +1,104 @@
 <div class="body">
     <div class="form">      
-  
-      <mat-spinner *ngIf="loading" class ="spinner "diameter="50"></mat-spinner>
         <form [formGroup]="form" (ngSubmit)="registrar()">
-            <h1>Formulario de compra</h1>
-            <mat-form-field class="ancho" appearance="fill">
-                <mat-label> Nit</mat-label>
-                <input type="number" matInput autocomplete="off" formControlName="nit">
-            </mat-form-field>
-            <mat-form-field class="ancho" appearance="fill">
-                <mat-label> Cantidad de tickets </mat-label>
-                <input type="number" matInput autocomplete="off" formControlName="cantidadTickets">
-            </mat-form-field>
-            <br>
-            <button type="submit" mat-raised-button mat-button color="primary" [disabled]="form.invalid">Crear</button>
+            <h1>Compra de ticket</h1>
+            <section>
+                <h2>Detalle de la compra</h2>
+                <h3>Evento seleccionado:</h3>
+                <mat-card class="card">
+                    <mat-card-title>ElectroPreste</mat-card-title>
+                    <br>
+                    <mat-card-subtitle>Fiesta electronica en el cholet del Belmont</mat-card-subtitle>
+
+                <h4>Seleccione cantidad de boletos:</h4>
+                <mat-form-field appearance="fill">
+                <mat-label>Cantidad</mat-label>
+                <input type="number" matInput formControlName = "nit">
+                <select matNativeControl required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                </mat-form-field>
+                </mat-card><br>
+                <h3>Datos del comprador:</h3>
+                <mat-card class="card">
+                    <mat-form-field appearance="fill" class="full">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput formControlName="nombre">
+                    </mat-form-field><br>
+                    <mat-form-field appearance="fill" class="full">
+                        <mat-label>Celular</mat-label>
+                        <input matInput formControlName="celular">
+                    </mat-form-field><br>
+                    <mat-form-field appearance="fill" class="full">
+                        <mat-label>CI</mat-label>
+                        <input matInput formControlName="ci">
+                    </mat-form-field><br>
+                    <mat-form-field appearance="fill" class="full">
+                        <mat-label>Correo electrónico</mat-label>
+                        <input matInput formControlName="correo">
+                    </mat-form-field><br>
+                </mat-card><br>
+
+                <h3>Método de pago:</h3>
+                <mat-card class="card">
+                    <mat-card-subtitle>Datos de tarjeta</mat-card-subtitle>
+                    <mat-form-field appearance="fill" class="full">
+                        <mat-label>Numero de tarjeta</mat-label>
+                        <input matInput formControlName="tarjeta">
+                    </mat-form-field><br>
+                    <mat-form-field appearance="fill" class="half">
+                        <mat-label>Expiracion</mat-label>
+                        <input matInput formControlName="expiracion">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" class="half">
+                        <mat-label>CVC</mat-label>
+                        <input matInput formControlName="cvc">
+                    </mat-form-field><br>
+
+                    <mat-card-subtitle>Datos de facturacion</mat-card-subtitle>
+                    <mat-form-field appearance="fill" class="half">
+                        <mat-label>Nombres</mat-label>
+                        <input matInput formControlName="facturanom">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" class="half">
+                        <mat-label>Apellidos</mat-label>
+                        <input matInput formControlName="facturaape">
+                    </mat-form-field><br>
+                    <mat-form-field appearance="fill" class="third">
+                        <mat-label>Direccion</mat-label>
+                        <input matInput formControlName="direccion">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" class="third">
+                        <mat-label>Pais</mat-label>
+                        <input matInput formControlName="pais">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" class="third">
+                        <mat-label>Ciudad</mat-label>
+                        <input matInput formControlName = "departamento">
+                        <select matNativeControl required> 
+                        <option value="La Paz">La Paz</option>
+                        <option value="Cochabamba">Cochabamba</option>
+                        <option value="Tarija">Tarija</option>
+                        <option value="Santa Cruz">Santa Cruz</option>
+                        <option value="Chuquisaca">Chuquisaca</option>
+                        <option value="Potosí">Potosí</option>
+                        <option value="Beni">Beni</option>
+                        <option value="Pando">Pando</option>
+                        <option value="Oruro">Oruro</option>
+                        </select>
+                    </mat-form-field>
+                </mat-card>
+            <h1> <button mat-raised-button mat-button color="primary">Continuar</button></h1>
+            </section>
         </form>
     </div>
   </div>
-  
-  
-<h1>Compra de ticket</h1>
-<section>
-    <h2>Detalle de la compra</h2>
-    <h3>Evento seleccionado:</h3>
-    <mat-card class="card">
-        <mat-card-title>ElectroPreste</mat-card-title>
-        <br>
-        <mat-card-subtitle>Fiesta electronica en el cholet del Belmont</mat-card-subtitle>
-
-    <h4>Seleccione cantidad de boletos:</h4>
-    <mat-form-field appearance="fill">
-      <mat-label>Cantidad</mat-label>
-      <select matNativeControl required>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-      </select>
-    </mat-form-field>
-
-    </mat-card><br>
-    <h3>Datos del comprador:</h3>
-    <mat-card class="card">
-        <mat-form-field appearance="fill" class="full">
-            <mat-label>Nombre</mat-label>
-            <input matInput>
-        </mat-form-field><br>
-        <mat-form-field appearance="fill" class="full">
-            <mat-label>Celular</mat-label>
-            <input matInput>
-        </mat-form-field><br>
-        <mat-form-field appearance="fill" class="full">
-            <mat-label>CI</mat-label>
-            <input matInput>
-        </mat-form-field><br>
-        <mat-form-field appearance="fill" class="full">
-            <mat-label>Correo electrónico</mat-label>
-            <input matInput>
-        </mat-form-field><br>
-    </mat-card><br>
-
-    <h3>Método de pago:</h3>
-    <mat-card class="card">
-        <mat-card-subtitle>Datos de tarjeta</mat-card-subtitle>
-        <mat-form-field appearance="fill" class="full">
-            <mat-label>Numero de tarjeta</mat-label>
-            <input matInput>
-        </mat-form-field><br>
-        <mat-form-field appearance="fill" class="half">
-            <mat-label>Expiracion</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <mat-form-field appearance="fill" class="half">
-            <mat-label>CVC</mat-label>
-            <input matInput>
-        </mat-form-field><br>
-
-        <mat-card-subtitle>Datos de facturacion</mat-card-subtitle>
-        <mat-form-field appearance="fill" class="half">
-            <mat-label>Nombres</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <mat-form-field appearance="fill" class="half">
-            <mat-label>Apellidos</mat-label>
-            <input matInput>
-        </mat-form-field><br>
-        <mat-form-field appearance="fill" class="third">
-            <mat-label>Direccion</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <mat-form-field appearance="fill" class="third">
-            <mat-label>Pais</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <mat-form-field appearance="fill" class="third">
-            <mat-label>Ciudad</mat-label>
-            <select matNativeControl required>
-              <option value="La Paz">La Paz</option>
-              <option value="Cochabamba">Cochabamba</option>
-              <option value="Tarija">Tarija</option>
-              <option value="Santa Cruz">Santa Cruz</option>
-              <option value="Chuquisaca">Chuquisaca</option>
-              <option value="Potosí">Potosí</option>
-              <option value="Beni">Beni</option>
-              <option value="Pando">Pando</option>
-              <option value="Oruro">Oruro</option>
-            </select>
-        </mat-form-field>
-    </mat-card>
-   <h1> <button mat-raised-button mat-button color="primary">Continuar</button></h1>
-</section>
-

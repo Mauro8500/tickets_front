@@ -33,6 +33,8 @@ export class FormEventoComponent implements OnInit {
       precio: ['',Validators.required],
       fechaInicio: ['',Validators.required],
       fechaFin: ['',Validators.required],
+      archivo: ['',Validators.required],
+      subir: ['',Validators.required],
     })
    }
   
@@ -47,6 +49,8 @@ export class FormEventoComponent implements OnInit {
     const precio = this.form.value.precio;
     const fechaInicio = this.form.value.fechaInicio;
     const fechaFin = this.form.value.fechaFin;
+    const archivo = this.form.value.archivo;
+    const subir = this.form.value.subir;
 
     let obj = '{'
     if(nombre!=''){
@@ -67,9 +71,20 @@ export class FormEventoComponent implements OnInit {
     if(fechaFin!=''){
       obj+='"fechaFin" : "'+fechaFin+'",'
     }
+    //if(archivo!=''){
+     // obj+='"imagenes" : "'+archivo+'",'
+   // }
+    //if(subir!=''){
+     // obj+='"subir" : "'+subir+'",'
+   // }
     obj+='"organizador" : "id ejemplo",'
     obj+='"estado" : "pendiente"}';
 
+    console.log("1");
+    console.log(subir);
+    console.log("2");
+    console.log(archivo);
+    console.log("3");
     //convierte objeto to a string
     let string = JSON.stringify(obj);
     console.log(JSON.parse(string))

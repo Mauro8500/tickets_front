@@ -1,4 +1,4 @@
-  <section>
+<section>
     <div class="example-button-row">
       <button mat-button routerLink ="/dashboard/form-evento" color="primary">Crear nuevo evento</button>
     </div>
@@ -24,7 +24,8 @@
                   <mat-card-subtitle>Precio: {{evento.precio}}</mat-card-subtitle>
                   <mat-card-actions>
                     <button mat-button (click)="entrarEvento(evento)">Mas información</button>
-                    <button mat-button (click)="comprarTickets(evento)" routerLink ="/dashboard/compraticket">Comprar tickets</button>
+                    <button mat-button (click)="editarEvento(evento)">Editar</button>
+                    <button mat-button (click)="cancelarEvento(evento)">Cancelar</button>
                   </mat-card-actions>
                 </mat-card>
                 <br>
@@ -32,6 +33,3 @@
         </tbody>
     </table>
 </div>
-
-
-  

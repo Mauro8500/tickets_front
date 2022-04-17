@@ -16,6 +16,8 @@ import { RegistrosComponent } from './registros/registros.component';
 import { CompraticketComponent } from './compraticket/compraticket.component';
 import { PagotarjetaComponent } from './pagotarjeta/pagotarjeta.component';
 import { MenuCompradorComponent } from './menu-comprador/menu-comprador.component';
+import { EventosCompradorComponent } from './eventos-comprador/eventos-comprador.component';
+import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.component';
 
 
 
@@ -34,6 +36,8 @@ import { MenuCompradorComponent } from './menu-comprador/menu-comprador.componen
     CompraticketComponent,
     PagotarjetaComponent,
     MenuCompradorComponent,
+    EventosCompradorComponent,
+    EventosVendedorComponent,
 
   ],
   imports: [

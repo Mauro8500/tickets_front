@@ -18,8 +18,19 @@ export class CompraticketComponent implements OnInit {
   constructor(private ticketsService: TicketsService, private fb: FormBuilder, private snackBar: MatSnackBar, private router: Router) {
 
     this.form = this.fb.group({
-      nit: ['',Validators.required],
       cantidadTickets: ['',Validators.required],
+      nombre: ['',Validators.required],
+      celular: ['',Validators.required],
+      ci: ['',Validators.required],
+      correo: ['',Validators.required],
+      tarjeta: ['',Validators.required],
+      expiracion: ['',Validators.required],
+      cvc: ['',Validators.required],
+      facturanom: ['',Validators.required],
+      facturaape: ['',Validators.required],
+      direccion: [''],
+      pais: [''],
+      departamento: ['',Validators.required],
     })
    }
   

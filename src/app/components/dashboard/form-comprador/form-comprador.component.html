@@ -4,7 +4,6 @@
         
         <form [formGroup]="form" (ngSubmit)="registrar()">
             <h1>Registro de comprador</h1>
-
             <mat-form-field class="ancho" appearance="fill">
                 <mat-label> Primer nombre </mat-label>
                 <input type="text" matInput autocomplete="off" formControlName="nombre1">
@@ -56,6 +55,7 @@
                 <mat-label>Ciudad</mat-label>
                 <input type="text" matInput autocomplete="off" formControlName="ciudad">
             </mat-form-field>
+            <mat-slide-toggle formControlName="notificom">Recibir notificaciones</mat-slide-toggle>
             <br>
             <button type="submit" mat-raised-button mat-button color="primary" [disabled]="form.invalid">Continuar</button>
         </form>
