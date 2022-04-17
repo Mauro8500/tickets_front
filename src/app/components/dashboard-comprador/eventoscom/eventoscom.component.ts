@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import { TicketsService } from 'src/app/tickets.service';
+import { TicketsService } from 'src/app/tickets.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -9,26 +9,26 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class EventoscomComponent implements OnInit {
 
-  //form: FormGroup;
-  //loading = false;
+  form: FormGroup;
+  loading = false;
 
   eventos = [
     { nombre: 'Frank', lugar: 'Murphy', precio: 4 },
 ];
-  constructor(/*private ticketsService: TicketsService, private fb: FormBuilder*/) {
+  constructor(private ticketsService: TicketsService, private fb: FormBuilder) {
 
-  /*this.form = this.fb.group({
+  this.form = this.fb.group({
     nombre: ['', Validators.required]
-  })*/
+  })
 }
   ngOnInit(): void {
-   /* this.ticketsService.getEventos().subscribe((response: any)=>{
+    this.ticketsService.getEventos().subscribe((response: any)=>{
       console.log(response);
       this.eventos = response
-    });*/
+    });
   }
 
- /* getEventosNombre(){
+  getEventosNombre(){
     const nombre = this.form.value.nombre;
     this.ticketsService.getEventosNombre(nombre).subscribe((response: any)=>{
       console.log(response);
@@ -51,6 +51,6 @@ export class EventoscomComponent implements OnInit {
     console.log("comprar tickets");
     console.log(evento);
     //mandar interfaz donde sale evento con sus imagenes e info?
-}*/
+}
 
 }
