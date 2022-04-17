@@ -22,7 +22,7 @@ export class EventosVendedorComponent implements OnInit {
 }
   ngOnInit(): void {
     //mandar id del vendedor logeado
-    this.ticketsService.getEventosOrganizador("id ejemplo").subscribe((response: any)=>{
+    this.ticketsService.getEventosOrganizador(this.ticketsService._id).subscribe((response: any)=>{
       console.log(response);
       this.eventos = response
       if(response.length==0){
@@ -34,12 +34,34 @@ export class EventosVendedorComponent implements OnInit {
   }
 
   detallesEvento(evento: any){
+            //set evento
+            this.ticketsService._idEvento = evento._id
+            this.ticketsService.nombre = evento.nombre
+            this.ticketsService.lugar = evento.lugar
+            this.ticketsService.capacidad = evento.capacidad
+            this.ticketsService.estadoEvento = evento.estado
+            this.ticketsService.organizador = evento.organizador
+            this.ticketsService.fechaInicio = evento.fechaInicio
+            this.ticketsService.fechaFin = evento.fechaFin
+            this.ticketsService.precio = evento.precio
+            //this.imagenes = []
       console.log("mas info");
       console.log(evento);
       //mandar interfaz donde sale evento con sus imagenes e info?
   }
 
   editarEvento(evento: any){
+            //set evento
+            this.ticketsService._idEvento = evento._id
+            this.ticketsService.nombre = evento.nombre
+            this.ticketsService.lugar = evento.lugar
+            this.ticketsService.capacidad = evento.capacidad
+            this.ticketsService.estadoEvento = evento.estado
+            this.ticketsService.organizador = evento.organizador
+            this.ticketsService.fechaInicio = evento.fechaInicio
+            this.ticketsService.fechaFin = evento.fechaFin
+            this.ticketsService.precio = evento.precio
+            //this.imagenes = []
     console.log("Editar evento");
     console.log(evento);
   }

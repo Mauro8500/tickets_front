@@ -26,7 +26,7 @@ export class EventosCompradorComponent implements OnInit {
 }
   ngOnInit(): void {
     //mandar id del cliente loggeado
-    this.ticketsService.getComprasIdCliente("6254efe0e70d04c8bac51cd5").subscribe((response: any)=>{
+    this.ticketsService.getComprasIdCliente(this.ticketsService._id).subscribe((response: any)=>{
       console.log(response);
       this.compras = response
       if(response.length==0){

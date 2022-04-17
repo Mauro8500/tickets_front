@@ -42,12 +42,34 @@ export class EventosvenComponent implements OnInit {
   }
 
   entrarEvento(evento: any){
+                //set evento
+            this.ticketsService._idEvento = evento._id
+            this.ticketsService.nombre = evento.nombre
+            this.ticketsService.lugar = evento.lugar
+            this.ticketsService.capacidad = evento.capacidad
+            this.ticketsService.estadoEvento = evento.estado
+            this.ticketsService.organizador = evento.organizador
+            this.ticketsService.fechaInicio = evento.fechaInicio
+            this.ticketsService.fechaFin = evento.fechaFin
+            this.ticketsService.precio = evento.precio
+            //this.imagenes = []
       console.log("mas info");
       console.log(evento);
       //mandar interfaz donde sale evento con sus imagenes e info?
   }
 
   comprarTickets(evento: any){
+                //set evento
+            this.ticketsService._idEvento = evento._id
+            this.ticketsService.nombre = evento.nombre
+            this.ticketsService.lugar = evento.lugar
+            this.ticketsService.capacidad = evento.capacidad
+            this.ticketsService.estadoEvento = evento.estado
+            this.ticketsService.organizador = evento.organizador
+            this.ticketsService.fechaInicio = evento.fechaInicio
+            this.ticketsService.fechaFin = evento.fechaFin
+            this.ticketsService.precio = evento.precio
+            //this.imagenes = []
     console.log("comprar tickets");
     console.log(evento);
     //mandar interfaz donde sale evento con sus imagenes e info?

@@ -77,7 +77,7 @@ export class FormEventoComponent implements OnInit {
     //if(subir!=''){
      // obj+='"subir" : "'+subir+'",'
    // }
-    obj+='"organizador" : "id ejemplo",'
+    obj+='"organizador" : "'+this.ticketsService._id+'",'
     obj+='"estado" : "pendiente"}';
 
     console.log("1");

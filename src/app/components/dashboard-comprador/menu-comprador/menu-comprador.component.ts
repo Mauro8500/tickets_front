@@ -31,7 +31,7 @@ export class MenuCompradorComponent implements OnInit {
         if(smsActivado!=''){
           obj+='"smsActivado" : '+smsActivado+','
         }
-        obj+='"_id" : "6254efe0e70d04c8bac51cd5"}';
+        obj+='"_id" : "'+this.ticketsService._id+'"}';
     
         //convierte objeto to a string
         let string = JSON.stringify(obj);

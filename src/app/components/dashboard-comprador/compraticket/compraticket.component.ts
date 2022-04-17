@@ -61,16 +61,16 @@ export class CompraticketComponent implements OnInit {
     if(apellido2!=''){
       obj+='"apellido2" : "'+apellido2+'",'
     }
-    obj+='"idEvento" : "idEvento ejemplo",'
-    obj+='"nombreEvento" : "nombreEvento ejemplo",'
-    obj+='"direccionEvento" : "direccionEvento ejemplo",'
-    obj+='"fechaInicio" : "2023-03-03",'
-    obj+='"fechaFin" : "2023-03-03",'
-    obj+='"idCliente" : "idCliente ejemplo",'
-    obj+='"precioUnitario" : 350,'
-    obj+='"correoCliente" : "correoCliente ejemplo",'
-    obj+='"telefono" : 23213,'
-    obj+='"smsActivado" : false}';
+    obj+='"idEvento" : "'+this.ticketsService._idEvento+'",'
+    obj+='"nombreEvento" : "'+this.ticketsService.nombre+'",'
+    obj+='"direccionEvento" : "'+this.ticketsService.lugar+'",'
+    obj+='"fechaInicio" : "'+this.ticketsService.fechaInicio+'",'
+    obj+='"fechaFin" : "'+this.ticketsService.fechaFin+'",'
+    obj+='"idCliente" : "'+this.ticketsService._id+'",'
+    obj+='"precioUnitario" : '+this.ticketsService.precio+','
+    obj+='"correoCliente" : "'+this.ticketsService.mail+'",'
+    obj+='"telefono" : '+this.ticketsService.telefono+','
+    obj+='"smsActivado" : '+this.ticketsService.smsActivado+'}';
 
     //convierte objeto to a string
     let string = JSON.stringify(obj);
