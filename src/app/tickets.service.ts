@@ -34,6 +34,10 @@ export class TicketsService {
     return this.webReqService.get('eventos?nombre='+nombre)
   }
 
+  getEventosOrganizador(organizador: String){
+    return this.webReqService.get('eventos?organizador='+organizador)
+  }
+
   getClientes(){
     return this.webReqService.get('clientes')
   }

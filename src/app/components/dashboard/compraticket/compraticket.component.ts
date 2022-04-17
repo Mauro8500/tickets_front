@@ -19,18 +19,14 @@ export class CompraticketComponent implements OnInit {
 
     this.form = this.fb.group({
       cantidadTickets: ['',Validators.required],
-      nombre: ['',Validators.required],
-      celular: ['',Validators.required],
-      ci: ['',Validators.required],
-      correo: ['',Validators.required],
+      nit: ['',Validators.required],
       tarjeta: ['',Validators.required],
       expiracion: ['',Validators.required],
       cvc: ['',Validators.required],
-      facturanom: ['',Validators.required],
-      facturaape: ['',Validators.required],
-      direccion: [''],
-      pais: [''],
-      departamento: ['',Validators.required],
+      nombre1: ['',Validators.required],
+      nombre2: ['',],
+      apellido1: ['',Validators.required],
+      apellido2: ['',Validators.required]
     })
    }
   
@@ -41,6 +37,10 @@ export class CompraticketComponent implements OnInit {
   registrar(){
     const nit = this.form.value.nit;
     const cantidadTickets = this.form.value.cantidadTickets;
+    const nombre1 = this.form.value.nombre1;
+    const nombre2 = this.form.value.nombre2;
+    const apellido1 = this.form.value.apellido1;
+    const apellido2 = this.form.value.apellido2;
 
     let obj = '{'
     if(nit!=''){
@@ -49,26 +49,34 @@ export class CompraticketComponent implements OnInit {
     if(cantidadTickets!=''){
       obj+='"cantidadTickets" : '+cantidadTickets+','
     }
+    if(nombre1!=''){
+      obj+='"nombre1" : "'+nombre1+'",'
+    }
+    if(nombre2!=''){
+      obj+='"nombre2" : "'+nombre2+'",'
+    }
+    if(apellido1!=''){
+      obj+='"apellido1" : "'+apellido1+'",'
+    }
+    if(apellido2!=''){
+      obj+='"apellido2" : "'+apellido2+'",'
+    }
     obj+='"idEvento" : "idEvento ejemplo",'
     obj+='"nombreEvento" : "nombreEvento ejemplo",'
     obj+='"direccionEvento" : "direccionEvento ejemplo",'
     obj+='"fechaInicio" : "2023-03-03",'
     obj+='"fechaFin" : "2023-03-03",'
     obj+='"idCliente" : "idCliente ejemplo",'
-    obj+='"nombre1" : "nombre1 ejemplo",'
-    obj+='"nombre2" : "nombre2 ejemplo",'
-    obj+='"apellido1" : "apellido1 ejemplo",'
-    obj+='"apellido2" : "apellido2 ejemplo",'
     obj+='"precioUnitario" : 350,'
     obj+='"correoCliente" : "correoCliente ejemplo",'
-    obj+='"numTelefono" : 23213,'
+    obj+='"telefono" : 23213,'
     obj+='"smsActivado" : false}';
 
     //convierte objeto to a string
     let string = JSON.stringify(obj);
     console.log(JSON.parse(string))
     //post para registro
-    this.ticketsService.postEventos(JSON.parse(string)).subscribe((response: any)=>{
+    this.ticketsService.postCompras(JSON.parse(string)).subscribe((response: any)=>{
       console.log("compra registrada exitosamente")
     },
     error => {

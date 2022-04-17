@@ -13,24 +13,16 @@ export class EventosVendedorComponent implements OnInit {
   loading = false;
 
   eventos = [
-    { nombre: 'Frank', lugar: 'Murphy', precio: 4 },
+    { nombre: 'Frank', lugar: 'Murphy', precio: 4 ,estado:"sadsa"},
   ];
   constructor(private ticketsService: TicketsService, private fb: FormBuilder) {
 
   this.form = this.fb.group({
-    nombre: ['', Validators.required]
   })
 }
   ngOnInit(): void {
-    this.ticketsService.getEventos().subscribe((response: any)=>{
-      console.log(response);
-      this.eventos = response
-    });
-  }
-
-  getEventosNombre(){
-    const nombre = this.form.value.nombre;
-    this.ticketsService.getEventosNombre(nombre).subscribe((response: any)=>{
+    //mandar id del vendedor logeado
+    this.ticketsService.getEventosOrganizador("id ejemplo").subscribe((response: any)=>{
       console.log(response);
       this.eventos = response
       if(response.length==0){
@@ -41,15 +33,10 @@ export class EventosVendedorComponent implements OnInit {
     });
   }
 
-  entrarEvento(evento: any){
+  detallesEvento(evento: any){
       console.log("mas info");
       console.log(evento);
       //mandar interfaz donde sale evento con sus imagenes e info?
-  }
-
-  cancelarEvento(evento: any){
-    console.log("Cancelar evento");
-    console.log(evento);
   }
 
   editarEvento(evento: any){

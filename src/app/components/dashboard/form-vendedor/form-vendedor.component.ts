@@ -47,8 +47,8 @@ export class FormVendedorComponent implements OnInit {
   registrar(){
     const nombre1 = this.form.value.nombre1;
     const nombre2 = this.form.value.nombre2;
-    const apellido1 = this.form.value.apellidos;
-    const apellido2 = this.form.value.apellidos;
+    const apellido1 = this.form.value.apellido1;
+    const apellido2 = this.form.value.apellido2;
     const password = this.form.value.password;
     const repassword = this.form.value.repassword;
     const fechaNacimiento = this.form.value.fechaNacimiento;
