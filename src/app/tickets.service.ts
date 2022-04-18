@@ -187,4 +187,12 @@ export class TicketsService {
   getComprasIdCliente(_id: String){
     return this.webReqService.get('compras?_id='+_id)
   }
+
+  authClientes(obj: any){
+    return this.webReqService.getBody('authclientes',JSON.parse(obj))
+  }
+
+  authVendedores(obj: any){
+      return this.webReqService.getBody('authvendedores',JSON.parse(obj))
+  }
 }
