@@ -1,1 +1,16 @@
-<p>form-editar works!</p>
+
+<div class="body">
+    <div class="form">
+        <mat-spinner *ngIf="loading" class ="spinner "diameter="50"></mat-spinner>
+        
+        <form [formGroup]="form" (ngSubmit)="cambiarCapacidad()">
+            <h1>Edicion de evento</h1>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Capacidad</mat-label>
+                <input type="number" matInput autocomplete="off" formControlName="capacidad">
+            </mat-form-field>
+            <br>
+            <button type="submit" mat-raised-button mat-button color="primary" [disabled]="form.invalid">Cambiar capacidad</button>
+        </form>
+    </div>
+</div>

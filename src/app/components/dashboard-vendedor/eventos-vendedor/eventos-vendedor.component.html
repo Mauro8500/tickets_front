@@ -19,7 +19,7 @@
                   <mat-card-subtitle [hidden]="eventoTerminado(evento)==false">Estado: Finalizado</mat-card-subtitle>
                   <mat-card-actions>
                     <button mat-button (click)="detallesEvento(evento)">Mas información</button>
-                    <button mat-button (click)="editarEvento(evento)">Editar</button>
+                    <button [hidden]="eventoTerminado(evento)==true" mat-button (click)="editarEvento(evento)">Editar</button>
                     <button [hidden]="eventoTerminado(evento)==true" mat-button (click)="cancelarEvento(evento)">Cancelar evento</button>
                   </mat-card-actions>
                 </mat-card>

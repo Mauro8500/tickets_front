@@ -59,7 +59,7 @@ export class EventosComponent implements OnInit {
 }
 
 eventoTerminado(evento: any){
-  if(this.date>evento.fechaFin){
+  if(this.date.getTime()>evento.fechaFin.getTime()){
     return true
   }else{
     return false
