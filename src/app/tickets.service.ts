@@ -148,6 +148,10 @@ export class TicketsService {
       return this.webReqService.put('eventos',JSON.parse(obj))
   }
 
+  putTickets(obj: any){
+    return this.webReqService.put('tickets',JSON.parse(obj))
+}
+
   getEventos(){
     return this.webReqService.get('eventos')
   }
@@ -195,4 +199,5 @@ export class TicketsService {
   authVendedores(obj: any){
       return this.webReqService.getBody('authvendedores',JSON.parse(obj))
   }
+
 }

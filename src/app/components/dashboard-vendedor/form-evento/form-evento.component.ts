@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { TicketsService } from 'src/app/tickets.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import * as e from 'express';
 
 
 @Component({
@@ -88,6 +89,12 @@ export class FormEventoComponent implements OnInit {
     //convierte objeto to a string
     let string = JSON.stringify(obj);
     console.log(JSON.parse(string))
+
+    //validar que este autenticado como vendedor
+    if(this.ticketsService.estaLogeado == true && this.ticketsService.esCliente == false){
+      console.log("Esta autenticado como vendedor asi que se prosigue")
+      
+
     //post para registro
     this.ticketsService.postEventos(JSON.parse(string)).subscribe((response: any)=>{
       console.log("evento añadido exitosamente")
@@ -115,6 +122,15 @@ export class FormEventoComponent implements OnInit {
         }
       }
     },);
+
+
+
+
+
+    }else{
+      console.log("no esta logeado o esta logeado como cliente")
+    }
+
   }
 
 

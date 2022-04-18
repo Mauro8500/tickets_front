@@ -12,14 +12,19 @@ export class EventosComponent implements OnInit {
   form: FormGroup;
   loading = false;
 
+  date
+
   eventos = [
-    { nombre: 'Frank', lugar: 'Murphy', precio: 4 },
+    { nombre: 'Frank', lugar: 'Murphy', precio: 4, estado: "cancelado" },
 ];
   constructor(private ticketsService: TicketsService, private fb: FormBuilder) {
 
   this.form = this.fb.group({
     nombre: ['', Validators.required]
   })
+
+  this.date = new Date()
+  this.date.setHours(0,0,0,0)
 }
   ngOnInit(): void {
     this.ticketsService.getEventos().subscribe((response: any)=>{
@@ -51,6 +56,22 @@ export class EventosComponent implements OnInit {
     console.log("comprar tickets");
     console.log(evento);
     //mandar interfaz donde sale evento con sus imagenes e info?
+}
+
+eventoTerminado(evento: any){
+  if(this.date>evento.fechaFin){
+    return true
+  }else{
+    return false
+  }
+}
+
+noTickets(evento: any){
+  if(evento.ticketsVendidos==evento.capacidad){
+    return true
+  }else{
+    return false
+  }
 }
 
 }

@@ -42,6 +42,12 @@ export class CompraticketComponent implements OnInit {
     const apellido1 = this.form.value.apellido1;
     const apellido2 = this.form.value.apellido2;
 
+    let objVerificacion = '{'
+    if(cantidadTickets!=''){
+      objVerificacion+='"tickets" : '+cantidadTickets+','
+    }
+    objVerificacion+='"_id" : '+this.ticketsService._idEvento+'}';
+
     let obj = '{'
     if(nit!=''){
       obj+='"nit" : '+nit+','
@@ -73,10 +79,23 @@ export class CompraticketComponent implements OnInit {
     obj+='"smsActivado" : '+this.ticketsService.smsActivado+'}';
 
     //convierte objeto to a string
+    let stringVerificacion = JSON.stringify(objVerificacion);
+    console.log(JSON.parse(stringVerificacion))
+
     let string = JSON.stringify(obj);
     console.log(JSON.parse(string))
-    //post para registro
-    this.ticketsService.postCompras(JSON.parse(string)).subscribe((response: any)=>{
+
+        //validar que este autenticado como cliente
+        if(this.ticketsService.estaLogeado == true && this.ticketsService.esCliente == true){
+          console.log("Esta autenticado como cliente asi que se prosigue")
+
+
+    //verificacion y put
+    this.ticketsService.putTickets(JSON.parse(stringVerificacion)).subscribe((response: any)=>{
+      console.log("se logro hacer put asi que se prosigue con el registro de compra")
+
+//registro de compra si se logra comprar tickets
+this.ticketsService.postCompras(JSON.parse(string)).subscribe((response: any)=>{
       console.log("compra registrada exitosamente")
     },
     error => {
@@ -90,6 +109,35 @@ export class CompraticketComponent implements OnInit {
         }
       }
     },);
+
+
+    },
+    error => {
+      if(this.mensajeError(error)==JSON.stringify("Se requieren los parametros _id y tickets")){
+        console.log("Se requieren los parametros _id y tickets")
+      }else{
+        if(this.mensajeError(error)==JSON.stringify("el parametro tickets debe ser mayor a 0")){
+          console.log("el parametro tickets debe ser mayor a 0")
+        }else{
+          if(this.mensajeError(error)==JSON.stringify("No alcanzan los tickets")){
+            console.log("No alcanzan los tickets")
+          }else{
+            console.log("Verifique sus datos")
+          }
+        }
+      }
+    },);
+
+
+
+
+        }else{
+          console.log("No esta autenticado o esta autenticado como vendedor asi que no prosigue")
+        }
+
+
+    
+    
   }
 
 
