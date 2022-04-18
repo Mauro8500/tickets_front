@@ -12,6 +12,7 @@ import { EmpresaComponent } from './empresa/empresa.component';
 import { FormEventoComponent } from './form-evento/form-evento.component';
 import { FormEmpresaComponent } from './form-empresa/form-empresa.component';
 import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.component';
+import { FormEditarComponent } from './form-editar/form-editar.component';
 /*import { RegistrosComponent } from './registros/registros.component';
 import { EventosCompradorComponent } from './eventos-comprador/eventos-comprador.component';
 import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.component';*/
@@ -29,6 +30,7 @@ import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.co
     FormEventoComponent,
     FormEmpresaComponent,
     EventosVendedorComponent,
+    FormEditarComponent,
     /*RegistrosComponent,
     EventosCompradorComponent,
     EventosVendedorComponent,*/
