@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { TicketsService } from 'src/app/tickets.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-eventoscom',
@@ -15,7 +16,7 @@ export class EventoscomComponent implements OnInit {
   eventos = [
     { nombre: 'Frank', lugar: 'Murphy', precio: 4 },
 ];
-  constructor(private ticketsService: TicketsService, private fb: FormBuilder) {
+  constructor(private ticketsService: TicketsService, private fb: FormBuilder,public dialog: MatDialog) {
 
   this.form = this.fb.group({
     nombre: ['', Validators.required]
@@ -35,6 +36,7 @@ export class EventoscomComponent implements OnInit {
       this.eventos = response
       if(response.length==0){
         console.log("vacio")
+        this.openDialog();
       }else{
         console.log("hay resultado")
       }
@@ -76,4 +78,32 @@ export class EventoscomComponent implements OnInit {
     //mandar interfaz donde sale evento con sus imagenes e info?
 }
 
+  openDialog(): void {
+  const dialogRef = this.dialog.open(DialogComponentData , {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      window.location.reload();
+    });
+  }
+
+
+}
+
+
+@Component({
+  selector: 'dialogcontent',
+  templateUrl: './dialog/dialogcontent.html',
+})
+export class DialogComponentData {
+  constructor(
+    public dialogRef: MatDialogRef<DialogComponentData>,
+  
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }

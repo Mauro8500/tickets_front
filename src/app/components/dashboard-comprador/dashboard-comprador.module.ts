@@ -7,11 +7,12 @@ import { DashboardCompradorComponent } from './dashboard-comprador.component';
 import { NavbarcomComponent } from './navbarcom/navbarcom.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LogincompradorComponent } from './logincomprador/logincomprador.component';
-import { EventoscomComponent } from './eventoscom/eventoscom.component';
+import { EventoscomComponent, DialogComponentData } from './eventoscom/eventoscom.component';
 import { MenuCompradorComponent } from './menu-comprador/menu-comprador.component';
 import { CompraticketComponent } from './compraticket/compraticket.component';
 import { EmpresaComponent } from './empresa/empresa.component';
 import { EventosCompradorComponent } from './eventos-comprador/eventos-comprador.component';
+import { MatDialogModule } from '@angular/material/dialog';
 /*
 
 import { PagotarjetaComponent } from './pagotarjeta/pagotarjeta.component';
@@ -31,6 +32,7 @@ import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.co
     CompraticketComponent,
     EmpresaComponent,
     EventosCompradorComponent,
+    DialogComponentData,
     /*FormCompradorComponent,
     FormVendedorComponent,
     FormEventoComponent,
@@ -46,7 +48,8 @@ import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.co
   imports: [
     CommonModule,
     DashboardCompradorRoutingModule,
-    SharedModule
+    SharedModule,
+    MatDialogModule
   ]
 })
 export class DashboardCompradorModule { }
