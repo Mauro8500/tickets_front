@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { TicketsService } from 'src/app/tickets.service';
@@ -18,7 +19,7 @@ export class FormCompradorComponent implements OnInit {
   loading = false;
   isChecked = false;
 
-  constructor(private ticketsService: TicketsService, private fb: FormBuilder, private snackBar: MatSnackBar, private router: Router) {
+  constructor(private ticketsService: TicketsService, private fb: FormBuilder,public dialog: MatDialog, private snackBar: MatSnackBar, private router: Router) {
 
         // Minimo 1 de Enero de hace 115 años y maximo ayer. No olvidar que mes va de 0 a 11
         const fechaActual = new Date()
@@ -109,6 +110,11 @@ export class FormCompradorComponent implements OnInit {
     //post para registro
     this.ticketsService.postClientes(JSON.parse(string)).subscribe((response: any)=>{
       console.log("registro exitoso, confirme su cuenta")
+
+      this.openDialog()
+
+
+
     },
     error => {
       if(this.mensajeError(error)==JSON.stringify("Se requieren los parametros nombre1, apellido1, apellido2, fechaNacimiento, ci, mail, password, repassword, departamento y ciudad")){
@@ -125,6 +131,8 @@ export class FormCompradorComponent implements OnInit {
         }
       }
     },);
+
+
   }
 
 
@@ -136,4 +144,30 @@ export class FormCompradorComponent implements OnInit {
     return JSON.stringify(json.error)
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponentData2 , {
+        width: '250px',
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.router.navigate(['/dashboard/login'],);
+      });
+    }
+
+}
+
+@Component({
+  selector: 'dialogcontent',
+  templateUrl: './dialogcomprador.html',
+})
+export class DialogComponentData2 {
+  constructor(
+    public dialogRef: MatDialogRef<DialogComponentData2>,
+  
+  ) {}
+
+  onOkClick(): void {
+    this.dialogRef.close();
+  }
 }

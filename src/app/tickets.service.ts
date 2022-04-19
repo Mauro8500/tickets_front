@@ -180,6 +180,10 @@ export class TicketsService {
     return this.webReqService.get('vendedores?_id='+_id)
   }
 
+  getVendedoresMail(mail: String){
+    return this.webReqService.get('vendedores?mail='+mail)
+  }
+
   putClientesSms(obj: any){
     return this.webReqService.put('clientes',JSON.parse(obj))
   }

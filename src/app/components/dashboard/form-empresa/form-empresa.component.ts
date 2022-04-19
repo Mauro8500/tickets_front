@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { TicketsService } from 'src/app/tickets.service';
-
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-form-empresa',
@@ -19,7 +19,7 @@ export class FormEmpresaComponent implements OnInit {
   form: FormGroup;
   loading = false;
 
-  constructor(private ticketsService: TicketsService, private fb: FormBuilder, private snackBar: MatSnackBar, private router: Router) {
+  constructor(private ticketsService: TicketsService, private fb: FormBuilder, public dialog: MatDialog,private snackBar: MatSnackBar, private router: Router) {
             // Minimo 1 de Enero de hace 115 años y maximo ayer. No olvidar que mes va de 0 a 11
             const fechaActual = new Date()
             this.minDate = new Date(fechaActual.getFullYear() - 115, 0, 1);
@@ -130,9 +130,18 @@ export class FormEmpresaComponent implements OnInit {
     //convierte objeto to a string
     let string = JSON.stringify(obj);
     
+        //validar mail
+        this.ticketsService.getVendedoresMail(mail).subscribe((response: any)=>{
+          console.log("registro exitoso, confirme su cuenta")
+
+
+if(response == true){
+console.log("ya esta registrado este mail")
+}else{
     //post para registro
     this.ticketsService.postVendedores(JSON.parse(string)).subscribe((response: any)=>{
       console.log("registro exitoso, confirme su cuenta")
+      this.openDialog()
     },
     error => {
       if(this.mensajeError(error)==JSON.stringify("Se requieren los parametros nombre1, apellido1, apellido2, fechaNacimiento, ci, mail, password, repassword, departamento, ciudad, banco, cuenta y esEmpresa")){
@@ -144,11 +153,24 @@ export class FormEmpresaComponent implements OnInit {
           if(this.mensajeError(error)==JSON.stringify("Los parametros password y repassword deben ser iguales")){
             console.log("Los parametros password y repassword deben ser iguales")
           }else{
-            console.log("Verifique sus datos")
+              console.log("Verifique sus datos")
           }
         }
       }
     },);
+}
+
+
+
+
+
+
+
+
+
+        },
+        error => {
+        },);
   }
 
 
@@ -158,5 +180,32 @@ export class FormEmpresaComponent implements OnInit {
 
         let json = JSON.parse(string)
     return JSON.stringify(json.error)
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponentData4 , {
+        width: '250px',
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.router.navigate(['/dashboard/login'],);
+      });
+    }
+
+}
+
+@Component({
+  selector: 'dialogcontent',
+  templateUrl: './dialogempresa.html',
+})
+export class DialogComponentData4 {
+  constructor(
+    public dialogRef: MatDialogRef<DialogComponentData4>,
+  
+  ) {}
+
+  onOkClick(): void {
+    this.dialogRef.close();
   }
 }

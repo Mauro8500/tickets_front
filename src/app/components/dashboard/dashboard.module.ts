@@ -14,6 +14,7 @@ import { FormCompradorComponent } from './form-comprador/form-comprador.componen
 import { FormVendedorComponent } from './form-vendedor/form-vendedor.component';
 import { FormEmpresaComponent } from './form-empresa/form-empresa.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponentData2 } from './form-comprador/form-comprador.component';
 /*import { FormEventoComponent } from './form-evento/form-evento.component';
 import { CompraticketComponent } from './compraticket/compraticket.component';
 import { PagotarjetaComponent } from './pagotarjeta/pagotarjeta.component';
@@ -36,6 +37,7 @@ import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.co
     FormVendedorComponent,
     FormEmpresaComponent,
     DialogComponentData, 
+    DialogComponentData2
     /*FormEventoComponent,
     
     CompraticketComponent,
