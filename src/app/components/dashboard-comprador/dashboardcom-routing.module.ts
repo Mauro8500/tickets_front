@@ -7,6 +7,7 @@ import { EventoscomComponent } from './eventoscom/eventoscom.component';
 import { MenuCompradorComponent } from './menu-comprador/menu-comprador.component';
 import { CompraticketComponent } from './compraticket/compraticket.component';
 import { EmpresaComponent } from './empresa/empresa.component';
+import { EventosCompradorComponent } from './eventos-comprador/eventos-comprador.component';
 /*
 */
 
@@ -19,6 +20,7 @@ const routes: Routes = [
     { path: 'menu-comprador', component: MenuCompradorComponent},
     { path: 'compraticket', component: CompraticketComponent},
     { path: 'empresa', component: EmpresaComponent },
+    { path: 'EventosCompradorComponent', component: EventosCompradorComponent },
     /*
     */
   ]}

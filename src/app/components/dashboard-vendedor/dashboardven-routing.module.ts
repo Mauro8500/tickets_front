@@ -6,10 +6,12 @@ import { LoginvendedorComponent } from './loginvendedor/loginvendedor.component'
 import { EventosvenComponent } from './eventosven/eventosven.component';
 import { EmpresaComponent } from './empresa/empresa.component';
 import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.component';
+import { FormEventoComponent } from './form-evento/form-evento.component';
+
+
 
 /*import { RegistrosComponent } from './registros/registros.component';
 import { FormVendedorComponent } from './form-vendedor/form-vendedor.component';
-import { FormEventoComponent } from './form-evento/form-evento.component';
 import { FormEmpresaComponent } from './form-empresa/form-empresa.component';
 import { FormCompradorComponent } from './form-comprador/form-comprador.component';
 import { CompraticketComponent } from './compraticket/compraticket.component';
@@ -23,11 +25,12 @@ const routes: Routes = [
     { path: 'eventosven', component: EventosvenComponent },
     { path: 'empresa', component: EmpresaComponent },
     { path: 'eventos-vendedor', component: EventosVendedorComponent },
+    { path: 'form-evento', component: FormEventoComponent },
     /*{ path: 'registros', component: RegistrosComponent },
     { path: 'form-vendedor', component: FormVendedorComponent },
     { path: 'form-comprador', component: FormCompradorComponent },
     { path: 'form-empresa', component: FormEmpresaComponent },
-    { path: 'form-evento', component: FormEventoComponent },
+    
     { path: 'compraticket', component: CompraticketComponent},
     { path: 'menu-comprador', component: MenuCompradorComponent}*/
   ]}

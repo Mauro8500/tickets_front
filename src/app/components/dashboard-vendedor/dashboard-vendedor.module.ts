@@ -31,9 +31,10 @@ import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.co
     FormEmpresaComponent,
     EventosVendedorComponent,
     FormEditarComponent,
+    EventosVendedorComponent,
     /*RegistrosComponent,
     EventosCompradorComponent,
-    EventosVendedorComponent,*/
+*/
 
   ],
   imports: [

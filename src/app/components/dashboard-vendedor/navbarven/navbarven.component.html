@@ -1,1 +1,14 @@
-<p>navbarven works!</p>
+<mat-toolbar color="warn">
+    <span>GigaTickets</span>
+    <span class="example-spacer"></span>
+    <button mat-button routerLink="/dashboard-vendedor/inicio">Inicio</button>
+    <button mat-button routerLink="/dashboard-vendedor/eventos-vendedor">Eventos</button>
+    <button mat-button routerLink="/dashboard-vendedor/empresa">Empresas</button>
+
+    <!--<button mat-button routerLink="/dashboard-vendedor/inicio">Vendedor</button>
+    <button mat-button routerLink="/dashboard-comprador/inicio">Comprador</button> -->
+    <span class="example-spacer"></span>
+    <button routerLink="/dashboard/inicio" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>logout</mat-icon>
+    </button>
+</mat-toolbar>
