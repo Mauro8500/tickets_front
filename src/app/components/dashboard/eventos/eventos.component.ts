@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TicketsService } from 'src/app/tickets.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-eventos',
@@ -12,12 +13,12 @@ export class EventosComponent implements OnInit {
   form: FormGroup;
   loading = false;
 
-  date
+  date: Date;
 
   eventos = [
     { nombre: 'Frank', lugar: 'Murphy', precio: 4, estado: "cancelado" },
 ];
-  constructor(private ticketsService: TicketsService, private fb: FormBuilder) {
+  constructor(private ticketsService: TicketsService, private fb: FormBuilder, public dialog: MatDialog) {
 
   this.form = this.fb.group({
     nombre: ['', Validators.required]
@@ -40,6 +41,7 @@ export class EventosComponent implements OnInit {
       this.eventos = response
       if(response.length==0){
         console.log("vacio")
+        this.openDialog();
       }else{
         console.log("hay resultado")
       }
@@ -59,11 +61,18 @@ export class EventosComponent implements OnInit {
 }
 
 eventoTerminado(evento: any){
-  if(this.date.getTime()>evento.fechaFin.getTime()){
+  /* codigo antiguo
+  if(this.date.getTime()>evento.fechaFin){
     return true
   }else{
     return false
-  }
+  }*/
+
+  if(this.date.toJSON()>evento.fechaFin){
+    return true
+  }else{
+    return false
+  } 
 }
 
 noTickets(evento: any){
@@ -74,4 +83,30 @@ noTickets(evento: any){
   }
 }
 
+openDialog(): void {
+  const dialogRef = this.dialog.open(DialogComponentData , {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      window.location.reload();
+    });
+  }
+
+}
+
+@Component({
+  selector: 'dialogcontent',
+  templateUrl: './dialog/dialogcontent.html',
+})
+export class DialogComponentData {
+  constructor(
+    public dialogRef: MatDialogRef<DialogComponentData>,
+  
+  ) {}
+
+  onOkClick(): void {
+    this.dialogRef.close();
+  }
 }
