@@ -61,14 +61,7 @@ export class EventosComponent implements OnInit {
 }
 
 eventoTerminado(evento: any){
-  /* codigo antiguo
-  if(this.date.getTime()>evento.fechaFin){
-    return true
-  }else{
-    return false
-  }*/
-
-  if(this.date.toJSON()>evento.fechaFin){
+  if(this.date>evento.fechaFin){
     return true
   }else{
     return false

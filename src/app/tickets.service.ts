@@ -192,12 +192,11 @@ export class TicketsService {
     return this.webReqService.get('compras?_id='+_id)
   }
 
-  authClientes(obj: any){
-    return this.webReqService.getBody('authclientes',JSON.parse(obj))
+  authClientes(mail: String, password: string){
+    return this.webReqService.get('authclientes?mail='+mail+'&password='+password)
   }
 
-  authVendedores(obj: any){
-      return this.webReqService.getBody('authvendedores',JSON.parse(obj))
+  authVendedores(mail: String, password: string){
+    return this.webReqService.get('authvendedores?mail='+mail+'&password='+password)
   }
-
 }

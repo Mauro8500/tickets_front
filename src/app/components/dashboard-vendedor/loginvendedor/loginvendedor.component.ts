@@ -28,21 +28,8 @@ export class LoginvendedorComponent implements OnInit {
       const mail = this.form.value.mail;
       const password = this.form.value.password;
 
-      let obj = '{'
-      if(mail!=''){
-        obj+='"mail" : "'+mail+'",'
-      }
-      if(password!=''){
-        obj+='"password" : "'+password+'",'
-      }
-      obj = obj.slice(0, -1); 
-      obj+='}';
-
-      //convierte objeto to a string
-      let string = JSON.stringify(obj);
-      console.log(JSON.parse(string))
       //login vendedor
-      this.ticketsService.authVendedores(JSON.parse(string)).subscribe((response: any)=>{
+      this.ticketsService.authVendedores(mail, password).subscribe((response: any)=>{
         console.log("response:")
         console.log(response)
         if(response.length==0){
@@ -51,7 +38,7 @@ export class LoginvendedorComponent implements OnInit {
           this.error();
           this.form.reset();
         }else{
-          let aux = JSON.parse(string)
+          let aux = response
           if(aux.estado==false){
             console.log("debe confirmar su correo para ingresar")
           }else{
