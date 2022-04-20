@@ -7,14 +7,14 @@ import { DashboardVendedorComponent } from './components/dashboard-vendedor/dash
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+//  { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   { path: 'dashboard', component: DashboardComponent},
   { path: 'dashboard', loadChildren: () => import('./components/dashboard/dashboard.module').then(x => x.DashboardModule) },
   { path: 'dashboard-comprador', component: DashboardCompradorComponent},
   { path: 'dashboard-comprador', loadChildren: () => import('./components/dashboard-comprador/dashboard-comprador.module').then(x => x.DashboardCompradorModule) },
   { path: 'dashboard-vendedor', component: DashboardVendedorComponent},
   { path: 'dashboard-vendedor', loadChildren: () => import('./components/dashboard-vendedor/dashboard-vendedor.module').then(x => x.DashboardVendedorModule) },
-  { path: '**', redirectTo: 'dashboard', pathMatch: 'full'}
+  //{ path: '**', redirectTo: 'dashboard', pathMatch: 'full'}
 ];
 
 @NgModule({

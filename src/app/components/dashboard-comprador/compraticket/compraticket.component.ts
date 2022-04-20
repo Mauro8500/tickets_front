@@ -4,7 +4,8 @@ import { FormBuilder } from '@angular/forms';
 import { TicketsService } from 'src/app/tickets.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { jsPDF } from "jspdf";
 @Component({
   selector: 'app-compraticket',
   templateUrl: './compraticket.component.html',
@@ -15,7 +16,7 @@ export class CompraticketComponent implements OnInit {
   form: FormGroup;
   loading = false;
 
-  constructor(private ticketsService: TicketsService, private fb: FormBuilder, private snackBar: MatSnackBar, private router: Router) {
+  constructor(private ticketsService: TicketsService, private fb: FormBuilder, private snackBar: MatSnackBar, private router: Router,public dialog: MatDialog) {
 
     this.form = this.fb.group({
       cantidadTickets: ['',Validators.required],
@@ -46,7 +47,7 @@ export class CompraticketComponent implements OnInit {
     if(cantidadTickets!=''){
       objVerificacion+='"tickets" : '+cantidadTickets+','
     }
-    objVerificacion+='"_id" : '+this.ticketsService._idEvento+'}';
+    objVerificacion+='"_id" : "'+this.ticketsService._idEvento+'"}';
 
     let obj = '{'
     if(nit!=''){
@@ -97,6 +98,7 @@ export class CompraticketComponent implements OnInit {
 //registro de compra si se logra comprar tickets
 this.ticketsService.postCompras(JSON.parse(string)).subscribe((response: any)=>{
       console.log("compra registrada exitosamente")
+      this.router.navigate(['/dashboard-comprador/eventoscom'])
     },
     error => {
       if(this.mensajeError(error)==JSON.stringify("Se requieren los parametros idEvento, nombreEvento, direccionEvento, fechaInicio, fechaFin, idCliente, nombre1, apellido1, apellido2, nit, cantidadTickets, precioUnitario, correoCliente y smsActivado")){
@@ -148,4 +150,77 @@ this.ticketsService.postCompras(JSON.parse(string)).subscribe((response: any)=>{
         let json = JSON.parse(string)
     return JSON.stringify(json.error)
   }
-}
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponentData6 , {
+        width: '250px',
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+      });
+    }
+  
+  
+  }
+  
+  
+  @Component({
+    selector: 'dialogcontent',
+    templateUrl: './dialogdescarga.html',
+  })
+  export class DialogComponentData6 {
+    constructor(
+      public dialogRef: MatDialogRef<DialogComponentData6>,
+    
+    ) {}
+  
+    onOkClick(): void {
+      this.dialogRef.close();
+    }
+
+    descargarFactura(/*compra: any*/){
+
+      //crear pdf de factura
+  /*let docF = new jsPDF();
+  docF.setFontSize(15)
+  docF.text(' Número de factura: '+compra.numeroFactura+
+  '\n Número SFV: '+compra.numeroSFV+'\n Actividad económica: Venta de tickets \n Título: Factura \n NIT: '+
+  compra.nit+'\n Fecha de emisión: '+this.formatearFecha(compra.fechaEmision)+'\n Código del evento: '+compra.idEvento+'\n Nombre del evento: '+compra.nombreEvento+
+  '\n Fecha de inicio: '+this.formatearFecha(compra.fechaInicio)+'       Fecha de conclusión: '+this.formatearFecha(compra.fechaFin)+
+  '\n Nombre: '+this.capitalizarPrimeraLetra(compra.apellido1)+" "+this.capitalizarPrimeraLetra(compra.apellido2)
+  +" "+this.capitalizarPrimeraLetra(compra.nombre1)+" "+this.capitalizarPrimeraLetra(compra.nombre2)+'\n Cantidad de tickets: '+
+  compra.cantidadTickets+'\n Precio unitario: '+compra.precioUnitario+'           Costo total: '+compra.total
+  , 10, 10);
+  docF.save("factura.pdf");
+  */
+  console.log("descarga factura");
+  }
+  descargarTickets(/*compra: any*/){
+   /* console.log(compra)
+      //crear pdfs de tickets
+      for(let i = 0; i<compra.cantidadTickets; i++){
+      let doc = new jsPDF();
+      doc.setFontSize(15)
+      doc.text(' Número de factura: '+compra.numeroFactura+
+      '\n Número SFV: '+compra.numeroSFV+'\n NIT: '+
+      compra.nit+'\n Fecha de emisión: '+this.formatearFecha(compra.fechaEmision)+'\n Código del evento: '+compra.idEvento+'\n Nombre del evento: '+compra.nombreEvento+
+      '\n Fecha de inicio: '+this.formatearFecha(compra.fechaInicio)+'       Fecha de conclusión: '+this.formatearFecha(compra.fechaFin)+
+      '\n Nombre: '+this.capitalizarPrimeraLetra(compra.apellido1)+" "+this.capitalizarPrimeraLetra(compra.apellido2)
+      +" "+this.capitalizarPrimeraLetra(compra.nombre1)+" "+this.capitalizarPrimeraLetra(compra.nombre2)+'\n Ticket '+(i+1)+"/"+compra.cantidadTickets
+      , 10, 10);
+      doc.save("ticket"+(i+1)+".pdf");
+  }*/
+  console.log("descarga tickets");
+  }
+  
+  capitalizarPrimeraLetra(string: string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+  
+  formatearFecha(dateObj: Date){
+    console.log(dateObj)
+  return //dateObj.getUTCDate()+ "/" + (dateObj.getUTCMonth() + 1) + "/"+dateObj.getUTCFullYear() ;
+  dateObj
+  }
+  }

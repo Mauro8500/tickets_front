@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TicketsService } from 'src/app/tickets.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-editar',
@@ -11,7 +12,7 @@ export class FormEditarComponent implements OnInit {
 
   form: FormGroup;
   loading = false;
-  constructor(private ticketsService: TicketsService, private fb: FormBuilder) {
+  constructor(private ticketsService: TicketsService, private fb: FormBuilder, private router: Router) {
 
     this.form = this.fb.group({
       capacidad: ['',Validators.required]
@@ -42,6 +43,7 @@ export class FormEditarComponent implements OnInit {
     //put
     this.ticketsService.putEventos(JSON.parse(string)).subscribe((response: any)=>{
       console.log("se logro modificar la capacidad del evento")
+      this.router.navigate(['/dashboard-vendedor/eventos-vendedor'])
       //ir a interfaz de eventos vendedor
     },
     error => {

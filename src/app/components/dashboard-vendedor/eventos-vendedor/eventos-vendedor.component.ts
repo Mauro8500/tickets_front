@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TicketsService } from 'src/app/tickets.service';
-
+import { Router } from '@angular/router';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-eventos-vendedor',
   templateUrl: './eventos-vendedor.component.html',
@@ -15,9 +16,9 @@ export class EventosVendedorComponent implements OnInit {
   date
 
   eventos = [
-    { nombre: 'Frank', lugar: 'Murphy', precio: 4 ,estado:"sadsa"},
+    { nombre: 'Frank', lugar: 'Murphy', precio: 4 ,estado:"sadsa", capacidad: 0},
   ];
-  constructor(private ticketsService: TicketsService, private fb: FormBuilder) {
+  constructor(private ticketsService: TicketsService, private fb: FormBuilder,private router: Router,public dialog: MatDialog) {
 
   this.form = this.fb.group({
   })
@@ -69,11 +70,20 @@ export class EventosVendedorComponent implements OnInit {
             //this.imagenes = []
     console.log("Editar evento");
     console.log(evento);
+    this.router.navigate(['/dashboard-vendedor/form-editar'])
   }
 
   
   eventoTerminado(evento: any){
     if(this.date>evento.fechaFin){
+      return true
+    }else{
+      return false
+    }
+  }
+
+  eventoCancelado(evento: any){
+    if(evento.estado == "cancelado"){
       return true
     }else{
       return false
@@ -112,6 +122,17 @@ console.log(JSON.parse(string))
 this.ticketsService.putEventos(JSON.parse(string)).subscribe((response: any)=>{
   console.log("se logro cancelar el evento")
   //refrescar interfaz
+      //mandar id del vendedor logeado
+      this.ticketsService.getEventosOrganizador(this.ticketsService._id).subscribe((response: any)=>{
+        console.log(response);
+        this.eventos = response
+        if(response.length==0){
+          console.log("vacio")
+        }else{
+          console.log("hay resultado")
+        }
+      });
+      this.openDialog()
 },
 error => {
   if(this.mensajeError(error)==JSON.stringify("Se requieren los parametros _id y estado, capacidad o imagenes")){
@@ -144,4 +165,34 @@ mensajeError(obj: any): string {
   let json = JSON.parse(string)
 return JSON.stringify(json.error)
 }
+
+openDialog(): void {
+  const dialogRef = this.dialog.open(DialogComponentData5 , {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.ticketsService.getEventos().subscribe((response: any)=>{
+        console.log(response);
+        this.eventos = response
+      });
+    });
+  }
+
+}
+
+@Component({
+  selector: 'dialogcontent',
+  templateUrl: './dialogcancelarevento.html',
+})
+export class DialogComponentData5 {
+  constructor(
+    public dialogRef: MatDialogRef<DialogComponentData5>,
+  
+  ) {}
+
+  onOkClick(): void {
+    this.dialogRef.close();
+  }
 }

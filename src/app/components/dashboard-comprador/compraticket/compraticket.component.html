@@ -68,7 +68,7 @@
                         <input type="number" matInput formControlName="nit">
                     </mat-form-field><br>
                 </mat-card>
-            <h1> <button mat-raised-button mat-button color="primary">Confirmar compra</button></h1>
+            <h1> <button mat-raised-button mat-button color="primary" [disabled]="form.invalid">Confirmar compra</button></h1>
             </section>
         </form>
     </div>

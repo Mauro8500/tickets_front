@@ -34,8 +34,8 @@ export class FormEventoComponent implements OnInit {
       precio: ['',Validators.required],
       fechaInicio: ['',Validators.required],
       fechaFin: ['',Validators.required],
-      archivo: ['',Validators.required],
-      subir: ['',Validators.required],
+      /*archivo: ['',Validators.required],
+      subir: ['',Validators.required],*/
     })
    }
   
@@ -50,8 +50,8 @@ export class FormEventoComponent implements OnInit {
     const precio = this.form.value.precio;
     const fechaInicio = this.form.value.fechaInicio;
     const fechaFin = this.form.value.fechaFin;
-    const archivo = this.form.value.archivo;
-    const subir = this.form.value.subir;
+   /* const archivo = this.form.value.archivo;
+    const subir = this.form.value.subir;*/
 
     let obj = '{'
     if(nombre!=''){
@@ -81,11 +81,11 @@ export class FormEventoComponent implements OnInit {
     obj+='"organizador" : "'+this.ticketsService._id+'",'
     obj+='"estado" : "pendiente"}';
 
-    console.log("1");
+  /*  console.log("1");
     console.log(subir);
     console.log("2");
     console.log(archivo);
-    console.log("3");
+    console.log("3");*/
     //convierte objeto to a string
     let string = JSON.stringify(obj);
     console.log(JSON.parse(string))
@@ -98,6 +98,7 @@ export class FormEventoComponent implements OnInit {
     //post para registro
     this.ticketsService.postEventos(JSON.parse(string)).subscribe((response: any)=>{
       console.log("evento añadido exitosamente")
+      this.router.navigate(['/dashboard-vendedor/eventos-vendedor'])
     },
     error => {
       if(this.mensajeError(error)==JSON.stringify("Se requieren los parametros nombre, lugar, capacidad, organizador, fechaInicio, fechaFin y precio")){

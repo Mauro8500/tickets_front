@@ -1,14 +1,8 @@
 <section>
   <div class="example-button-row">
-    <button mat-button routerLink ="/dashboard/form-evento" color="primary">Crear nuevo evento</button>
+    <button mat-button routerLink ="/dashboard-vendedor/form-evento" color="primary">Crear nuevo evento</button>
   </div>
 </section>
-
-<section>
-    <div class="example-button-row">
-      <button mat-button routerLink ="/dashboard/form-evento" color="primary">Crear nuevo evento</button>
-    </div>
-  </section>
 
       <h1>Eventos</h1>
 
@@ -21,12 +15,13 @@
                   <mat-card-title>Nombre del evento: {{evento.nombre}}</mat-card-title>
                   <mat-card-subtitle>Dirección: {{evento.lugar}}</mat-card-subtitle>
                   <mat-card-subtitle>Precio: {{evento.precio}}</mat-card-subtitle>
+                  <mat-card-subtitle>Capacidad: {{evento.capacidad}}</mat-card-subtitle>
                   <mat-card-subtitle [hidden]="eventoTerminado(evento)==true">Estado: {{evento.estado}}</mat-card-subtitle>
                   <mat-card-subtitle [hidden]="eventoTerminado(evento)==false">Estado: Finalizado</mat-card-subtitle>
                   <mat-card-actions>
                     <button mat-button (click)="detallesEvento(evento)">Mas información</button>
                     <button [hidden]="eventoTerminado(evento)==true" mat-button (click)="editarEvento(evento)">Editar</button>
-                    <button [hidden]="eventoTerminado(evento)==true" mat-button (click)="cancelarEvento(evento)">Cancelar evento</button>
+                    <button [hidden]="eventoTerminado(evento)==true || eventoCancelado(evento)==true" mat-button (click)="cancelarEvento(evento)">Cancelar evento</button>
                   </mat-card-actions>
                 </mat-card>
                 <br>

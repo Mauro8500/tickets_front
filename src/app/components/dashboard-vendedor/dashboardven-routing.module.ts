@@ -5,9 +5,9 @@ import { InicioComponent } from './inicio/inicio.component';
 import { LoginvendedorComponent } from './loginvendedor/loginvendedor.component'
 import { EventosvenComponent } from './eventosven/eventosven.component';
 import { EmpresaComponent } from './empresa/empresa.component';
-import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.component';
+import { DialogComponentData5, EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.component';
 import { FormEventoComponent } from './form-evento/form-evento.component';
-
+import { FormEditarComponent } from './form-editar/form-editar.component';
 
 
 /*import { RegistrosComponent } from './registros/registros.component';
@@ -26,6 +26,8 @@ const routes: Routes = [
     { path: 'empresa', component: EmpresaComponent },
     { path: 'eventos-vendedor', component: EventosVendedorComponent },
     { path: 'form-evento', component: FormEventoComponent },
+    { path: 'form-editar', component: FormEditarComponent },
+    { path: 'dialogcomponentdata5', component: DialogComponentData5 },
     /*{ path: 'registros', component: RegistrosComponent },
     { path: 'form-vendedor', component: FormVendedorComponent },
     { path: 'form-comprador', component: FormCompradorComponent },

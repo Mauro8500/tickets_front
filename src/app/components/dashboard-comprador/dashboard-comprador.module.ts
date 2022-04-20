@@ -13,6 +13,7 @@ import { CompraticketComponent } from './compraticket/compraticket.component';
 import { EmpresaComponent } from './empresa/empresa.component';
 import { EventosCompradorComponent } from './eventos-comprador/eventos-comprador.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponentData6 } from './compraticket/compraticket.component';
 
 /*
 
@@ -35,6 +36,7 @@ import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.co
     EventosCompradorComponent,
     DialogComponentData,
     EventosCompradorComponent,
+    DialogComponentData6,
     /*FormCompradorComponent,
     FormVendedorComponent,
     FormEventoComponent,

@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { TicketsService } from 'src/app/tickets.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-eventoscom',
   templateUrl: './eventoscom.component.html',
@@ -16,7 +16,7 @@ export class EventoscomComponent implements OnInit {
   eventos = [
     { nombre: 'Frank', lugar: 'Murphy', precio: 4 },
 ];
-  constructor(private ticketsService: TicketsService, private fb: FormBuilder,public dialog: MatDialog) {
+  constructor(private ticketsService: TicketsService, private fb: FormBuilder,public dialog: MatDialog,  private router: Router) {
 
   this.form = this.fb.group({
     nombre: ['', Validators.required]
@@ -43,6 +43,13 @@ export class EventoscomComponent implements OnInit {
     });
   }
 
+  estaLogeadoCliente(){
+    if (this.ticketsService.esCliente==false || this.ticketsService.estaLogeado==false){
+      return false
+    }else{
+      return true
+    }
+  }
   entrarEvento(evento: any){
         //set evento
         this.ticketsService._idEvento = evento._id
@@ -85,7 +92,10 @@ export class EventoscomComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      window.location.reload();
+      this.ticketsService.getEventos().subscribe((response: any)=>{
+        console.log(response);
+        this.eventos = response
+      });
     });
   }
 

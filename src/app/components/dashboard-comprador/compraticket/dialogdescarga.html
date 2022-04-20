@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Atención</h1>
+<div mat-dialog-content>
+  <p>Descarga factura y tickets?</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button cdkFocusInitial (click)="onOkClick()">Continuar</button>
+  <button mat-button (click)="descargarTickets()">Descargar tickets</button>
+  <button mat-button (click)="descargarFactura()">Descargar factura</button>
+</div>

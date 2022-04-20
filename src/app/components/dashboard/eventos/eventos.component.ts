@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TicketsService } from 'src/app/tickets.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-
+import { Router } from '@angular/router'
 @Component({
   selector: 'app-eventos',
   templateUrl: './eventos.component.html',
@@ -18,7 +18,7 @@ export class EventosComponent implements OnInit {
   eventos = [
     { nombre: 'Frank', lugar: 'Murphy', precio: 4, estado: "cancelado" },
 ];
-  constructor(private ticketsService: TicketsService, private fb: FormBuilder, public dialog: MatDialog) {
+  constructor(private ticketsService: TicketsService, private fb: FormBuilder, public dialog: MatDialog,private router: Router) {
 
   this.form = this.fb.group({
     nombre: ['', Validators.required]
@@ -42,6 +42,7 @@ export class EventosComponent implements OnInit {
       if(response.length==0){
         console.log("vacio")
         this.openDialog();
+
       }else{
         console.log("hay resultado")
       }
@@ -57,6 +58,9 @@ export class EventosComponent implements OnInit {
   comprarTickets(evento: any){
     console.log("comprar tickets");
     console.log(evento);
+    if(this.ticketsService.estaLogeado == false || this.ticketsService.esCliente == false){
+      this.router.navigate(['/dashboard-comprador/logincomprador'])
+    }
     //mandar interfaz donde sale evento con sus imagenes e info?
 }
 
@@ -83,7 +87,10 @@ openDialog(): void {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      window.location.reload();
+      this.ticketsService.getEventos().subscribe((response: any)=>{
+        console.log(response);
+        this.eventos = response
+      });
     });
   }
 

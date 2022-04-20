@@ -149,6 +149,8 @@ export class TicketsService {
   }
 
   putTickets(obj: any){
+
+    console.log(obj)
     return this.webReqService.put('tickets',JSON.parse(obj))
 }
 

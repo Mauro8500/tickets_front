@@ -53,12 +53,13 @@ compra.nit+'\n Fecha de emisión: '+this.formatearFecha(compra.fechaEmision)+'\n
 '\n Nombre: '+this.capitalizarPrimeraLetra(compra.apellido1)+" "+this.capitalizarPrimeraLetra(compra.apellido2)
 +" "+this.capitalizarPrimeraLetra(compra.nombre1)+" "+this.capitalizarPrimeraLetra(compra.nombre2)+'\n Cantidad de tickets: '+
 compra.cantidadTickets+'\n Precio unitario: '+compra.precioUnitario+'           Costo total: '+compra.total
-, 100, 100);
+, 10, 10);
 docF.save("factura.pdf");
 
 console.log("descarga factura");
 }
 descargarTickets(compra: any){
+  console.log(compra)
     //crear pdfs de tickets
     for(let i = 0; i<compra.cantidadTickets; i++){
     let doc = new jsPDF();
@@ -69,7 +70,7 @@ descargarTickets(compra: any){
     '\n Fecha de inicio: '+this.formatearFecha(compra.fechaInicio)+'       Fecha de conclusión: '+this.formatearFecha(compra.fechaFin)+
     '\n Nombre: '+this.capitalizarPrimeraLetra(compra.apellido1)+" "+this.capitalizarPrimeraLetra(compra.apellido2)
     +" "+this.capitalizarPrimeraLetra(compra.nombre1)+" "+this.capitalizarPrimeraLetra(compra.nombre2)+'\n Ticket '+(i+1)+"/"+compra.cantidadTickets
-    , 100, 100);
+    , 10, 10);
     doc.save("ticket"+(i+1)+".pdf");
 }
 console.log("descarga tickets");
@@ -80,7 +81,9 @@ return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 formatearFecha(dateObj: Date){
-return dateObj.getUTCDate()+ "/" + (dateObj.getUTCMonth() + 1) + "/"+dateObj.getUTCFullYear() ;
+  console.log(dateObj)
+return //dateObj.getUTCDate()+ "/" + (dateObj.getUTCMonth() + 1) + "/"+dateObj.getUTCFullYear() ;
+dateObj
 }
 
 }

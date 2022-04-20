@@ -1,7 +1,7 @@
 
 <section>
   <div class="example-button-row">
-    <button mat-button routerLink ="/dashboard-comprador/eventos-comprador" color="primary">Mirar mis compras</button>
+    <button [hidden]="estaLogeadoCliente()==false" mat-button routerLink ="/dashboard-comprador/eventos-comprador" color="primary">Mirar mis compras</button>
   </div>
 </section>
   <form class="example-form" [formGroup]="form" (ngSubmit)="getEventosNombre()">

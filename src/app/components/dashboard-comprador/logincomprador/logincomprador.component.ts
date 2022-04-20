@@ -68,7 +68,8 @@ export class LogincompradorComponent implements OnInit {
     }
     this.ticketsService.smsActivado = aux.smsActivado
             //redireccionamos al dashboard
-            this.fakeLoading();
+         //   this.fakeLoading();
+         this.router.navigate(['/dashboard-comprador/eventoscom'],);
           }
         }
       },
@@ -91,7 +92,7 @@ export class LogincompradorComponent implements OnInit {
       })
     }
 
-    fakeLoading(){
+   /* fakeLoading(){
       this.loading = true;
       setTimeout(() => {
 
@@ -99,7 +100,7 @@ export class LogincompradorComponent implements OnInit {
 
         this.router.navigate(['inicio'])
       }, 1500);
-    }
+    }*/
 
     mensajeError(obj: any): string {
       //convierte objeto to a string

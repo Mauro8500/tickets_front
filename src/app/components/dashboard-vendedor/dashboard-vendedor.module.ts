@@ -11,8 +11,9 @@ import { EventosvenComponent } from './eventosven/eventosven.component';
 import { EmpresaComponent } from './empresa/empresa.component';
 import { FormEventoComponent } from './form-evento/form-evento.component';
 import { FormEmpresaComponent } from './form-empresa/form-empresa.component';
-import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.component';
+import { DialogComponentData5, EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.component';
 import { FormEditarComponent } from './form-editar/form-editar.component';
+import { MatDialogModule } from '@angular/material/dialog';
 /*import { RegistrosComponent } from './registros/registros.component';
 import { EventosCompradorComponent } from './eventos-comprador/eventos-comprador.component';
 import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.component';*/
@@ -32,6 +33,7 @@ import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.co
     EventosVendedorComponent,
     FormEditarComponent,
     EventosVendedorComponent,
+    DialogComponentData5
     /*RegistrosComponent,
     EventosCompradorComponent,
 */
@@ -40,7 +42,8 @@ import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.co
   imports: [
     CommonModule,
     DashboardVendedorRoutingModule,
-    SharedModule
+    SharedModule,
+    MatDialogModule
   ]
 })
 export class DashboardVendedorModule { }

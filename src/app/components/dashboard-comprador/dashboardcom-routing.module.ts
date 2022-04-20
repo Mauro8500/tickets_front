@@ -8,6 +8,7 @@ import { MenuCompradorComponent } from './menu-comprador/menu-comprador.componen
 import { CompraticketComponent } from './compraticket/compraticket.component';
 import { EmpresaComponent } from './empresa/empresa.component';
 import { EventosCompradorComponent } from './eventos-comprador/eventos-comprador.component';
+import { DialogComponentData6 } from './compraticket/compraticket.component';
 /*
 */
 
@@ -20,7 +21,8 @@ const routes: Routes = [
     { path: 'menu-comprador', component: MenuCompradorComponent},
     { path: 'compraticket', component: CompraticketComponent},
     { path: 'empresa', component: EmpresaComponent },
-    { path: 'EventosCompradorComponent', component: EventosCompradorComponent },
+    { path: 'eventos-comprador', component: EventosCompradorComponent },
+    { path: 'dialog6', component: DialogComponentData6 },
     /*
     */
   ]}
