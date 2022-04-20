@@ -4,17 +4,16 @@
             <h1>Compra de ticket</h1>
             <section>
                 <h2>Detalle de la compra</h2>
-                <h3>Evento seleccionado:</h3>
-                <mat-card class="card">
-                    <mat-card-title>ElectroPreste</mat-card-title>
+                <!--    <h3>Evento seleccionado:</h3>--> 
+          <mat-card class="card">
+               <!--         <mat-card-title>ElectroPreste</mat-card-title>
                     <br>
                     <mat-card-subtitle>Fiesta electronica en el cholet del Belmont</mat-card-subtitle>
-
+-->  
                 <h4>Seleccione cantidad de boletos:</h4>
                 <mat-form-field appearance="fill">
                 <mat-label>Cantidad</mat-label>
-                <input type="number" matInput formControlName = "cantidadTickets">
-                <select matNativeControl required>
+                <select matNativeControl required formControlName = "cantidadTickets">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>

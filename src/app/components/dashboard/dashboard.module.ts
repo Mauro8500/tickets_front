@@ -21,7 +21,7 @@ import { PagotarjetaComponent } from './pagotarjeta/pagotarjeta.component';
 import { MenuCompradorComponent } from './menu-comprador/menu-comprador.component';
 import { EventosCompradorComponent } from './eventos-comprador/eventos-comprador.component';
 import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.component';*/
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -51,7 +51,8 @@ import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.co
     CommonModule,
     DashboardRoutingModule,
     SharedModule,
-    MatDialogModule
+    MatDialogModule,
+    NgxPaginationModule,
   ]
 })
 export class DashboardModule { }

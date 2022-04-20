@@ -14,7 +14,7 @@ export class EventosVendedorComponent implements OnInit {
   loading = false;
 
   date
-
+  public page: number =1
   eventos = [
     { nombre: 'Frank', lugar: 'Murphy', precio: 4 ,estado:"sadsa", capacidad: 0},
   ];
@@ -173,7 +173,7 @@ openDialog(): void {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.ticketsService.getEventos().subscribe((response: any)=>{
+      this.ticketsService.getEventosOrganizador(this.ticketsService._id).subscribe((response: any)=>{
         console.log(response);
         this.eventos = response
       });

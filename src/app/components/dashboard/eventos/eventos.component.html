@@ -12,7 +12,8 @@
 <div class="container">
     <table class="table table-striped table-bordered">
         <tbody>
-            <tr *ngFor="let evento of eventos">
+            <tr *ngFor="let evento of eventos 
+            | paginate: { itemsPerPage: 25, currentPage: page }">
                 <mat-card>
                   <mat-card-title>Nombre del evento: {{evento.nombre}}</mat-card-title>
                   <mat-card-subtitle>Dirección: {{evento.lugar}}</mat-card-subtitle>
@@ -33,5 +34,4 @@
     </table>
 </div>
 
-
-<p>evento works</p>
+<pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente" ></pagination-controls>

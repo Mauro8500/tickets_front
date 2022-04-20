@@ -12,6 +12,7 @@ export class EventoscomComponent implements OnInit {
 
   form: FormGroup;
   loading = false;
+  public page: number =1
 
   eventos = [
     { nombre: 'Frank', lugar: 'Murphy', precio: 4 },
@@ -82,6 +83,12 @@ export class EventoscomComponent implements OnInit {
 
     console.log("comprar tickets");
     console.log(evento);
+
+    if(this.ticketsService.estaLogeado==false || this.ticketsService.esCliente == false){
+      this.router.navigate(['/dashboard-comprador/logincomprador'])
+    }else{
+      this.router.navigate(['/dashboard-comprador/compraticket'])
+    }
     //mandar interfaz donde sale evento con sus imagenes e info?
 }
 

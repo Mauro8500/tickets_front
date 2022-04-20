@@ -13,7 +13,8 @@ export class EventosCompradorComponent implements OnInit {
 
   form: FormGroup;
   loading = false;
-
+  public page: number =1
+  
   compras = [
     { nombreEvento: 'Frank', direccionEvento: 'Murphy', nit: 4, total:123 },
   ];

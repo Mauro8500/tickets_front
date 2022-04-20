@@ -98,7 +98,28 @@ export class CompraticketComponent implements OnInit {
 //registro de compra si se logra comprar tickets
 this.ticketsService.postCompras(JSON.parse(string)).subscribe((response: any)=>{
       console.log("compra registrada exitosamente")
-      this.router.navigate(['/dashboard-comprador/eventoscom'])
+      console.log(response)
+//compra
+this.ticketsService._idCompra = response._id
+this.ticketsService.idEvento = response.idEvento
+this.ticketsService.nombreEvento = response.nombreEvento
+this.ticketsService.direccionEvento = response.direccionEvento
+this.ticketsService.fechaInicioCompra = response.fechaInicio
+this.ticketsService.fechaFinCompra = response.fechaFin
+this.ticketsService.idCliente = response.idCliente
+this.ticketsService.nombre1Compra = response.nombre1
+this.ticketsService.nombre2Compra = response.nombre2
+this.ticketsService.apellido1Compra = response.apellido1
+this.ticketsService.apellido2Compra = response.apellido2
+this.ticketsService.nit = response.nit
+this.ticketsService.cantidadTickets = response.cantidadTickets
+this.ticketsService.precioUnitario = response.precioUnitario
+this.ticketsService.estadoCompra = response.estado
+this.ticketsService.numeroFactura = response.numeroFactura
+this.ticketsService.numeroSFV = response.numeroSFV
+this.ticketsService.fechaEmision = response.fechaEmision
+this.ticketsService.total = response.total
+    this.openDialog();
     },
     error => {
       if(this.mensajeError(error)==JSON.stringify("Se requieren los parametros idEvento, nombreEvento, direccionEvento, fechaInicio, fechaFin, idCliente, nombre1, apellido1, apellido2, nit, cantidadTickets, precioUnitario, correoCliente y smsActivado")){
@@ -171,46 +192,46 @@ this.ticketsService.postCompras(JSON.parse(string)).subscribe((response: any)=>{
   })
   export class DialogComponentData6 {
     constructor(
-      public dialogRef: MatDialogRef<DialogComponentData6>,
+      public dialogRef: MatDialogRef<DialogComponentData6>,private ticketsService: TicketsService,private router: Router
     
     ) {}
   
     onOkClick(): void {
       this.dialogRef.close();
+      this.router.navigate(['/dashboard-comprador/eventoscom'])
     }
 
     descargarFactura(/*compra: any*/){
-
       //crear pdf de factura
-  /*let docF = new jsPDF();
+      console.log(typeof(this.ticketsService.fechaEmision))
+  let docF = new jsPDF();
   docF.setFontSize(15)
-  docF.text(' Número de factura: '+compra.numeroFactura+
-  '\n Número SFV: '+compra.numeroSFV+'\n Actividad económica: Venta de tickets \n Título: Factura \n NIT: '+
-  compra.nit+'\n Fecha de emisión: '+this.formatearFecha(compra.fechaEmision)+'\n Código del evento: '+compra.idEvento+'\n Nombre del evento: '+compra.nombreEvento+
-  '\n Fecha de inicio: '+this.formatearFecha(compra.fechaInicio)+'       Fecha de conclusión: '+this.formatearFecha(compra.fechaFin)+
-  '\n Nombre: '+this.capitalizarPrimeraLetra(compra.apellido1)+" "+this.capitalizarPrimeraLetra(compra.apellido2)
-  +" "+this.capitalizarPrimeraLetra(compra.nombre1)+" "+this.capitalizarPrimeraLetra(compra.nombre2)+'\n Cantidad de tickets: '+
-  compra.cantidadTickets+'\n Precio unitario: '+compra.precioUnitario+'           Costo total: '+compra.total
+  docF.text(' Número de factura: '+this.ticketsService.numeroFactura+
+  '\n Número SFV: '+this.ticketsService.numeroSFV+'\n Actividad económica: Venta de tickets \n Título: Factura \n NIT: '+
+  this.ticketsService.nit+'\n Fecha de emisión: '+this.ticketsService.fechaEmision+'\n Código del evento: '+this.ticketsService.idEvento+'\n Nombre del evento: '+this.ticketsService.nombreEvento+
+  '\n Fecha de inicio: '+this.ticketsService.fechaInicioCompra+'   Fecha de conclusión: '+this.ticketsService.fechaFinCompra+
+  '\n Nombre: '+this.capitalizarPrimeraLetra(this.ticketsService.apellido1Compra)+" "+this.capitalizarPrimeraLetra(this.ticketsService.apellido2Compra)
+  +" "+this.capitalizarPrimeraLetra(this.ticketsService.nombre1Compra)+" "+this.capitalizarPrimeraLetra(this.ticketsService.nombre2Compra)+'\n Cantidad de tickets: '+
+  this.ticketsService.cantidadTickets+'\n Precio unitario: '+this.ticketsService.precioUnitario+'           Costo total: '+this.ticketsService.total
   , 10, 10);
   docF.save("factura.pdf");
-  */
+  
   console.log("descarga factura");
   }
   descargarTickets(/*compra: any*/){
-   /* console.log(compra)
       //crear pdfs de tickets
-      for(let i = 0; i<compra.cantidadTickets; i++){
+      for(let i = 0; i<this.ticketsService.cantidadTickets; i++){
       let doc = new jsPDF();
       doc.setFontSize(15)
-      doc.text(' Número de factura: '+compra.numeroFactura+
-      '\n Número SFV: '+compra.numeroSFV+'\n NIT: '+
-      compra.nit+'\n Fecha de emisión: '+this.formatearFecha(compra.fechaEmision)+'\n Código del evento: '+compra.idEvento+'\n Nombre del evento: '+compra.nombreEvento+
-      '\n Fecha de inicio: '+this.formatearFecha(compra.fechaInicio)+'       Fecha de conclusión: '+this.formatearFecha(compra.fechaFin)+
-      '\n Nombre: '+this.capitalizarPrimeraLetra(compra.apellido1)+" "+this.capitalizarPrimeraLetra(compra.apellido2)
-      +" "+this.capitalizarPrimeraLetra(compra.nombre1)+" "+this.capitalizarPrimeraLetra(compra.nombre2)+'\n Ticket '+(i+1)+"/"+compra.cantidadTickets
+      doc.text(' Número de factura: '+this.ticketsService.numeroFactura+
+      '\n Número SFV: '+this.ticketsService.numeroSFV+'\n NIT: '+
+      this.ticketsService.nit+'\n Fecha de emisión: '+this.ticketsService.fechaEmision+'\n Código del evento: '+this.ticketsService.idEvento+'\n Nombre del evento: '+this.ticketsService.nombreEvento+
+      '\n Fecha de inicio: '+this.ticketsService.fechaInicioCompra+'   Fecha de conclusión: '+this.ticketsService.fechaFinCompra+
+      '\n Nombre: '+this.capitalizarPrimeraLetra(this.ticketsService.apellido1Compra)+" "+this.capitalizarPrimeraLetra(this.ticketsService.apellido2Compra)
+      +" "+this.capitalizarPrimeraLetra(this.ticketsService.nombre1Compra)+" "+this.capitalizarPrimeraLetra(this.ticketsService.nombre2Compra)+'\n Ticket '+(i+1)+"/"+this.ticketsService.cantidadTickets
       , 10, 10);
       doc.save("ticket"+(i+1)+".pdf");
-  }*/
+  }
   console.log("descarga tickets");
   }
   
@@ -218,7 +239,7 @@ this.ticketsService.postCompras(JSON.parse(string)).subscribe((response: any)=>{
   return string.charAt(0).toUpperCase() + string.slice(1);
   }
   
-  formatearFecha(dateObj: Date){
+  formatearFecha(dateObj: string){
     console.log(dateObj)
   return //dateObj.getUTCDate()+ "/" + (dateObj.getUTCMonth() + 1) + "/"+dateObj.getUTCFullYear() ;
   dateObj

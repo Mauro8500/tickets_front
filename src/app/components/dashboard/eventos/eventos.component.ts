@@ -12,7 +12,7 @@ export class EventosComponent implements OnInit {
 
   form: FormGroup;
   loading = false;
-
+  public page: number =1
   date: Date;
 
   eventos = [
