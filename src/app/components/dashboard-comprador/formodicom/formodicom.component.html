@@ -1,0 +1,63 @@
+<div class="body">
+    <div class="form">
+        <mat-spinner *ngIf="loading" class ="spinner "diameter="50"></mat-spinner>
+        
+        <form [formGroup]="form" (ngSubmit)="registrar()">
+            <h1>Registro de comprador</h1>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label> Primer nombre </mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="nombre1">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label> Segundo nombre </mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="nombre2">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Primer apellido</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="apellido1">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Segundo apellido</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="apellido2">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Fecha de nacimiento</mat-label>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" autocomplete="off" formControlName="fechaNacimiento">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Contraseña</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="password">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Repeticion de contraseña</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="repassword">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Carnet de identidad</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="ci">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Correo electrónico</mat-label>
+                <input type="email" matInput autocomplete="off" formControlName="mail">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Teléfono</mat-label>
+                <input type="number" matInput autocomplete="off" formControlName="telefono">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Departamento</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="departamento">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Ciudad</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="ciudad">
+            </mat-form-field>
+            <mat-slide-toggle formControlName="smsActivado">Notificaciones SMS</mat-slide-toggle>
+            <br>
+            <button type="submit" mat-raised-button mat-button color="primary" [disabled]="form.invalid">Continuar</button>
+        </form>
+    </div>
+</div>

@@ -9,6 +9,7 @@ import { CompraticketComponent } from './compraticket/compraticket.component';
 import { EmpresaComponent } from './empresa/empresa.component';
 import { EventosCompradorComponent } from './eventos-comprador/eventos-comprador.component';
 import { DialogComponentData6 } from './compraticket/compraticket.component';
+import { FormodicomComponent } from './formodicom/formodicom.component';
 /*
 */
 
@@ -23,6 +24,7 @@ const routes: Routes = [
     { path: 'empresa', component: EmpresaComponent },
     { path: 'eventos-comprador', component: EventosCompradorComponent },
     { path: 'dialog6', component: DialogComponentData6 },
+    { path: 'formodicom', component: FormodicomComponent },
     /*
     */
   ]}
