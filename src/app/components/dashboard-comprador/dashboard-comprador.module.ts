@@ -16,6 +16,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponentData6 } from './compraticket/compraticket.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormodicomComponent } from './formodicom/formodicom.component';
+import { ComentarComponent } from './comentar/comentar.component';
+import { CalificarComponent } from './calificar/calificar.component';
 /*
 
 import { PagotarjetaComponent } from './pagotarjeta/pagotarjeta.component';
@@ -39,6 +41,8 @@ import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.co
     EventosCompradorComponent,
     DialogComponentData6,
     FormodicomComponent,
+    ComentarComponent,
+    CalificarComponent,
     /*FormCompradorComponent,
     FormVendedorComponent,
     FormEventoComponent,

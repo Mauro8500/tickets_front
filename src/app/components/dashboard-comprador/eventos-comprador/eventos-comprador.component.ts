@@ -42,6 +42,18 @@ export class EventosCompradorComponent implements OnInit {
       console.log(compra);
   }
 
+
+  //llenar con metodos para comentarios, calificacion y cancelacion
+  cancelarcompra(compra: any){
+
+  }
+  comentar(compra: any){
+
+  }
+  calificar(compra: any){
+
+  }
+
   descargarFactura(compra: any){
 
     //crear pdf de factura

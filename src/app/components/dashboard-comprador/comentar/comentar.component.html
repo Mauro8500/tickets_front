@@ -1,0 +1,15 @@
+<div class="body">
+    <div class="form">
+        <mat-spinner *ngIf="loading" class ="spinner "diameter="50"></mat-spinner>
+        
+        <form [formGroup]="form" (ngSubmit)="registrarc()">
+            <h1>Comentarios del evento</h1>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label> Comentario </mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="comentar">
+            </mat-form-field>
+            <br>
+            <button type="submit" mat-raised-button mat-button color="primary" [disabled]="form.invalid">Continuar</button>
+        </form>
+    </div>
+</div>
