@@ -1,14 +1,18 @@
-<p>Configuraciones y preferencias</p>
+<h1>Configuraciones y preferencias</h1>
+
+<h2>Datos personales</h2>
+<div class="center"><a mat-button href="dashboard-comprador/formodicom">Modificar mis datos</a></div>
 
 
-<p>Notificaciones SMS al de realizar compras</p>
+<h2>Notificaciones SMS</h2>
 
-<form class="example-form" [formGroup]="formGroup" (ngSubmit)="onFormSubmit()" ngNativeValidate>
+<form class="formnotif" [formGroup]="formGroup" (ngSubmit)="onFormSubmit()" ngNativeValidate>
 
-  <mat-slide-toggle formControlName="notificaciones">Aceptar notificaciones</mat-slide-toggle>
+  <mat-slide-toggle formControlName="notificaciones">Aceptar notificaciones al realizar compras</mat-slide-toggle>
 
    <!--Estado del slide
    <p>Form Group Status: {{formGroup.status}}</p> -->
    <p></p>
   <button mat-raised-button type="submit">Guardar</button>
 </form>
+

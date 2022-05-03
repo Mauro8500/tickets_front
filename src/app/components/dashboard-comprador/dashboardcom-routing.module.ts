@@ -29,6 +29,7 @@ const routes: Routes = [
     { path: 'formodicom', component: FormodicomComponent },
     { path: 'comentar', component: ComentarComponent },
     { path: 'calificar', component: CalificarComponent },
+    { path: 'formodicom', component: FormodicomComponent}
     /*
     */
   ]}

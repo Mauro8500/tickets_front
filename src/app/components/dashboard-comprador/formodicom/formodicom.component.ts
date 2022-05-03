@@ -48,6 +48,22 @@ export class FormodicomComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    console.log(this.ticketsService.nombre1)
+    this.form.patchValue({
+      nombre1: this.ticketsService.nombre1.toString,
+      nombre2: this.ticketsService.nombre2.toString,
+      apellido1: this.ticketsService.apellido1.toString,
+      apellido2: this.ticketsService.apellido2.toString,
+      fechaNacimiento: this.ticketsService.fechaNacimiento.toString,
+      password: this.ticketsService.password.toString,
+      repassword: this.ticketsService.password.toString,
+      ci:this.ticketsService.ci.toString,
+      mail: this.ticketsService.mail.toString,
+      telefono: this.ticketsService.telefono.toString,
+      departamento: this.ticketsService.departamento.toString,
+      ciudad: this.ticketsService.ciudad.toString,
+      smsActivado: this.ticketsService.smsActivado.toString
+    });
   }
 
   registrar(){
