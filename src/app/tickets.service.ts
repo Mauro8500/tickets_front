@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { WebRequestService } from './web-request.service';
 
-import {Mongoose} from 'mongoose';
+import { Mongoose } from 'mongoose';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TicketsService {
 
+  public isUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   estaLogeado
   esCliente
   _id
@@ -63,8 +65,8 @@ export class TicketsService {
   fechaEmision
   total
 
-  constructor(private webReqService: WebRequestService) { 
-    
+  constructor(private webReqService: WebRequestService) {
+
     //controladores
     this.estaLogeado = false //false si no hay sesion activa
     this.esCliente = false //false si es vendedor
@@ -83,7 +85,7 @@ export class TicketsService {
     this.ciudad = ""
     this.estado = false //false significa que la cuenta no ha sido confirmada por correo
     this.telefono = 0 //telefono personal de cliente o vendedor. 0 = no tiene
-    
+
     //datos cliente
     this.smsActivado = false //si es true el cliente recibe una confirmacion de compra por Sms
 
@@ -132,77 +134,80 @@ export class TicketsService {
     this.total = 0
   }
 
-  postEventos(obj: any){
-      return this.webReqService.post('eventos',JSON.parse(obj))
+  postEventos(obj: any) {
+    return this.webReqService.post('eventos', JSON.parse(obj))
   }
 
-  postClientes(obj: any){
-      return this.webReqService.post('clientes',JSON.parse(obj))
+  postClientes(obj: any) {
+    return this.webReqService.post('clientes', JSON.parse(obj))
   }
 
-  postVendedores(obj: any){
-      return this.webReqService.post('vendedores',JSON.parse(obj))
+  postVendedores(obj: any) {
+    return this.webReqService.post('vendedores', JSON.parse(obj))
   }
 
-  putEventos(obj: any){
-      return this.webReqService.put('eventos',JSON.parse(obj))
+  putEventos(obj: any) {
+    return this.webReqService.put('eventos', JSON.parse(obj))
   }
 
-  putTickets(obj: any){
-
+  putTickets(obj: any) {
     console.log(obj)
-    return this.webReqService.put('tickets',JSON.parse(obj))
-}
-
-  getEventos(){
-    return this.webReqService.get('eventos')
+    return this.webReqService.put('tickets', JSON.parse(obj))
   }
 
-  getEventosNombre(nombre: String){
-    return this.webReqService.get('eventos?nombre='+nombre)
-  }
-
-  getEventosOrganizador(organizador: String){
-    return this.webReqService.get('eventos?organizador='+organizador)
-  }
-
-  getClientes(){
-    return this.webReqService.get('clientes')
-  }
-  
-  getVendedores(){
-    return this.webReqService.get('vendedores')
-  }
-
-  getClientesId(_id: String){
-    return this.webReqService.get('clientes?_id='+_id)
-  }
-
-  getVendedoresId(_id: String){
-    return this.webReqService.get('vendedores?_id='+_id)
-  }
-
-  getVendedoresMail(mail: String){
-    return this.webReqService.get('vendedores?mail='+mail)
-  }
-
-  putClientesSms(obj: any){
+  putClientes(obj: any){
     return this.webReqService.put('clientes',JSON.parse(obj))
   }
 
-  postCompras(obj: any){
-      return this.webReqService.post('compras',JSON.parse(obj))
+  getEventos() {
+    return this.webReqService.get('eventos')
   }
 
-  getComprasIdCliente(_id: String){
-    return this.webReqService.get('compras?_id='+_id)
+  getEventosNombre(nombre: String) {
+    return this.webReqService.get('eventos?nombre=' + nombre)
   }
 
-  authClientes(mail: String, password: string){
-    return this.webReqService.get('authclientes?mail='+mail+'&password='+password)
+  getEventosOrganizador(organizador: String) {
+    return this.webReqService.get('eventos?organizador=' + organizador)
   }
 
-  authVendedores(mail: String, password: string){
-    return this.webReqService.get('authvendedores?mail='+mail+'&password='+password)
+  getClientes() {
+    return this.webReqService.get('clientes')
+  }
+
+  getVendedores() {
+    return this.webReqService.get('vendedores')
+  }
+
+  getClientesId(_id: String) {
+    return this.webReqService.get('clientes?_id=' + _id)
+  }
+
+  getVendedoresId(_id: String) {
+    return this.webReqService.get('vendedores?_id=' + _id)
+  }
+
+  getVendedoresMail(mail: String) {
+    return this.webReqService.get('vendedores?mail=' + mail)
+  }
+
+  putClientesSms(obj: any) {
+    return this.webReqService.put('clientes', JSON.parse(obj))
+  }
+
+  postCompras(obj: any) {
+    return this.webReqService.post('compras', JSON.parse(obj))
+  }
+
+  getComprasIdCliente(_id: String) {
+    return this.webReqService.get('compras?_id=' + _id)
+  }
+
+  authClientes(mail: String, password: string) {
+    return this.webReqService.get('authclientes?mail=' + mail + '&password=' + password)
+  }
+
+  authVendedores(mail: String, password: string) {
+    return this.webReqService.get('authvendedores?mail=' + mail + '&password=' + password)
   }
 }

@@ -7,13 +7,29 @@ import { TicketsService } from 'src/app/tickets.service';
   styleUrls: ['./navbarcom.component.css']
 })
 export class NavbarcomComponent implements OnInit {
-
-  constructor(private ticketsService: TicketsService) { }
+  loginStatus = false;
+  constructor(private ticketsService: TicketsService) {
+    ticketsService.isUserLoggedIn.subscribe( value =>{
+      this.loginStatus = value;
+    });
+   }
 
   ngOnInit(): void {
+    var data1 = localStorage.getItem('datos');
+    if(data1 != null){
+      var data = JSON.parse(data1??'');
+      this.ticketsService.estaLogeado = true;
+      console.log("LOCAL STORAGE EXISTE");
+    }
+    else{
+      this.ticketsService.estaLogeado = false;
+      console.log("NO HAY LOCAL STORAGE");      
+    }
+    this.loginStatus = this.ticketsService.estaLogeado;
+    console.log("LOGIN: "+this.loginStatus);
   }
 
-  logout(){
+  logout() {
 
     //controladores
     this.ticketsService.estaLogeado = false //false si no hay sesion activa
@@ -33,7 +49,7 @@ export class NavbarcomComponent implements OnInit {
     this.ticketsService.ciudad = ""
     this.ticketsService.estado = false //false significa que la cuenta no ha sido confirmada por correo
     this.ticketsService.telefono = 0 //telefono personal de cliente o vendedor. 0 = no tiene
-    
+
     //datos cliente
     this.ticketsService.smsActivado = false //si es true el cliente recibe una confirmacion de compra por Sms
 
@@ -80,6 +96,7 @@ export class NavbarcomComponent implements OnInit {
     this.ticketsService.numeroSFV = 0
     this.ticketsService.fechaEmision = ""
     this.ticketsService.total = 0
-    console.log("log estado"+this.ticketsService.estaLogeado)
+    console.log("log estado" + this.ticketsService.estaLogeado)
+    localStorage.clear();
   }
 }

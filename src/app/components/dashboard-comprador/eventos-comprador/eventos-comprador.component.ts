@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TicketsService } from 'src/app/tickets.service';
 
 import { jsPDF } from "jspdf";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-eventos-comprador',
@@ -18,7 +19,7 @@ export class EventosCompradorComponent implements OnInit {
   compras = [
     { nombreEvento: 'Frank', direccionEvento: 'Murphy', nit: 4, total:123 },
   ];
-  constructor(private ticketsService: TicketsService, private fb: FormBuilder) {
+  constructor(private ticketsService: TicketsService, private fb: FormBuilder, private router: Router) {
 
   this.form = this.fb.group({
 

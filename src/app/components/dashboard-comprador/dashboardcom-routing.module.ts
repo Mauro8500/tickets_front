@@ -12,6 +12,8 @@ import { DialogComponentData6 } from './compraticket/compraticket.component';
 import { FormodicomComponent } from './formodicom/formodicom.component';
 import { ComentarComponent } from './comentar/comentar.component';
 import { CalificarComponent } from './calificar/calificar.component';
+import { NavbarcomComponent } from './navbarcom/navbarcom.component';
+import { FormcamcontComponent } from './formcamcont/formcamcont.component';
 /*
 */
 
@@ -29,7 +31,9 @@ const routes: Routes = [
     { path: 'formodicom', component: FormodicomComponent },
     { path: 'comentar', component: ComentarComponent },
     { path: 'calificar', component: CalificarComponent },
-    { path: 'formodicom', component: FormodicomComponent}
+    { path: 'formodicom', component: FormodicomComponent},
+    { path: 'navbarcom', component: NavbarcomComponent},
+    { path: 'formcamcont', component: FormcamcontComponent}
     /*
     */
   ]}
