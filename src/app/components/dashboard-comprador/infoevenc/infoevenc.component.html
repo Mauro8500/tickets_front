@@ -1,0 +1,36 @@
+<h1>Historial de compras</h1>
+
+<div class="container">
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <mat-card>
+                    <mat-card-title>Nombre del evento: {{nombreEvento}}</mat-card-title>
+                    <mat-card-subtitle>Dirección: {{direccionEvento}}</mat-card-subtitle>
+                    <mat-card-subtitle>NIT: {{nit}}</mat-card-subtitle>
+                    <mat-card-subtitle>Total: {{total}}</mat-card-subtitle>
+                    <mat-card-actions>
+                      <button mat-button (click)="comentar()">Comentar</button>
+                      <button mat-button (click)="calificar()">Calificar</button>
+                    </mat-card-actions>
+                  </mat-card>
+                  <br>
+                  <mat-card>
+                    <form [formGroup]="form" (ngSubmit)="comentar()">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Deja un comentario</mat-label>
+                        </mat-form-field>
+                        <textarea matInput formControlName="comentario" placeholder="Ej. El evento me pareció..." name="" id="" cols="30" rows="10"></textarea>
+                    </form>
+                  </mat-card>
+            </tr>
+            <tr *ngFor="let comentario of comentarios
+            | paginate: { itemsPerPage: 25, currentPage: page }">
+                
+                <br>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente" ></pagination-controls>

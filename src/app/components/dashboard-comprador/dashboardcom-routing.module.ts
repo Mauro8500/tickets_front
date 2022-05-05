@@ -14,6 +14,7 @@ import { ComentarComponent } from './comentar/comentar.component';
 import { CalificarComponent } from './calificar/calificar.component';
 import { NavbarcomComponent } from './navbarcom/navbarcom.component';
 import { FormcamcontComponent } from './formcamcont/formcamcont.component';
+import { InfoevencComponent } from './infoevenc/infoevenc.component';
 /*
 */
 
@@ -33,7 +34,8 @@ const routes: Routes = [
     { path: 'calificar', component: CalificarComponent },
     { path: 'formodicom', component: FormodicomComponent},
     { path: 'navbarcom', component: NavbarcomComponent},
-    { path: 'formcamcont', component: FormcamcontComponent}
+    { path: 'formcamcont', component: FormcamcontComponent},
+    { path: 'infoevenc', component: InfoevencComponent},
     /*
     */
   ]}

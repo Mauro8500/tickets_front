@@ -16,7 +16,8 @@ import { TicketsService } from 'src/app/tickets.service';
 
 
 export class FormodicomComponent implements OnInit {
-
+  data1 = localStorage.getItem('datos');
+  data = JSON.parse("{}");
   minDate: Date;
   maxDate: Date;
 
@@ -42,45 +43,43 @@ export class FormodicomComponent implements OnInit {
       telefono: ['',Validators.required],
       departamento: ({value: '', disabled: true}),
       ciudad: ({value: '', disabled: true}),
-      smsActivado: [this.isChecked],
     })
   }
   getData() {
     return localStorage.getItem('datos')
   }
   ngOnInit(): void {
-    var data1 = localStorage.getItem('datos');
-    var data = JSON.parse(data1??'');
-    console.log(data);
+    this.data = JSON.parse(this.data1??'');
+    console.log(this.data);
     this.form.patchValue({
-      nombre1: data.nombre1,
-      nombre2: data.nombre2,
-      apellido1: data.apellido1,
-      apellido2: data.apellido2,
-      fechaNacimiento: data.fechaNacimiento,
-      ci: data.ci,
-      mail: data.mail,
-      telefono: data.telefono,
-      departamento: data.departamento,
-      ciudad: data.ciudad,
-      smsActivado: data.smsActivado
+      nombre1: this.data.nombre1,
+      nombre2: this.data.nombre2,
+      apellido1: this.data.apellido1,
+      apellido2: this.data.apellido2,
+      fechaNacimiento: this.data.fechaNacimiento,
+      ci: this.data.ci,
+      mail: this.data.mail,
+      telefono: this.data.telefono,
+      departamento: this.data.departamento,
+      ciudad: this.data.ciudad,
     });
   }
 
-  registrar() {
-    const nombre1 = this.form.value.nombre1;
+  modificar() {
+    const id = this.data._id;
+    /*const nombre1 = this.form.value.nombre1;
     const nombre2 = this.form.value.nombre2;
     const apellido1 = this.form.value.apellido1;
     const apellido2 = this.form.value.apellido2;
     const fechaNacimiento = this.form.value.fechaNacimiento;
     const ci = this.form.value.ci;
-    const mail = this.form.value.mail;
+    const mail = this.form.value.mail;*/
     const telefono = this.form.value.telefono;
-    const departamento = this.form.value.departamento;
-    const ciudad = this.form.value.ciudad;
-    const smsActivado = this.form.value.smsActivado;
+    /*const departamento = this.form.value.departamento;
+    const ciudad = this.form.value.ciudad;*/
     let obj = '{'
-    if (nombre1 != '') {
+      obj += '"_id" : "' + id + '",'
+    /*if (nombre1 != '') {
       obj += '"nombre1" : "' + nombre1 + '",'
     }
     if (nombre2 != '') {
@@ -100,30 +99,28 @@ export class FormodicomComponent implements OnInit {
     }
     if (mail != '') {
       obj += '"mail" : "' + mail + '",'
-    }
+    }*/
     if (telefono != '') {
       obj += '"telefono" : ' + telefono + ','
     }
-    if (departamento != '') {
+    /*if (departamento != '') {
       obj += '"departamento" : "' + departamento + '",'
     }
     if (ciudad != '') {
       obj += '"ciudad" : "' + ciudad + '",'
-    }
-    if (smsActivado != '') {
-      obj += '"smsActivado" : ' + smsActivado + ','
-    }
+    }*/
     obj = obj.slice(0, -1);
     obj += '}';
 
-    console.log(smsActivado)
     //convierte objeto to a string
     let string = JSON.stringify(obj);
-
-    //post para registro
-    this.ticketsService.postClientes(JSON.parse(string)).subscribe((response: any) => {
+    console.log(JSON.parse(string));
+    //PUT para modificacion
+    this.ticketsService.putClientes(JSON.parse(string)).subscribe((response: any) => {
       console.log("Datos modificados exitosamente")
-
+      localStorage.clear();
+      this.data.telefono = telefono;
+      this.setData(this.data);
       this.openDialog()
     },
       error => {
@@ -145,6 +142,10 @@ export class FormodicomComponent implements OnInit {
 
   }
 
+  setData(data: any) {
+    const jsonData = JSON.stringify(data)
+    localStorage.setItem('datos', jsonData)
+  }
 
   mensajeError(obj: any): string {
     //convierte objeto to a string
@@ -161,7 +162,7 @@ export class FormodicomComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.router.navigate(['/dashboard/login'],);
+      this.router.navigate(['/dashboard-comprador/menu-comprador'],);
     });
   }
 
@@ -175,7 +176,7 @@ export class DialogComponentData10 {
   constructor(
     public dialogRef: MatDialogRef<DialogComponentData10>,
 
-  ) { }
+  ) { dialogRef.disableClose = true }
 
   onOkClick(): void {
     this.dialogRef.close();

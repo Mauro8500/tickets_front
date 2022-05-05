@@ -13,6 +13,8 @@ import { SharedModule } from './components/shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import {MatNativeDateModule} from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import {MatNativeDateModule} from '@angular/material/core';
     BrowserAnimationsModule,
     SharedModule,
     HttpClientModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatInputModule,
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -41,6 +41,7 @@ export class EventosCompradorComponent implements OnInit {
   detallesCompra(compra: any){
       console.log("mas info");
       console.log(compra);
+      this.router.navigate(['/dashboard-comprador/infoevenc']);
   }
 
 
@@ -49,7 +50,7 @@ export class EventosCompradorComponent implements OnInit {
 
   }
   comentar(compra: any){
-
+    
   }
   calificar(compra: any){
 

@@ -9,13 +9,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./eventoscom.component.css']
 })
 export class EventoscomComponent implements OnInit {
-
+  data1 = localStorage.getItem('datos');
+  data = JSON.parse("{}");
   form: FormGroup;
   loading = false;
+  estadoEvento = true;
   public page: number =1
 
   eventos = [
-    { nombre: 'Frank', lugar: 'Murphy', precio: 4 },
+    { nombre: 'Frank', lugar: 'Murphy', precio: 4 ,estado: 'pendiente'},
 ];
   constructor(private ticketsService: TicketsService, private fb: FormBuilder,public dialog: MatDialog,  private router: Router) {
 
@@ -45,11 +47,23 @@ export class EventoscomComponent implements OnInit {
   }
 
   estaLogeadoCliente(){
-    if (this.ticketsService.esCliente==false || this.ticketsService.estaLogeado==false){
+    if(this.data1 != null){
+      this.data = JSON.parse(this.data1??'');
+      if(this.data.estado){
+        return true
+      }
+      else{
+        return false;
+      }
+    }
+    else{
+      return false;
+    }
+    /*if (this.ticketsService.esCliente==false || this.ticketsService.estaLogeado==false){
       return false
     }else{
       return true
-    }
+    }*/
   }
   entrarEvento(evento: any){
         //set evento

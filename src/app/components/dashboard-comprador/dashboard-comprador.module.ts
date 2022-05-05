@@ -19,6 +19,9 @@ import { DialogComponentData10, FormodicomComponent } from './formodicom/formodi
 import { ComentarComponent } from './comentar/comentar.component';
 import { CalificarComponent } from './calificar/calificar.component';
 import { DialogComponentData11, DialogComponentData12, DialogComponentData13, FormcamcontComponent } from './formcamcont/formcamcont.component';
+import { InfoevencComponent } from './infoevenc/infoevenc.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 /*
 
 import { PagotarjetaComponent } from './pagotarjeta/pagotarjeta.component';
@@ -49,6 +52,7 @@ import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.co
     DialogComponentData11,
     DialogComponentData12,
     DialogComponentData13,
+    InfoevencComponent,
     /*FormCompradorComponent,
     FormVendedorComponent,
     FormEventoComponent,
@@ -67,6 +71,8 @@ import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.co
     SharedModule,
     MatDialogModule,
     NgxPaginationModule,
+    MatInputModule,
+    MatFormFieldModule,
   ]
 })
 export class DashboardCompradorModule { }

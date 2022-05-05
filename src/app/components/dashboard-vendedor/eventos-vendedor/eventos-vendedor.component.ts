@@ -53,6 +53,7 @@ export class EventosVendedorComponent implements OnInit {
             //this.imagenes = []
       console.log("mas info");
       console.log(evento);
+      this.router.navigate(['/dashboard-vendedor/infoevenv']);
       //mandar interfaz donde sale evento con sus imagenes e info?
   }
 

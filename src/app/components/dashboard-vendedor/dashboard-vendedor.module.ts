@@ -15,6 +15,7 @@ import { DialogComponentData5, EventosVendedorComponent } from './eventos-vended
 import { FormEditarComponent } from './form-editar/form-editar.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { InfoevenvComponent } from './infoevenv/infoevenv.component';
 /*import { RegistrosComponent } from './registros/registros.component';
 import { EventosCompradorComponent } from './eventos-comprador/eventos-comprador.component';
 import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.component';*/
@@ -34,7 +35,8 @@ import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.co
     EventosVendedorComponent,
     FormEditarComponent,
     EventosVendedorComponent,
-    DialogComponentData5
+    DialogComponentData5,
+    InfoevenvComponent
     /*RegistrosComponent,
     EventosCompradorComponent,
 */

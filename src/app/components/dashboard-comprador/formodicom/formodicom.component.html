@@ -2,7 +2,7 @@
     <div class="form">
         <mat-spinner *ngIf="loading" class="spinner " diameter="50"></mat-spinner>
 
-        <form [formGroup]="form" (ngSubmit)="registrar()">
+        <form [formGroup]="form" (ngSubmit)="modificar()">
             <h1>Editar datos personales</h1>
             <div class="flexbox">
                 <mat-form-field class="mid" appearance="fill">
@@ -57,9 +57,8 @@
                     <mat-label>Teléfono</mat-label>
                     <input type="number" matInput autocomplete="off" formControlName="telefono">
                 </mat-form-field>
-                <mat-slide-toggle formControlName="smsActivado">Notificaciones SMS</mat-slide-toggle>
             <br>
-            <button type="submit" mat-raised-button mat-button color="primary"
+            <button type="submit" mat-raised-button mat-button color="warn"
                 [disabled]="form.invalid">Continuar</button>
         </form>
     </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { response } from 'express';
 import { TicketsService } from 'src/app/tickets.service';
 
 @Component({
@@ -37,6 +38,7 @@ export class FormcamcontComponent implements OnInit {
         this.openDialog2();
       }
       else {
+        console.log("DATOS DE CONTRASEÑA CORRECTOS");
         let obj = '{'
         if (id != '') {
           obj += '"_id" : "' + id + '",'
@@ -49,10 +51,14 @@ export class FormcamcontComponent implements OnInit {
         }
         obj = obj.slice(0, -1);
         obj += '}'
-
+        //Stringificar el objeto
         let string = JSON.stringify(obj);
         console.log("DATOS: " + JSON.parse(string));
-        this.openDialog3();
+        //PUT para modificacion
+        this.ticketsService.putClientes(JSON.parse(string)).subscribe((response: any) =>{
+          console.log("Contraseña modificada");
+          this.openDialog3();
+        });
       }
     }
   }
