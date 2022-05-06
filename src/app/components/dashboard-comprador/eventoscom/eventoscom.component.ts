@@ -76,9 +76,12 @@ export class EventoscomComponent implements OnInit {
         this.ticketsService.fechaInicio = evento.fechaInicio
         this.ticketsService.fechaFin = evento.fechaFin
         this.ticketsService.precio = evento.precio
+        this.ticketsService.plazo = evento.plazo
+        this.ticketsService.calificacion = evento.calificacion
         //this.imagenes = []
       console.log("mas info");
       console.log(evento);
+      this.router.navigate(['/dashboard-comprador/masinfoevenc']);
       //mandar interfaz donde sale evento con sus imagenes e info?
   }
 

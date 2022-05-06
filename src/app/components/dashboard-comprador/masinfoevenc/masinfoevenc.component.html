@@ -1,0 +1,28 @@
+<h1>{{nombreEvento}}</h1>
+
+<div class="container">
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <mat-card>
+                    <mat-card-subtitle>Dirección: {{direccionEvento}}</mat-card-subtitle>
+                    <mat-card-subtitle>Precio: {{precioEvento}}</mat-card-subtitle>
+                    <mat-card-subtitle>Este evento es cancelable hasta {{plazoEvento}} dias antes del evento</mat-card-subtitle>
+                    <mat-card-subtitle>Calificacion promedio: {{calificacionEvento}}</mat-card-subtitle>
+                </mat-card>
+            </tr>
+            <h2>Comentarios:</h2>
+            <tr *ngFor="let comentario of comentarios
+            | paginate: { itemsPerPage: 25, currentPage: page }">
+                <mat-card>
+                    <mat-card-subtitle>ID: {{comentario.idCliente}}</mat-card-subtitle>
+                    <mat-card-subtitle>{{comentario.comentario}}</mat-card-subtitle>
+                </mat-card>
+                <br>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+
+<pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>

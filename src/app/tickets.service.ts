@@ -47,6 +47,7 @@ export class TicketsService {
   //imagenes
   plazo
   cancelable
+  calificacion
 
   _idCompra
   idEvento
@@ -116,7 +117,8 @@ export class TicketsService {
     this.ticketsVendidos = 0
     //this.imagenes = [] //default vector vacio
     this.plazo = 0
-    this.cancelable = false;
+    this.cancelable = false
+    this.calificacion = 1
 
     //compra
     this._idCompra = "" //solo _id en endpoint

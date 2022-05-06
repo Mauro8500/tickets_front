@@ -11,7 +11,7 @@ import { EventoscomComponent, DialogComponentData } from './eventoscom/eventosco
 import { MenuCompradorComponent } from './menu-comprador/menu-comprador.component';
 import { CompraticketComponent } from './compraticket/compraticket.component';
 import { EmpresaComponent } from './empresa/empresa.component';
-import { EventosCompradorComponent } from './eventos-comprador/eventos-comprador.component';
+import { DialogComponentData14, EventosCompradorComponent } from './eventos-comprador/eventos-comprador.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponentData6 } from './compraticket/compraticket.component';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -22,6 +22,7 @@ import { DialogComponentData11, DialogComponentData12, DialogComponentData13, Fo
 import { InfoevencComponent } from './infoevenc/infoevenc.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MasinfoevencComponent } from './masinfoevenc/masinfoevenc.component';
 /*
 
 import { PagotarjetaComponent } from './pagotarjeta/pagotarjeta.component';
@@ -52,7 +53,9 @@ import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.co
     DialogComponentData11,
     DialogComponentData12,
     DialogComponentData13,
+    DialogComponentData14,
     InfoevencComponent,
+    MasinfoevencComponent,
     /*FormCompradorComponent,
     FormVendedorComponent,
     FormEventoComponent,

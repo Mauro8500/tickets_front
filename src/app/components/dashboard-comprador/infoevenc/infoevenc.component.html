@@ -9,6 +9,7 @@
                     <mat-card-subtitle>Dirección: {{direccionEvento}}</mat-card-subtitle>
                     <mat-card-subtitle>NIT: {{nit}}</mat-card-subtitle>
                     <mat-card-subtitle>Total: {{total}}</mat-card-subtitle>
+                    <mat-card-subtitle>Calificacion promedio: {{calificacion}}</mat-card-subtitle>
                 </mat-card>
             </tr>
             <h2>Comentarios:</h2>
@@ -20,6 +21,10 @@
                 </mat-card>
                 <br>
             </tr>
+            <h3>Calificanos:
+                <mat-slider thumbLabel [(ngModel)]="value" [displayWith]="formatLabel" tickInterval="1" step="1" min="1" max="10"
+                    aria-label="units"></mat-slider>
+            </h3>
             <mat-card>
                 <form [formGroup]="form" (ngSubmit)="comentar()">
                     <mat-form-field class="full" appearance="outline">
