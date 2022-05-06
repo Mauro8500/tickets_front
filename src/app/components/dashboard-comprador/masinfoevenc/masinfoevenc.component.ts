@@ -14,6 +14,7 @@ export class MasinfoevencComponent implements OnInit {
   precioEvento: any;
   plazoEvento: any;
   calificacionEvento: any;
+  cantCalifEvento: any;
 
   comentarios = [{ idCliente: "", comentario: "" }];
 
@@ -40,6 +41,7 @@ export class MasinfoevencComponent implements OnInit {
     this.ticketsService.getCalificaciones(this.ticketsService._idEvento).subscribe((response: any) => {
       console.log(response);
       this.calificacionEvento = response[1]
+      this.cantCalifEvento = response[0]
     });
   }
 }

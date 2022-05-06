@@ -14,7 +14,8 @@ export class InfoevencComponent implements OnInit {
   direccionEvento: any;
   nit: any;
   total: any;
-  calificacion: any;
+  calificacionProm: any;
+  cantCalificaciones: any;
   showTicks = false;
   autoTicks = false;
   tickInterval = 1;
@@ -86,7 +87,8 @@ export class InfoevencComponent implements OnInit {
     this.total = this.ticketsService.total;
     this.ticketsService.getCalificaciones(this.ticketsService._idEvento).subscribe((response: any) => {
       console.log(response[1]);
-      this.calificacion = response[1];
+      this.calificacionProm = response[1];
+      this.cantCalificaciones = response[0];
     });
     this.ticketsService.getComentarios(this.ticketsService._idEvento).subscribe((response: any) => {
       console.log(response);
