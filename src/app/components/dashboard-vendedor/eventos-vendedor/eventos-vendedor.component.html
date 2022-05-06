@@ -17,6 +17,8 @@
                   <mat-card-subtitle>Dirección: {{evento.lugar}}</mat-card-subtitle>
                   <mat-card-subtitle>Precio: {{evento.precio}}</mat-card-subtitle>
                   <mat-card-subtitle>Capacidad: {{evento.capacidad}}</mat-card-subtitle>
+                  <mat-card-subtitle>Disponibilidad: {{getDisponibilidad(evento)}}</mat-card-subtitle>
+                  <mat-card-subtitle>Vendidos: {{evento.ticketsVendidos}}</mat-card-subtitle>
                   <mat-card-subtitle [hidden]="eventoTerminado(evento)==true">Estado: {{evento.estado}}</mat-card-subtitle>
                   <mat-card-subtitle [hidden]="eventoTerminado(evento)==false">Estado: Finalizado</mat-card-subtitle>
                   <mat-card-actions>

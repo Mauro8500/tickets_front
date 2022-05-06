@@ -14,7 +14,7 @@
                     <button mat-button (click)="detallesCompra(compra)">Mas información</button>
                     <button mat-button (click)="descargarFactura(compra)">Descargar factura</button>
                     <button mat-button (click)="descargarTickets(compra)">Descargar tickets</button>
-                    <button mat-button (click)="cancelarcompra(compra)">Cancelar compra</button>
+                    <button [hidden]="esCancelable(compra)" mat-button (click)="cancelarcompra(compra)">Cancelar compra</button>
                     <button mat-button (click)="comentar(compra)">Comentar</button>
                     <button mat-button (click)="calificar(compra)">Calificar</button>
                   </mat-card-actions>

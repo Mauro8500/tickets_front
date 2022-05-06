@@ -17,12 +17,13 @@ export class EventoscomComponent implements OnInit {
   public page: number =1
 
   eventos = [
-    { nombre: 'Frank', lugar: 'Murphy', precio: 4 ,estado: 'pendiente'},
+    { nombre: 'Frank', lugar: 'Murphy', precio: 4 ,estado: 'pendiente', plazo: 0, cancelable: false},
 ];
   constructor(private ticketsService: TicketsService, private fb: FormBuilder,public dialog: MatDialog,  private router: Router) {
 
   this.form = this.fb.group({
     nombre: ['', Validators.required]
+
   })
 }
   ngOnInit(): void {
@@ -31,7 +32,6 @@ export class EventoscomComponent implements OnInit {
       this.eventos = response
     });
   }
-
   getEventosNombre(){
     const nombre = this.form.value.nombre;
     this.ticketsService.getEventosNombre(nombre).subscribe((response: any)=>{
@@ -93,6 +93,8 @@ export class EventoscomComponent implements OnInit {
         this.ticketsService.fechaInicio = evento.fechaInicio
         this.ticketsService.fechaFin = evento.fechaFin
         this.ticketsService.precio = evento.precio
+        this.ticketsService.plazo = evento.plazo
+        this.ticketsService.cancelable = evento.cancelable
         //this.imagenes = []
 
     console.log("comprar tickets");

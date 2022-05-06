@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TicketsService } from 'src/app/tickets.service';
 
@@ -9,27 +9,51 @@ import { TicketsService } from 'src/app/tickets.service';
   styleUrls: ['./infoevenc.component.css']
 })
 export class InfoevencComponent implements OnInit {
-  public page: number =1
+  public page: number = 1
   nombreEvento: any;
   direccionEvento: any;
   nit: any;
   total: any;
   form: FormGroup;
 
-  comentarios = [];
+  comentarios = [{ idCliente: "", comentario: "" }];
 
   constructor(private ticketsService: TicketsService, private fb: FormBuilder, private router: Router) {
     this.form = this.fb.group({
-      comentario: ['']
+      comentario: ['', Validators.required]
     });
-   }
-  comentar(){
-
   }
-  calificar(){
+  comentar() {
+    const idEvento = this.ticketsService._idEvento;
+    const idCliente = this.ticketsService._id;
+    const comentario = this.form.value.comentario;
+    let obj = '{'
+    obj += '"idCliente" : "' + idCliente + '",'
+    obj += '"idEvento" : "' + idEvento + '",'
+    obj += '"comentario" : "' + comentario + '"'
+    obj += '}';
+    let string = JSON.stringify(obj);
+    console.log(JSON.parse(string));
+    
+    this.ticketsService.postComentarios(JSON.parse(string)).subscribe((response: any) => {
+      console.log("comentario realizado");
+      this.getListaComentarios();
+    },
+      error => {
+        console.log("no se pudo comentar");
+      });
+  }
+  calificar() {
 
   }
   ngOnInit(): void {
+    this.getListaComentarios();
+  }
+  getListaComentarios(){
+    this.ticketsService.getComentarios(this.ticketsService._idEvento).subscribe((response: any) => {
+      console.log(response);
+      this.comentarios = response
+    });
   }
 
 }

@@ -75,6 +75,8 @@ export class CompraticketComponent implements OnInit {
     obj+='"fechaFin" : "'+this.ticketsService.fechaFin+'",'
     obj+='"idCliente" : "'+this.ticketsService._id+'",'
     obj+='"precioUnitario" : '+this.ticketsService.precio+','
+    obj+='"plazo" : '+this.ticketsService.plazo+','
+    obj+='"cancelable" : '+this.ticketsService.cancelable+','
     obj+='"correoCliente" : "'+this.ticketsService.mail+'",'
     obj+='"telefono" : '+this.ticketsService.telefono+','
     obj+='"smsActivado" : '+this.ticketsService.smsActivado+'}';

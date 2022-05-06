@@ -38,6 +38,22 @@
             <mat-datepicker #picker2></mat-datepicker>
           </mat-form-field>
           <br>
+          <mat-form-field appearance="fill">
+            <mat-label>Plazo para cancelar</mat-label>
+            <select matNativeControl required formControlName = "plazo">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            </mat-form-field>
+          <mat-slide-toggle color="warn" formControlName="cancelable">Cancelable por el cliente</mat-slide-toggle>
           <button type="submit" mat-raised-button mat-button color="primary" [disabled]="form.invalid">Crear</button>
       </form>
   </div>

@@ -25,6 +25,7 @@
                 </mat-card-title>
                 <mat-card-subtitle>Dirección: {{evento.lugar}}</mat-card-subtitle>
                 <mat-card-subtitle>Precio: {{evento.precio}}</mat-card-subtitle>
+                <mat-card-subtitle [hidden]="!evento.cancelable" >Este evento es cancelable hasta {{evento.plazo}} dias antes del evento</mat-card-subtitle>
                 <mat-card-actions>
                   <button mat-button (click)="entrarEvento(evento)">Mas información</button>
                   <button *ngIf= "evento.estado==='pendiente'"  mat-button (click)="comprarTickets(evento)">Comprar tickets</button>

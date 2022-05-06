@@ -43,7 +43,10 @@ export class TicketsService {
   fechaInicio
   fechaFin
   precio
+  ticketsVendidos
   //imagenes
+  plazo
+  cancelable
 
   _idCompra
   idEvento
@@ -110,7 +113,10 @@ export class TicketsService {
     this.fechaInicio = ""
     this.fechaFin = ""
     this.precio = 0 //default 0
+    this.ticketsVendidos = 0
     //this.imagenes = [] //default vector vacio
+    this.plazo = 0
+    this.cancelable = false;
 
     //compra
     this._idCompra = "" //solo _id en endpoint
@@ -132,6 +138,34 @@ export class TicketsService {
     this.numeroSFV = 0
     this.fechaEmision = ""
     this.total = 0
+  }
+
+  postComentarios(obj: any) {
+    return this.webReqService.post('comentarios', JSON.parse(obj))
+  }
+
+  postCalificaciones(obj: any) {
+    return this.webReqService.post('calificaciones', JSON.parse(obj))
+  }
+
+  getComentarios(string: string) {
+    return this.webReqService.get('comentarios?idEvento='+ string)
+  }
+
+  getCalificaciones(string: string) {
+    return this.webReqService.get('calificaciones?idEvento='+string)
+  }
+
+  putCancelarCompra(obj: any) {
+    return this.webReqService.put('compras', JSON.parse(obj))
+  }
+
+  putCancelarComprasDesdeVend(obj: any) {
+    return this.webReqService.put('cancelacionvendedor', JSON.parse(obj))
+  }
+
+  putDevolverTickets(obj: any) {
+    return this.webReqService.put('eventos', JSON.parse(obj))
   }
 
   postEventos(obj: any) {
