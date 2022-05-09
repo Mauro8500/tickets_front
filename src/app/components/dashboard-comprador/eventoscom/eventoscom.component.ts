@@ -17,7 +17,7 @@ export class EventoscomComponent implements OnInit {
   public page: number =1
 
   eventos = [
-    { nombre: 'Frank', lugar: 'Murphy', precio: 4 ,estado: 'pendiente', plazo: 0, cancelable: false},
+    { nombre: 'Frank', lugar: 'Murphy', precio: 4 ,estado: 'pendiente', plazo: 0, cancelable: false,fechaFin:''},
 ];
   constructor(private ticketsService: TicketsService, private fb: FormBuilder,public dialog: MatDialog,  private router: Router) {
 
@@ -44,6 +44,22 @@ export class EventoscomComponent implements OnInit {
         console.log("hay resultado")
       }
     });
+  }
+
+  eventoTerminado(evento: any) {
+    var i = new Date(evento.fechaFin.toString());
+    //console.log("FECHA INICIO: "+ i);
+    var d = new Date();
+    d.setHours(0, 0, 0, 0);
+    //console.log("FECHA ACTUAL: "+d);
+    //console.log("FECHA PLAZO: "+d);
+    if (d.getTime() < i.getTime()) {
+      return false;
+    }
+    else {
+      return true;
+    }
+
   }
 
   estaLogeadoCliente(){

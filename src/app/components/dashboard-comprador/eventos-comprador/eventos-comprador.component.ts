@@ -64,6 +64,15 @@ export class EventosCompradorComponent implements OnInit {
       return true;
     }
   }
+
+  estaCancelada(compra: any) {
+    //console.log("estado: "+compra.estado);
+    if (compra.estado == "cancelada") {
+      return true;
+    }else{
+      return false;
+    }
+  }
   detallesCompra(compra: any) {
     console.log("mas info");
     console.log(compra);

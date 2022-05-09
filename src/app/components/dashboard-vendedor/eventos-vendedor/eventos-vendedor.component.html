@@ -20,7 +20,7 @@
                   <mat-card-subtitle>Disponibilidad: {{getDisponibilidad(evento)}}</mat-card-subtitle>
                   <mat-card-subtitle>Vendidos: {{evento.ticketsVendidos}}</mat-card-subtitle>
                   <mat-card-subtitle [hidden]="eventoTerminado(evento)==true">Estado: {{evento.estado}}</mat-card-subtitle>
-                  <mat-card-subtitle [hidden]="eventoTerminado(evento)==false">Estado: Finalizado</mat-card-subtitle>
+                  <mat-card-subtitle [hidden]="eventoTerminado(evento)==false">Estado: En progreso/Finalizado</mat-card-subtitle>
                   <mat-card-actions>
                     <button mat-button (click)="detallesEvento(evento)">Mas información</button>
                     <button [hidden]="eventoTerminado(evento)==true" mat-button (click)="editarEvento(evento)">Editar</button>

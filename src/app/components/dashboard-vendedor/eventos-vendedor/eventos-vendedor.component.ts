@@ -16,7 +16,7 @@ export class EventosVendedorComponent implements OnInit {
   date
   public page: number = 1
   eventos = [
-    { nombre: 'Frank', lugar: 'Murphy', precio: 4, estado: "sadsa", capacidad: 0, ticketsVendidos: 0 },
+    { nombre: 'Frank', lugar: 'Murphy', precio: 4, estado: "sadsa", capacidad: 0, ticketsVendidos: 0, fechaInicio: '' },
   ];
   constructor(private ticketsService: TicketsService, private fb: FormBuilder, private router: Router, public dialog: MatDialog) {
 
@@ -31,6 +31,7 @@ export class EventosVendedorComponent implements OnInit {
   }
   ngOnInit(): void {
     //mandar id del vendedor logeado
+    console.log("correoooooooooooooooooooooo"+this.ticketsService.mail)
     this.ticketsService.getEventosOrganizador(this.ticketsService._id).subscribe((response: any) => {
       console.log(response);
       this.eventos = response
@@ -79,11 +80,26 @@ export class EventosVendedorComponent implements OnInit {
 
 
   eventoTerminado(evento: any) {
-    if (this.date > evento.fechaFin) {
+    /*if (this.date > evento.fechaFin) {
       return true
     } else {
       return false
+    }*/
+
+
+    var i = new Date(evento.fechaInicio.toString());
+    //console.log("FECHA INICIO: "+ i);
+    var d = new Date();
+    d.setHours(0, 0, 0, 0);
+    //console.log("FECHA ACTUAL: "+d);
+    //console.log("FECHA PLAZO: "+d);
+    if (d.getTime() < i.getTime()) {
+      return false;
     }
+    else {
+      return true;
+    }
+
   }
 
   eventoCancelado(evento: any) {
@@ -112,6 +128,7 @@ export class EventosVendedorComponent implements OnInit {
 
       let obj = '{'
       obj += '"estado" : "cancelado",'
+      obj += '"mail" : "'+this.ticketsService.mail+'",'
       obj += '"_id" : "' + this.ticketsService._idEvento + '"}';
 
       //convierte objeto to a string
@@ -125,6 +142,7 @@ export class EventosVendedorComponent implements OnInit {
         //put
         this.ticketsService.putEventos(JSON.parse(string)).subscribe((response: any) => {
           console.log("se logro cancelar el evento")
+          
           let obj2 = '{'
           obj2 += '"idEvento" : "' + this.ticketsService._idEvento + '"}';
           //convierte objeto to a string
