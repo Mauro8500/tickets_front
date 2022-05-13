@@ -1,0 +1,22 @@
+<div class="body">
+    <div class="form">
+        <mat-spinner *ngIf="loading" class="spinner " diameter="50"></mat-spinner>
+
+        <form [formGroup]="form"*(ngSubmit)="cambiarCont()">
+            <h1>Formulario para eliminar la cuenta</h1>
+                <mat-form-field class="full" appearance="fill">
+                    <mat-label>Nombre de usuario</mat-label>
+                    <input type="text" matInput autocomplete="off" formControlName="oldpassword">
+                </mat-form-field>
+                <mat-form-field class="full" appearance="fill">
+                    <mat-label>Contraseña</mat-label>
+                    <input type="text" matInput autocomplete="off" formControlName="newpassword">
+                </mat-form-field>
+            <br>
+            <button type="submit" mat-raised-button mat-button color="primary"
+                [disabled]="form.invalid">Elminar cuenta?</button>
+        </form>
+    </div>
+</div>
+
+<!-- borrar el * de la linea 5 para colocar la clase de cambio de datos-->

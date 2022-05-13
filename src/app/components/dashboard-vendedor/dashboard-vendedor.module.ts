@@ -18,6 +18,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { InfoevenvComponent } from './infoevenv/infoevenv.component';
 import { ModificardatosComponent } from './modificardatos/modificardatos.component';
 import { ModificartelefonoComponent } from './modificartelefono/modificartelefono.component';
+import { EliminarvendedorComponent } from './eliminarvendedor/eliminarvendedor.component';
 /*import { RegistrosComponent } from './registros/registros.component';
 import { EventosCompradorComponent } from './eventos-comprador/eventos-comprador.component';
 import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.component';*/
@@ -40,7 +41,8 @@ import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.co
     DialogComponentData5,
     InfoevenvComponent,
     ModificardatosComponent,
-    ModificartelefonoComponent
+    ModificartelefonoComponent,
+    EliminarvendedorComponent
     /*RegistrosComponent,
     EventosCompradorComponent,
 */

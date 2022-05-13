@@ -1,0 +1,27 @@
+.body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: gray;
+    height: 100%;
+  }
+  
+  .form {
+    max-width: 40%;
+    padding: 15px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .mid {
+    width: 48%;
+  }
+  
+  .full {
+    width: 100%;
+  }
+  
+  .button {
+    height: 50px
+  }
+  

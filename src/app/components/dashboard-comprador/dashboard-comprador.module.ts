@@ -23,6 +23,7 @@ import { InfoevencComponent } from './infoevenc/infoevenc.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MasinfoevencComponent } from './masinfoevenc/masinfoevenc.component';
+import { EliminarcompradorComponent } from './eliminarcomprador/eliminarcomprador.component';
 /*
 
 import { PagotarjetaComponent } from './pagotarjeta/pagotarjeta.component';
@@ -56,6 +57,7 @@ import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.co
     DialogComponentData14,
     InfoevencComponent,
     MasinfoevencComponent,
+    EliminarcompradorComponent,
     /*FormCompradorComponent,
     FormVendedorComponent,
     FormEventoComponent,
