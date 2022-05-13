@@ -16,7 +16,7 @@ interface Events {
 })
 export class EventoscomComponent implements OnInit {
 
-  //inicio para ver eventos en el dropdawn
+  //inicio para ver eventos en el dropdawn sacado de : https://material.angular.io/components/select/overview
   events: Events[] = [
     {value: 'Precio', viewValue: 'Precio'},
     {value: 'Direccion', viewValue: 'Direccion'},
