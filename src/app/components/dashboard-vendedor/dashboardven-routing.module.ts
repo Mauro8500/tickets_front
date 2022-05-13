@@ -9,6 +9,7 @@ import { DialogComponentData5, EventosVendedorComponent } from './eventos-vended
 import { FormEventoComponent } from './form-evento/form-evento.component';
 import { FormEditarComponent } from './form-editar/form-editar.component';
 import { InfoevenvComponent } from './infoevenv/infoevenv.component';
+import { ModificardatosComponent } from './modificardatos/modificardatos.component';
 
 
 /*import { RegistrosComponent } from './registros/registros.component';
@@ -30,6 +31,7 @@ const routes: Routes = [
     { path: 'form-editar', component: FormEditarComponent },
     { path: 'dialogcomponentdata5', component: DialogComponentData5 },
     { path: 'infoevenv', component: InfoevenvComponent},
+    { path: 'ModificardatosComponent', component: ModificardatosComponent},
     /*{ path: 'registros', component: RegistrosComponent },
     { path: 'form-vendedor', component: FormVendedorComponent },
     { path: 'form-comprador', component: FormCompradorComponent },
