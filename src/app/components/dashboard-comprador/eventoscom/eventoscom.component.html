@@ -14,6 +14,18 @@
   <button type="submit" mat-raised-button mat-button color="primary" [disabled]="form.invalid">Buscar</button>
 </form>
 
+<!--Inicio del componente dropdown-->
+<h4>Busqueda de eventos</h4>
+<mat-form-field appearance="fill">
+  <mat-label>Filtrar eventos</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let events of events" [value]="events.value">
+      {{events.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<!--fin del componente drop down-->
+
 <div class="container">
   <table class="table table-striped table-bordered">
       <tbody>
