@@ -7,15 +7,12 @@ import { json } from 'express';
 import { TicketsService } from 'src/app/tickets.service';
 
 
-
 @Component({
-  selector: 'app-formodicom',
-  templateUrl: './formodicom.component.html',
-  styleUrls: ['./formodicom.component.css']
+  selector: 'app-modificartelefono',
+  templateUrl: './modificartelefono.component.html',
+  styleUrls: ['./modificartelefono.component.css']
 })
-
-
-export class FormodicomComponent implements OnInit {
+export class ModificartelefonoComponent implements OnInit {
   data1 = localStorage.getItem('datos');
   data = JSON.parse("{}");
   minDate: Date;
@@ -170,7 +167,7 @@ export class FormodicomComponent implements OnInit {
 
 @Component({
   selector: 'dialogcontent',
-  templateUrl: './Dialogcom10.html',
+  templateUrl: './Dialog30.html',
 })
 export class DialogComponentData10 {
   constructor(
@@ -182,5 +179,3 @@ export class DialogComponentData10 {
     this.dialogRef.close();
   }
 }
-
-//ggggg

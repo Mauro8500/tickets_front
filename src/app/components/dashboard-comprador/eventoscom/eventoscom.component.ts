@@ -3,12 +3,27 @@ import { TicketsService } from 'src/app/tickets.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+
+interface Events {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-eventoscom',
   templateUrl: './eventoscom.component.html',
   styleUrls: ['./eventoscom.component.css']
 })
 export class EventoscomComponent implements OnInit {
+
+  //inicio para ver eventos en el dropdawn sacado de : https://material.angular.io/components/select/overview
+  events: Events[] = [
+    {value: 'Precio', viewValue: 'Precio'},
+    {value: 'Direccion', viewValue: 'Direccion'},
+    {value: 'Fecha', viewValue: 'Fecha'},
+  ];
+//ifin
+
   data1 = localStorage.getItem('datos');
   data = JSON.parse("{}");
   form: FormGroup;
