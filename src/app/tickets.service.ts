@@ -227,6 +227,10 @@ export class TicketsService {
     return this.webReqService.get('vendedores?mail=' + mail)
   }
 
+  getClientesMail(mail: String) {
+    return this.webReqService.get('clientes?mail=' + mail)
+  }
+
   putClientesSms(obj: any) {
     return this.webReqService.put('clientes', JSON.parse(obj))
   }
@@ -245,5 +249,21 @@ export class TicketsService {
 
   authVendedores(mail: String, password: string) {
     return this.webReqService.get('authvendedores?mail=' + mail + '&password=' + password)
+  }
+
+  putVendedores(obj: any){
+    return this.webReqService.put('vendedores',JSON.parse(obj))
+  }
+
+  elimCliente(_id: String) {
+    return this.webReqService.get('elimclientes?_id=' + _id)
+  }
+
+  elimVendedor(_id: String) {
+    return this.webReqService.get('elimvendedores?_id=' + _id)
+  }
+
+  getEventosBody(obj: any) {
+    return this.webReqService.getBody('eventos', JSON.parse(obj))
   }
 }

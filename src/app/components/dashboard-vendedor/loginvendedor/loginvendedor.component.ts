@@ -101,7 +101,7 @@ export class LoginvendedorComponent implements OnInit {
       this.ticketsService.sitioWebEmpresa = ""
     }
 
-    console.log("logeado mierda??")
+    console.log("logeado")
     console.log(this.ticketsService.estaLogeado+" (el true sigiente es cliente) "+this.ticketsService.esCliente)
             //redireccionamos al dashboard
             this.router.navigate(['/dashboard-vendedor/eventos-vendedor'])

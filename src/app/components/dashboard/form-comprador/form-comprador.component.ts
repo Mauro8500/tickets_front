@@ -107,14 +107,20 @@ export class FormCompradorComponent implements OnInit {
     //convierte objeto to a string
     let string = JSON.stringify(obj);
     
+    
+        //validar mail
+        this.ticketsService.getClientesMail(mail).subscribe((response: any)=>{
+         
+console.log(response)
+if(response == true){
+console.log("ya esta registrado este mail")
+}else{
+
     //post para registro
     this.ticketsService.postClientes(JSON.parse(string)).subscribe((response: any)=>{
       console.log("registro exitoso, confirme su cuenta")
 
       this.openDialog()
-
-
-
     },
     error => {
       if(this.mensajeError(error)==JSON.stringify("Se requieren los parametros nombre1, apellido1, apellido2, fechaNacimiento, ci, mail, password, repassword, departamento y ciudad")){
@@ -131,6 +137,14 @@ export class FormCompradorComponent implements OnInit {
         }
       }
     },);
+  }
+},
+error => {
+},);
+
+
+
+
 
 
   }

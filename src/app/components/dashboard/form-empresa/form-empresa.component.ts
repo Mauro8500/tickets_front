@@ -132,7 +132,6 @@ export class FormEmpresaComponent implements OnInit {
     
         //validar mail
         this.ticketsService.getVendedoresMail(mail).subscribe((response: any)=>{
-          console.log("registro exitoso, confirme su cuenta")
 
 
 if(response == true){

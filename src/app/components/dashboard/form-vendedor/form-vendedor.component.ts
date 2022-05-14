@@ -112,8 +112,7 @@ export class FormVendedorComponent implements OnInit {
 
         //validar mail
         this.ticketsService.getVendedoresMail(mail).subscribe((response: any)=>{
-          console.log("registro exitoso, confirme su cuenta")
-console.log("esta mierda a continuacion")
+          
 console.log(response)
 if(response == true){
 console.log("ya esta registrado este mail")
@@ -139,15 +138,6 @@ console.log("ya esta registrado este mail")
       }
     },);
 }
-
-
-
-
-
-
-
-
-
         },
         error => {
         },);
