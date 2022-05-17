@@ -266,4 +266,12 @@ export class TicketsService {
   getEventosBody(obj: any) {
     return this.webReqService.getBody('eventos', JSON.parse(obj))
   }
+
+  getVectorEventosMes() {
+    return this.webReqService.get('vectoreventos?opcion=mes')
+  }
+
+  getVectorEventosGlobal() {
+    return this.webReqService.get('vectoreventos')
+  }
 }
