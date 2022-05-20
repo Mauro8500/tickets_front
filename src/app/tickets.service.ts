@@ -274,4 +274,40 @@ export class TicketsService {
   getVectorEventosGlobal() {
     return this.webReqService.get('vectoreventos')
   }
+
+  getVectorComprasMes() {
+    return this.webReqService.get('vectorcompras?opcion=mes')
+  }
+
+  getVectorComprasGlobal() {
+    return this.webReqService.get('vectorcompras')
+  }
+
+  getVectorTicketsMes() {
+    return this.webReqService.get('vectortickets?opcion=mes')
+  }
+
+  getVectorTicketsGlobal() {
+    return this.webReqService.get('vectortickets')
+  }
+
+  getComentariosGlobal() {
+    return this.webReqService.get('comentarios')
+  }
+
+  getCalificacionesGlobal() {
+    return this.webReqService.get('calificaciones')
+  }
+
+  getEventosPorMes() {
+    return this.webReqService.get('vectoreventospormes')
+  }
+
+  getEntradasPorMes() {
+    return this.webReqService.get('vectorentradaspormes')
+  }
+
+  getMontoPorMes() {
+    return this.webReqService.get('vectormontopormes')
+  }
 }
