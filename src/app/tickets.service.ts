@@ -140,6 +140,7 @@ export class TicketsService {
     this.numeroSFV = 0
     this.fechaEmision = ""
     this.total = 0
+//comentario
   }
 
   postComentarios(obj: any) {
