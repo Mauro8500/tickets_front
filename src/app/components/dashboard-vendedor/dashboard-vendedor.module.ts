@@ -19,7 +19,9 @@ import { InfoevenvComponent } from './infoevenv/infoevenv.component';
 import { ModificardatosComponent } from './modificardatos/modificardatos.component';
 import { ModificartelefonoComponent } from './modificartelefono/modificartelefono.component';
 import { EliminarvendedorComponent } from './eliminarvendedor/eliminarvendedor.component';
-import { FormodvenComponent } from './formodven/formodven.component';
+import { DialogComponentDataModven, FormodvenComponent } from './formodven/formodven.component';
+import { DialogComponentDataElimven, MenuVendedorComponent } from './menu-vendedor/menu-vendedor.component';
+import { DialogComponentDataCcv1, DialogComponentDataCcv2, DialogComponentDataCcv3, FormcamcontvComponent } from './formcamcontv/formcamcontv.component';
 /*import { RegistrosComponent } from './registros/registros.component';
 import { EventosCompradorComponent } from './eventos-comprador/eventos-comprador.component';
 import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.component';*/
@@ -44,7 +46,14 @@ import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.co
     ModificardatosComponent,
     ModificartelefonoComponent,
     EliminarvendedorComponent,
-    FormodvenComponent
+    FormodvenComponent,
+    MenuVendedorComponent,
+    FormcamcontvComponent,
+    DialogComponentDataModven,
+    DialogComponentDataCcv1,
+    DialogComponentDataCcv2,
+    DialogComponentDataCcv3,
+    DialogComponentDataElimven,
     /*RegistrosComponent,
     EventosCompradorComponent,
 */

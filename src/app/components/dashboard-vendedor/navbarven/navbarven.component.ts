@@ -7,10 +7,26 @@ import { TicketsService } from 'src/app/tickets.service';
   styleUrls: ['./navbarven.component.css']
 })
 export class NavbarvenComponent implements OnInit {
-
-  constructor(private ticketsService: TicketsService) { }
+  loginStatus = false;
+  constructor(private ticketsService: TicketsService) {
+    ticketsService.isUserLoggedIn.subscribe( value =>{
+      this.loginStatus = value;
+    });
+   }
 
   ngOnInit(): void {
+    var data1 = localStorage.getItem('datos');
+    if(data1 != null){
+      var data = JSON.parse(data1??'');
+      this.ticketsService.estaLogeado = true;
+      console.log("LOCAL STORAGE EXISTE");
+    }
+    else{
+      this.ticketsService.estaLogeado = false;
+      console.log("NO HAY LOCAL STORAGE");      
+    }
+    this.loginStatus = this.ticketsService.estaLogeado;
+    console.log("LOGIN: "+this.loginStatus);
   }
 
   logout(){
@@ -79,6 +95,7 @@ export class NavbarvenComponent implements OnInit {
     this.ticketsService.numeroSFV = 0
     this.ticketsService.fechaEmision = ""
     this.ticketsService.total = 0
-    console.log("log estado"+this.ticketsService.estaLogeado)
+    console.log("log estado"+this.ticketsService.estaLogeado);
+    localStorage.clear();
   }
 }

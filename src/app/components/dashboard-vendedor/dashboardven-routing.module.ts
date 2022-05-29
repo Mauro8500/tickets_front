@@ -12,6 +12,9 @@ import { InfoevenvComponent } from './infoevenv/infoevenv.component';
 import { ModificardatosComponent } from './modificardatos/modificardatos.component';
 import { ModificartelefonoComponent } from './modificartelefono/modificartelefono.component';
 import { EliminarvendedorComponent } from './eliminarvendedor/eliminarvendedor.component';
+import { MenuVendedorComponent } from './menu-vendedor/menu-vendedor.component';
+import { FormodvenComponent } from './formodven/formodven.component';
+import { FormcamcontvComponent } from './formcamcontv/formcamcontv.component';
 /*import { RegistrosComponent } from './registros/registros.component';
 import { FormVendedorComponent } from './form-vendedor/form-vendedor.component';
 import { FormEmpresaComponent } from './form-empresa/form-empresa.component';
@@ -34,6 +37,9 @@ const routes: Routes = [
     { path: 'ModificardatosComponent', component: ModificardatosComponent},
     { path: 'ModificartelefonoComponent', component: ModificartelefonoComponent},
     { path: 'EliminarvendedorComponent', component: EliminarvendedorComponent},
+    { path: 'menu-vendedor', component: MenuVendedorComponent},
+    { path: 'formodven', component: FormodvenComponent},
+    { path: 'formcamcontv', component: FormcamcontvComponent},
     /*{ path: 'registros', component: RegistrosComponent },
     { path: 'form-vendedor', component: FormVendedorComponent },
     { path: 'form-comprador', component: FormCompradorComponent },

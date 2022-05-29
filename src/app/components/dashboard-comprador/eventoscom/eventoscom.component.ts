@@ -18,49 +18,126 @@ export class EventoscomComponent implements OnInit {
 
   //inicio para ver eventos en el dropdawn sacado de : https://material.angular.io/components/select/overview
   events: Events[] = [
-    {value: 'Precio', viewValue: 'Precio'},
-    {value: 'Direccion', viewValue: 'Direccion'},
-    {value: 'Fecha', viewValue: 'Fecha'},
+    { value: 'nombre', viewValue: 'Nombre' },
+    { value: 'precio', viewValue: 'Precio' },
+    { value: 'lugar', viewValue: 'Direccion' },
+    { value: 'fechaInicio', viewValue: 'Fecha' },
   ];
-//ifin
+  //ifin
 
   data1 = localStorage.getItem('datos');
   data = JSON.parse("{}");
   form: FormGroup;
   loading = false;
   estadoEvento = true;
-  public page: number =1
+  public page: number = 1
 
   eventos = [
-    { nombre: 'Frank', lugar: 'Murphy', precio: 4 ,estado: 'pendiente', plazo: 0, cancelable: false,fechaFin:''},
-];
-  constructor(private ticketsService: TicketsService, private fb: FormBuilder,public dialog: MatDialog,  private router: Router) {
+    {
+      nombre: 'Frank',
+      lugar: 'Murphy',
+      precio: 4,
+      estado: 'pendiente',
+      plazo: 0,
+      cancelable: false,
+      fechaFin: ''
+    },
+  ];
+  constructor(private ticketsService: TicketsService, private fb: FormBuilder, public dialog: MatDialog, private router: Router) {
 
-  this.form = this.fb.group({
-    nombre: ['', Validators.required]
-
-  })
-}
+    this.form = this.fb.group({
+      nombre: [''],
+      precio: [''],
+      direccion: [''],
+      fecha: [''],
+    })
+  }
   ngOnInit(): void {
-    this.ticketsService.getEventos().subscribe((response: any)=>{
+    this.ticketsService.getEventos().subscribe((response: any) => {
       console.log(response);
       this.eventos = response
     });
   }
-  getEventosNombre(){
+  getEventosPorNombre() {
     const nombre = this.form.value.nombre;
-    this.ticketsService.getEventosNombre(nombre).subscribe((response: any)=>{
+    console.log(nombre);
+    
+    this.ticketsService.getEventosNombre(nombre).subscribe((response: any) => {
       console.log(response);
       this.eventos = response
-      if(response.length==0){
+      if (response.length == 0) {
         console.log("vacio")
         this.openDialog();
-      }else{
+      } else {
         console.log("hay resultado")
       }
     });
   }
+  getEventosPorPrecio() {
+    const precio = this.form.value.precio;
+    console.log(precio);
+    let obj = '{'
+    obj += '"precio" : ' + precio;
+    obj += '}';
+    let string = JSON.stringify(obj);
+    console.log(JSON.parse(string));
 
+    this.ticketsService.getEventosBody(obj).subscribe((response: any) => {
+      console.log(response);
+      this.eventos = response
+      if (response.length == 0) {
+        console.log("vacio")
+        this.openDialog();
+      } else {
+        console.log("hay " + response.length + " resultados")
+      }
+    });
+
+  }
+  getEventosPorDireccion() {
+    const direccion = this.form.value.direccion;
+    console.log(direccion);
+    let obj = '{'
+    if(direccion != ''){
+      obj += '"lugar" : ' + '"' + direccion + '"';
+    }
+    obj += '}';
+    let string = JSON.stringify(obj);
+    console.log((string));
+
+    this.ticketsService.getEventosBody(obj).subscribe((response: any) => {
+      console.log(response);
+      this.eventos = response
+      if (response.length == 0) {
+        console.log("vacio")
+        this.openDialog();
+      } else {
+        console.log("hay " + response.length + " resultados")
+      }
+    });
+  }
+
+  getEventosPorFecha(){
+    const fecha = this.form.value.fecha;
+    console.log(fecha.toISOString());
+    let obj = '{'
+    if(fecha != ''){
+      obj += '"fechaInicio" : ' + '"' + fecha.toISOString() + '"';
+    }
+    obj += '}';
+    let string = JSON.stringify(obj);
+    console.log((string));
+    this.ticketsService.getEventosBody(obj).subscribe((response: any) => {
+      console.log(response);
+      this.eventos = response
+      if (response.length == 0) {
+        console.log("vacio")
+        this.openDialog();
+      } else {
+        console.log("hay " + response.length + " resultados")
+      }
+    });
+  }
   eventoTerminado(evento: any) {
     var i = new Date(evento.fechaFin.toString());
     //console.log("FECHA INICIO: "+ i);
@@ -77,17 +154,17 @@ export class EventoscomComponent implements OnInit {
 
   }
 
-  estaLogeadoCliente(){
-    if(this.data1 != null){
-      this.data = JSON.parse(this.data1??'');
-      if(this.data.estado){
+  estaLogeadoCliente() {
+    if (this.data1 != null) {
+      this.data = JSON.parse(this.data1 ?? '');
+      if (this.data.estado) {
         return true
       }
-      else{
+      else {
         return false;
       }
     }
-    else{
+    else {
       return false;
     }
     /*if (this.ticketsService.esCliente==false || this.ticketsService.estaLogeado==false){
@@ -96,60 +173,60 @@ export class EventoscomComponent implements OnInit {
       return true
     }*/
   }
-  entrarEvento(evento: any){
-        //set evento
-        this.ticketsService._idEvento = evento._id
-        this.ticketsService.nombre = evento.nombre
-        this.ticketsService.lugar = evento.lugar
-        this.ticketsService.capacidad = evento.capacidad
-        this.ticketsService.estadoEvento = evento.estado
-        this.ticketsService.organizador = evento.organizador
-        this.ticketsService.fechaInicio = evento.fechaInicio
-        this.ticketsService.fechaFin = evento.fechaFin
-        this.ticketsService.precio = evento.precio
-        this.ticketsService.plazo = evento.plazo
-        this.ticketsService.calificacion = evento.calificacion
-        //this.imagenes = []
-      console.log("mas info");
-      console.log(evento);
-      this.router.navigate(['/dashboard-comprador/masinfoevenc']);
-      //mandar interfaz donde sale evento con sus imagenes e info?
+  entrarEvento(evento: any) {
+    //set evento
+    this.ticketsService._idEvento = evento._id
+    this.ticketsService.nombre = evento.nombre
+    this.ticketsService.lugar = evento.lugar
+    this.ticketsService.capacidad = evento.capacidad
+    this.ticketsService.estadoEvento = evento.estado
+    this.ticketsService.organizador = evento.organizador
+    this.ticketsService.fechaInicio = evento.fechaInicio
+    this.ticketsService.fechaFin = evento.fechaFin
+    this.ticketsService.precio = evento.precio
+    this.ticketsService.plazo = evento.plazo
+    this.ticketsService.calificacion = evento.calificacion
+    //this.imagenes = []
+    console.log("mas info");
+    console.log(evento);
+    this.router.navigate(['/dashboard-comprador/masinfoevenc']);
+    //mandar interfaz donde sale evento con sus imagenes e info?
   }
 
-  comprarTickets(evento: any){
-        //set evento
-        this.ticketsService._idEvento = evento._id
-        this.ticketsService.nombre = evento.nombre
-        this.ticketsService.lugar = evento.lugar
-        this.ticketsService.capacidad = evento.capacidad
-        this.ticketsService.estadoEvento = evento.estado
-        this.ticketsService.organizador = evento.organizador
-        this.ticketsService.fechaInicio = evento.fechaInicio
-        this.ticketsService.fechaFin = evento.fechaFin
-        this.ticketsService.precio = evento.precio
-        this.ticketsService.plazo = evento.plazo
-        this.ticketsService.cancelable = evento.cancelable
-        //this.imagenes = []
+  comprarTickets(evento: any) {
+    //set evento
+    this.ticketsService._idEvento = evento._id
+    this.ticketsService.nombre = evento.nombre
+    this.ticketsService.lugar = evento.lugar
+    this.ticketsService.capacidad = evento.capacidad
+    this.ticketsService.estadoEvento = evento.estado
+    this.ticketsService.organizador = evento.organizador
+    this.ticketsService.fechaInicio = evento.fechaInicio
+    this.ticketsService.fechaFin = evento.fechaFin
+    this.ticketsService.precio = evento.precio
+    this.ticketsService.plazo = evento.plazo
+    this.ticketsService.cancelable = evento.cancelable
+    //this.imagenes = []
 
     console.log("comprar tickets");
     console.log(evento);
 
-    if(this.ticketsService.estaLogeado==false || this.ticketsService.esCliente == false){
+    if (this.ticketsService.estaLogeado == false || this.ticketsService.esCliente == false) {
       this.router.navigate(['/dashboard-comprador/logincomprador'])
-    }else{
+    } else {
       this.router.navigate(['/dashboard-comprador/compraticket'])
     }
     //mandar interfaz donde sale evento con sus imagenes e info?
-}
+  }
 
   openDialog(): void {
-  const dialogRef = this.dialog.open(DialogComponentData , {
+    const dialogRef = this.dialog.open(DialogComponentData, {
       width: '250px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.ticketsService.getEventos().subscribe((response: any)=>{
+      this.ticketsService.getEventos().subscribe((response: any) => {
         console.log(response);
         this.eventos = response
       });
@@ -167,8 +244,8 @@ export class EventoscomComponent implements OnInit {
 export class DialogComponentData {
   constructor(
     public dialogRef: MatDialogRef<DialogComponentData>,
-  
-  ) {}
+
+  ) { }
 
   onNoClick(): void {
     this.dialogRef.close();

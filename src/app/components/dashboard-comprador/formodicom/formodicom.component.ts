@@ -32,23 +32,23 @@ export class FormodicomComponent implements OnInit {
     this.maxDate = new Date(fechaActual.getFullYear(), fechaActual.getMonth(), fechaActual.getDate() - 1);
 
     this.form = this.fb.group({
-      nombre1: ({value: '', disabled: true}),
-      nombre2: ({value: '', disabled: true}),
-      apellido1: ({value: '', disabled: true}),
-      apellido2: ({value: '', disabled: true}),
-      fechaNacimiento: ({value: '', disabled: true}),
-      ci: ({value: '', disabled: true}),
-      mail: ({value: '', disabled: true}),
-      telefono: ['',Validators.required],
-      departamento: ({value: '', disabled: true}),
-      ciudad: ({value: '', disabled: true}),
+      nombre1: ({ value: '', disabled: true }),
+      nombre2: ({ value: '', disabled: true }),
+      apellido1: ({ value: '', disabled: true }),
+      apellido2: ({ value: '', disabled: true }),
+      fechaNacimiento: ({ value: '', disabled: true }),
+      ci: ({ value: '', disabled: true }),
+      mail: ({ value: '', disabled: true }),
+      telefono: ['', Validators.required],
+      departamento: ({ value: '', disabled: true }),
+      ciudad: ({ value: '', disabled: true }),
     })
   }
   getData() {
     return localStorage.getItem('datos')
   }
   ngOnInit(): void {
-    this.data = JSON.parse(this.data1??'');
+    this.data = JSON.parse(this.data1 ?? '');
     console.log(this.data);
     this.form.patchValue({
       nombre1: this.data.nombre1,
@@ -77,7 +77,7 @@ export class FormodicomComponent implements OnInit {
     /*const departamento = this.form.value.departamento;
     const ciudad = this.form.value.ciudad;*/
     let obj = '{'
-      obj += '"_id" : "' + id + '",'
+    obj += '"_id" : "' + id + '",'
     /*if (nombre1 != '') {
       obj += '"nombre1" : "' + nombre1 + '",'
     }

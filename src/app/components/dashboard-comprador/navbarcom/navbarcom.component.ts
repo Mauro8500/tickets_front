@@ -96,7 +96,7 @@ export class NavbarcomComponent implements OnInit {
     this.ticketsService.numeroSFV = 0
     this.ticketsService.fechaEmision = ""
     this.ticketsService.total = 0
-    console.log("log estado" + this.ticketsService.estaLogeado)
+    console.log("log estado" + this.ticketsService.estaLogeado);
     localStorage.clear();
   }
 }

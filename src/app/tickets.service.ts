@@ -265,7 +265,7 @@ export class TicketsService {
   }
 
   getEventosBody(obj: any) {
-    return this.webReqService.getBody('eventos', JSON.parse(obj))
+    return this.webReqService.put('eventospor', JSON.parse(obj))
   }
 
   getVectorEventosMes() {

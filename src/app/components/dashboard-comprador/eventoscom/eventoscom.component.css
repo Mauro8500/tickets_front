@@ -1,25 +1,54 @@
 .body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  
-    background-color: gray;
-    height: 100%;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: gray;
+  height: 100%;
+}
+.end{
+  display: flex;
+  justify-content: flex-end;
+}
+.start{
+  display: flex;
+  justify-content: flex-start;
+}
+
 .form {
-    width: 100%;
-    max-width: 330px;
-    padding: 15px;
-    margin: auto;
-    text-align: center;
-  }
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  text-align: center;
+}
 
 .ancho {
-    width: 80%;
-  }
-.button{
-      height: 50px
-  }
-.spinner{
-    margin: 0 auto;
-  }
+  width: 80%;
+}
+
+.button {
+  height: 50px
+}
+
+.spinner {
+  margin: 0 auto;
+}
+.center{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+.full-height{
+  height: 200%;
+}
+.full-width{
+  width: 100%;
+}
+.margin-left{
+  margin-left: 20%;
+}

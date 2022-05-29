@@ -57,6 +57,7 @@ export class LogincompradorComponent implements OnInit {
         console.log(this.getData);
         if (aux.estado == false) {
           console.log("debe confirmar su correo para ingresar")
+          this.error2();
         } else {
           //vaciar los datos del response al tickets service
           this.ticketsService.isUserLoggedIn.next(true);
@@ -103,6 +104,13 @@ export class LogincompradorComponent implements OnInit {
 
   error() {
     this._snackBar.open('Correo o contraseña incorrectos', '', {
+      duration: 5000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom'
+    })
+  }
+  error2() {
+    this._snackBar.open('Cuenta inexistente o no confirmada', '', {
       duration: 5000,
       horizontalPosition: 'center',
       verticalPosition: 'bottom'

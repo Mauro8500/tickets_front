@@ -1,17 +1,38 @@
 <div class="body">
     <div class="login">
         <!--<mat-spinner class ="spinner "diameter="50"></mat-spinner>-->
-            <img src="/assets/img/usuario.png" alt="" width="50%" height="80%">
-            <h1 class="h3 mb-3 fw-normal">Login</h1>
-                <button type="submit" class="ancho button" mat-raised-button mat-button color="primary" routerLink="/dashboard-comprador/logincomprador">Entrar como Cliente</button>
-                <br><br>
-                <button type="submit" class="ancho button" mat-raised-button mat-button color="primary" routerLink="/dashboard/form-comprador">Registrarse como Cliente</button>
-                <br><br>
-                <button type="submit" class="ancho button" mat-raised-button mat-button color="primary" routerLink="/dashboard-vendedor/loginvendedor">Entrar como Vendedor</button>
-                <br><br>
-                <button type="submit" class="ancho button" mat-raised-button mat-button color="primary" routerLink="/dashboard/form-vendedor">Registrarse como Vendedor (persona)</button>
-                <br><br>
-                <button type="submit" class="ancho button" mat-raised-button mat-button color="primary" routerLink="/dashboard/form-empresa">Registrarse como Vendedor (empresa)</button>
-              <br>     
+        <img src="/assets/img/usuario.png" alt="" width="50%" height="80%">
+        <h1 class="h3 mb-3 fw-normal">Login</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <button type="submit" class="ancho button" mat-raised-button mat-button color="primary"
+                    routerLink="/dashboard-comprador/logincomprador">Cliente</button>
+            </div>
+            <div class="col-md-6">
+                <button type="submit" class="ancho button" mat-raised-button mat-button color="primary"
+                    routerLink="/dashboard-vendedor/loginvendedor">Vendedor</button>
+            </div>
+        </div>
+        <br>
+        <h3 class="h3 mb-3 fw-normal">¿Necesitas una cuenta? Registrate</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <a mat-button type="submit" class="ancho button" color="primary"
+                    routerLink="/dashboard/form-comprador">Como cliente</a>
+            </div>
+            <div class="col-md-6">
+                <a type="submit" class="ancho button" mat-button color="primary"
+                    routerLink="/dashboard/form-vendedor">Como vendedor (persona)</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+
+            </div>
+            <div class="col-md-6">
+                <a type="submit" class="ancho button" mat-button color="primary"
+                    routerLink="/dashboard/form-empresa">Como vendedor (empresa)</a>
+            </div>
+        </div>
     </div>
 </div>

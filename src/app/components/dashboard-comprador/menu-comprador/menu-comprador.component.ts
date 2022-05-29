@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TicketsService } from 'src/app/tickets.service';
 import { Router } from '@angular/router';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-menu-comprador',
   templateUrl: './menu-comprador.component.html',
@@ -13,7 +14,7 @@ export class MenuCompradorComponent implements OnInit {
   isChecked = false;
   formGroup: FormGroup;
 
-  constructor(private ticketsService: TicketsService, formBuilder: FormBuilder, private router: Router) {
+  constructor(private ticketsService: TicketsService, public dialog: MatDialog, formBuilder: FormBuilder, private router: Router) {
     this.formGroup = formBuilder.group({
       notificaciones: [this.isChecked],
     });
@@ -45,6 +46,21 @@ export class MenuCompradorComponent implements OnInit {
     console.log("SMS ACTIVADO: " + data.smsActivado);
     //TODO inicializar isCheckedcon el valor smsActivado del cliente
   }
+
+  eliminarCuentaComprador() {
+    this.openDialog();
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponentDataElimCom, {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
 
   onFormSubmit() {
     //alert(JSON.stringify(this.formGroup.value, null, 2));
@@ -83,4 +99,30 @@ export class MenuCompradorComponent implements OnInit {
     return JSON.stringify(json.error)
   }
 
+}
+@Component({
+  selector: 'dialogcontent',
+  templateUrl: './DialogElimCom.html',
+})
+export class DialogComponentDataElimCom {
+  constructor(
+    public dialogRef: MatDialogRef<DialogComponentDataElimCom>,
+    public ticketsService: TicketsService,
+    private router: Router
+  ) { dialogRef.disableClose = true }
+
+  onSiClick() {
+    var data = JSON.parse(localStorage.getItem('datos') ?? '');
+    const id = data._id;
+    this.ticketsService.elimCliente(id).subscribe((response: any) => {
+      console.log(response);
+      localStorage.clear();
+      console.log("Cuenta eliminada");
+      this.dialogRef.close();
+      this.router.navigate(['/dashboard'],);
+    });
+  }
+  onNoClick() {
+    this.dialogRef.close();
+  }
 }

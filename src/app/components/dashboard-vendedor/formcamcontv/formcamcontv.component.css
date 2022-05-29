@@ -25,11 +25,3 @@
     height: 50px
   }
   
-  .spinner {
-    margin: 0 auto;
-  }
-  
-  .flexbox {
-    display: flex;
-    justify-content: space-between;
-  }

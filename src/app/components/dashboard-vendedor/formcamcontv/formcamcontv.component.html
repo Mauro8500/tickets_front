@@ -1,0 +1,24 @@
+<div class="body">
+    <div class="form">
+        <mat-spinner *ngIf="loading" class="spinner " diameter="50"></mat-spinner>
+
+        <form [formGroup]="form" (ngSubmit)="cambiarCont()">
+            <h1>Cambiar contraseña</h1>
+                <mat-form-field class="full" appearance="fill">
+                    <mat-label>Anterior contraseña</mat-label>
+                    <input type="text" matInput autocomplete="off" formControlName="oldpassword">
+                </mat-form-field>
+                <mat-form-field class="full" appearance="fill">
+                    <mat-label>Nueva contraseña</mat-label>
+                    <input type="text" matInput autocomplete="off" formControlName="newpassword">
+                </mat-form-field>
+                <mat-form-field class="full" appearance="fill">
+                    <mat-label>Repetir nueva contraseña</mat-label>
+                    <input type="text" matInput autocomplete="off" formControlName="repnewpassword">
+                </mat-form-field>
+            <br>
+            <button type="submit" mat-raised-button mat-button color="primary"
+                [disabled]="form.invalid">Continuar</button>
+        </form>
+    </div>
+</div>

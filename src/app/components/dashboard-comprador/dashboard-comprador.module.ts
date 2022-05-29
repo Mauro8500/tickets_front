@@ -8,7 +8,7 @@ import { NavbarcomComponent } from './navbarcom/navbarcom.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LogincompradorComponent } from './logincomprador/logincomprador.component';
 import { EventoscomComponent, DialogComponentData } from './eventoscom/eventoscom.component';
-import { MenuCompradorComponent } from './menu-comprador/menu-comprador.component';
+import { DialogComponentDataElimCom, MenuCompradorComponent } from './menu-comprador/menu-comprador.component';
 import { CompraticketComponent } from './compraticket/compraticket.component';
 import { EmpresaComponent } from './empresa/empresa.component';
 import { DialogComponentData14, EventosCompradorComponent } from './eventos-comprador/eventos-comprador.component';
@@ -58,6 +58,7 @@ import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.co
     InfoevencComponent,
     MasinfoevencComponent,
     EliminarcompradorComponent,
+    DialogComponentDataElimCom,
     /*FormCompradorComponent,
     FormVendedorComponent,
     FormEventoComponent,
