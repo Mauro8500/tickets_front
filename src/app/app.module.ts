@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ChartModule } from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatNativeDateModule,
     MatInputModule,
     MatFormFieldModule,
+    ChartModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

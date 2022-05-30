@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { FormVendedorComponent } from './form-vendedor/form-vendedor.component';
 import { FormEmpresaComponent } from './form-empresa/form-empresa.component';
 import { FormCompradorComponent } from './form-comprador/form-comprador.component';
+import { BarchartdemoComponent } from './barchartdemo/barchartdemo.component';
+import { ChartultmesComponent } from './chartultmes/chartultmes.component';
 
 /*import { FormEventoComponent } from './form-evento/form-evento.component';
 import { CompraticketComponent } from './compraticket/compraticket.component';
@@ -25,6 +27,8 @@ const routes: Routes = [
     { path: 'form-vendedor', component: FormVendedorComponent },
     { path: 'form-comprador', component: FormCompradorComponent },
     { path: 'form-empresa', component: FormEmpresaComponent },
+    { path: 'chart', component: BarchartdemoComponent },
+    { path: 'chart-mes', component: ChartultmesComponent },
     /*{ path: 'form-evento', component: FormEventoComponent },*/
   ]}
 ];

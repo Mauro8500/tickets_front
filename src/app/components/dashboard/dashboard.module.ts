@@ -22,7 +22,9 @@ import { MenuCompradorComponent } from './menu-comprador/menu-comprador.componen
 import { EventosCompradorComponent } from './eventos-comprador/eventos-comprador.component';
 import { EventosVendedorComponent } from './eventos-vendedor/eventos-vendedor.component';*/
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import {ChartModule} from 'primeng/chart';
+import { BarchartdemoComponent } from './barchartdemo/barchartdemo.component';
+import { ChartultmesComponent } from './chartultmes/chartultmes.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormVendedorComponent,
     FormEmpresaComponent,
     DialogComponentData, 
-    DialogComponentData2
+    DialogComponentData2, 
+    BarchartdemoComponent, ChartultmesComponent,
     /*FormEventoComponent,
     
     CompraticketComponent,
@@ -53,6 +56,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     SharedModule,
     MatDialogModule,
     NgxPaginationModule,
+    ChartModule,
   ]
 })
 export class DashboardModule { }
