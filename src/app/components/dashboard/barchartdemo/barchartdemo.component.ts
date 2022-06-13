@@ -97,16 +97,24 @@ export class BarchartdemoComponent implements OnInit {
 
     this.ticketsService.getMontoPorMes().subscribe((response: any) => {
       console.log("monto mes " + response);
+      console.log("primer monto mes " + response[0]);
+      let labelsAux = []
+      let dataAux = []
+      for (let i = response.length-1; i >= 0; i--){
+          labelsAux.push(((response[i][1])+1)+"/"+response[i][2])
+          dataAux.push(response[i][0])
+      }
 
       this.dineroMesData = {
-        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+        //labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+        labels: labelsAux,
         datasets: [
           {
             label: 'Ingresos por mes',
             backgroundColor: [
               "#FFFC33",
             ],
-            data: [
+            data: dataAux /*[
               //1,2,3,4,5,6,7,8,9,10,11,12
               response[0],
               response[1],
@@ -120,7 +128,7 @@ export class BarchartdemoComponent implements OnInit {
               response[9],
               response[10],
               response[11]
-            ]
+            ]*/
           }
         ]
       };
@@ -128,16 +136,22 @@ export class BarchartdemoComponent implements OnInit {
 
     this.ticketsService.getEventosPorMes().subscribe((response: any) => {
       console.log("evento mes: " + response);
-
+      console.log("primer evento mes " + response[0]);
+      let labelsAux = []
+      let dataAux = []
+      for (let i = 0; i < response.length; i++){
+          labelsAux.push(((response[i][1])+1)+"/"+response[i][2])
+          dataAux.push(response[i][0])
+      }
       this.eventosMesData = {
-        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+        labels: labelsAux, //['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
         datasets: [
           {
             label: 'Eventos por mes',
             backgroundColor: [
               '#42A5F5',
             ],
-            data: [
+            data: dataAux /*[
               //1,2,3,4,5,6,7,8,9,10,11,12
               response[0],
               response[1],
@@ -151,7 +165,7 @@ export class BarchartdemoComponent implements OnInit {
               response[9],
               response[10],
               response[11]
-            ]
+            ]*/
           }
         ]
       };
@@ -159,16 +173,22 @@ export class BarchartdemoComponent implements OnInit {
 
     this.ticketsService.getEntradasPorMes().subscribe((response: any) => {
       console.log("entradas mes: " + response);
-
+      console.log("primer entradas mes " + response[0]);
+      let labelsAux = []
+      let dataAux = []
+      for (let i = response.length-1; i >= 0; i--){
+          labelsAux.push(((response[i][1])+1)+"/"+response[i][2])
+          dataAux.push(response[i][0])
+      }
       this.entradasMesData = {
-        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+        labels: labelsAux, //['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
         datasets: [
           {
             label: 'Tickets por mes',
             backgroundColor: [
               "#66BB6A",
             ],
-            data: [
+            data: dataAux/*[
               //1,2,3,4,5,6,7,8,9,10,11,12
               response[0],
               response[1],
@@ -182,7 +202,7 @@ export class BarchartdemoComponent implements OnInit {
               response[9],
               response[10],
               response[11]
-            ]
+            ]*/
           }
         ]
       };
