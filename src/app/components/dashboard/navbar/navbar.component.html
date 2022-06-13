@@ -1,16 +1,20 @@
 <mat-toolbar color="warn">
     <span>GigaTickets</span>
     <span class="example-spacer"></span>
-    <button mat-button routerLink="/dashboard/inicio">Inicio</button>
+    <button *ngIf="loginStatus" mat-button routerLink="/dashboard/chart">Dashboard</button>
     <button mat-button routerLink="/dashboard/eventos">Eventos</button>
     <button mat-button routerLink="/dashboard/empresa">Empresas</button>
-    <button mat-button routerLink="/dashboard/registros">Registros</button>
+    <button *ngIf="loginStatus" mat-button routerLink="/dashboard/registros">Registros</button>
 
     <!--<button mat-button routerLink="/dashboard-vendedor/inicio">Vendedor</button>
     <button mat-button routerLink="/dashboard-comprador/inicio">Comprador</button> -->
     <span class="example-spacer"></span>
-    <small>Login</small>
-    <button routerLink="/dashboard/login" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <small *ngIf="loginStatus">Logout</small>
+    <button *ngIf="loginStatus" routerLink="/dashboard/inicio" (click)="logout()" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>logout</mat-icon>
+    </button>
+    <small *ngIf="loginStatus == false">Login</small>
+    <button *ngIf="loginStatus == false" routerLink="/dashboard/login" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
         <mat-icon>account_circle</mat-icon>
     </button>
 </mat-toolbar>

@@ -40,7 +40,7 @@ export class EventoscomComponent implements OnInit {
       estado: 'pendiente',
       plazo: 0,
       cancelable: false,
-      fechaFin: ''
+      fechaInicio: ''
     },
   ];
   constructor(private ticketsService: TicketsService, private fb: FormBuilder, public dialog: MatDialog, private router: Router) {
@@ -53,6 +53,13 @@ export class EventoscomComponent implements OnInit {
     })
   }
   ngOnInit(): void {
+    this.ticketsService.getEventos().subscribe((response: any) => {
+      console.log(response);
+      this.eventos = response
+    });
+  }
+  clearInputData(){
+    this.form.reset();
     this.ticketsService.getEventos().subscribe((response: any) => {
       console.log(response);
       this.eventos = response
@@ -126,7 +133,7 @@ export class EventoscomComponent implements OnInit {
     }
     obj += '}';
     let string = JSON.stringify(obj);
-    console.log((string));
+    console.log((obj));
     this.ticketsService.getEventosBody(obj).subscribe((response: any) => {
       console.log(response);
       this.eventos = response
@@ -139,7 +146,7 @@ export class EventoscomComponent implements OnInit {
     });
   }
   eventoTerminado(evento: any) {
-    var i = new Date(evento.fechaFin.toString());
+    var i = new Date(evento.fechaInicio.toString());
     //console.log("FECHA INICIO: "+ i);
     var d = new Date();
     d.setHours(0, 0, 0, 0);

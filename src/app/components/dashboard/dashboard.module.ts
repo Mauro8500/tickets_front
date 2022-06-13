@@ -25,6 +25,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import {ChartModule} from 'primeng/chart';
 import { BarchartdemoComponent } from './barchartdemo/barchartdemo.component';
 import { ChartultmesComponent } from './chartultmes/chartultmes.component';
+import { LoginadminComponent } from './loginadmin/loginadmin.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { ChartultmesComponent } from './chartultmes/chartultmes.component';
     FormEmpresaComponent,
     DialogComponentData, 
     DialogComponentData2, 
-    BarchartdemoComponent, ChartultmesComponent,
+    BarchartdemoComponent, ChartultmesComponent, LoginadminComponent,
     /*FormEventoComponent,
     
     CompraticketComponent,

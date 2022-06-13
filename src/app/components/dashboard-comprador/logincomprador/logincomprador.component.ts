@@ -58,6 +58,7 @@ export class LogincompradorComponent implements OnInit {
         if (aux.estado == false) {
           console.log("debe confirmar su correo para ingresar")
           this.error2();
+          this.form.reset();
         } else {
           //vaciar los datos del response al tickets service
           this.ticketsService.isUserLoggedIn.next(true);

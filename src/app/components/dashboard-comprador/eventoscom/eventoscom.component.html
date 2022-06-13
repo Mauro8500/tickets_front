@@ -8,7 +8,15 @@
   </div>
 </section>
 <div class="container">
-  <h4>Busqueda de eventos</h4>
+  <div class="row justify-content-between">
+    <h4 class="col-md-4">Busqueda de eventos</h4>
+    <div class="col-md-4" appearance="fill">
+      <mat-label>Limpiar busqueda</mat-label>
+      <button mat-icon-button matSuffix (click)="clearInputData()">
+        <mat-icon>clear</mat-icon>
+      </button>
+    </div>
+  </div>
 </div>
 
 <div class="container">
@@ -60,6 +68,7 @@
           </mat-card-title>
           <mat-card-subtitle>Dirección: {{evento.lugar}}</mat-card-subtitle>
           <mat-card-subtitle>Precio: {{evento.precio}}</mat-card-subtitle>
+          <mat-card-subtitle>Fecha inicio: {{evento.fechaInicio.substring(0,10)}}</mat-card-subtitle>
           <mat-card-subtitle [hidden]="!evento.cancelable">Este evento es cancelable hasta {{evento.plazo}} dias antes
             del evento</mat-card-subtitle>
           <mat-card-subtitle [hidden]="evento.cancelable">Este evento no es cancelable</mat-card-subtitle>

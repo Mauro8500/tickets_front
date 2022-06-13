@@ -41,7 +41,7 @@ export class LoginvendedorComponent implements OnInit {
     const mail = this.form.value.mail;
     const password = this.form.value.password;
     if (mail == "admingt@gmail.com" && password == "12345") {
-      this.router.navigate(['/dashboard-vendedor/eventos-vendedor'])
+      this.router.navigate(['/dashboard/chart'])
     }
     else {
       //login vendedor

@@ -102,13 +102,13 @@ export class BarchartdemoComponent implements OnInit {
         labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
         datasets: [
           {
-            label: 'Compras por mes',
+            label: 'Ingresos por mes',
             backgroundColor: [
               "#FFFC33",
             ],
             data: [
-              1,2,3,4,5,6,7,8,9,10,11,12
-             /*response[0],
+              //1,2,3,4,5,6,7,8,9,10,11,12
+              response[0],
               response[1],
               response[2],
               response[3],
@@ -120,7 +120,6 @@ export class BarchartdemoComponent implements OnInit {
               response[9],
               response[10],
               response[11]
-              */
             ]
           }
         ]
@@ -139,8 +138,8 @@ export class BarchartdemoComponent implements OnInit {
               '#42A5F5',
             ],
             data: [
-              1,2,3,4,5,6,7,8,9,10,11,12
-              /*response[0],
+              //1,2,3,4,5,6,7,8,9,10,11,12
+              response[0],
               response[1],
               response[2],
               response[3],
@@ -151,7 +150,7 @@ export class BarchartdemoComponent implements OnInit {
               response[8],
               response[9],
               response[10],
-              response[11]*/
+              response[11]
             ]
           }
         ]
@@ -165,13 +164,12 @@ export class BarchartdemoComponent implements OnInit {
         labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
         datasets: [
           {
-            label: 'Entradas por mes',
+            label: 'Tickets por mes',
             backgroundColor: [
               "#66BB6A",
             ],
             data: [
-              1,2,3,4,5,6,7,8,9,10,11,12
-              /*
+              //1,2,3,4,5,6,7,8,9,10,11,12
               response[0],
               response[1],
               response[2],
@@ -183,7 +181,7 @@ export class BarchartdemoComponent implements OnInit {
               response[8],
               response[9],
               response[10],
-              response[11]*/
+              response[11]
             ]
           }
         ]
